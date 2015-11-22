@@ -74,11 +74,11 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     rewind(originalFile);
     rewind(targetFile);
     /* create arrays stocking the string (for comparison) of a line (for cost calculation, we get the length with strlen) */
-    char originalBuffer[nbOriginalLines][maxString];
-    char targetBuffer[nbTargetLines][maxString];
-    unsigned int counter;
+    char originalBuffer[nbOriginalLines][stringMax];
+    char targetBuffer[nbTargetLines][stringMax];
+    unsigned int counter = 0;
     while(fgets(originalBuffer[counter], stringMax, originalFile) != NULL) {
-	    counter++:
+	    counter++;
     }
     counter = 0;
     while(fgets(targetBuffer[counter], stringMax, targetFile) != NULL) {
@@ -118,26 +118,70 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
 			    }
 		    }
 		    /* check for ADD */
-		    if(minCost > lineCmp[i][j-1].cost + 10 + lengthTargetLine[j]) {
-			    minCost = lineCmp[i][j-1].cost + 10 + lengthTargetLine[j];
+		    if(minCost > lineCmp[i][j-1].cost + 10 + strlen(targetBuffer[j])) {
+			    minCost = lineCmp[i][j-1].cost + 10 + strlen(targetBuffer[j]);
 			    lineIn = i;
 			    lineOut = j - 1;
 		    }
 		    /* check for SUB */
-		    
+		    if(minCost > lineCmp[i-1][j-1].cost + 10 + strlen(targetBuffer[j])) {
+			    minCost = lineCmp[i-1][j-1].cost + 10 + strlen(targetBuffer[j]);
+			    lineIn = i - 1;
+			    lineOut = j - 1;
+		    }
 		    /* check for DEL */
-		    
+		    if(minCost > lineCmp[i-1][j].cost + 10) {
+			    minCost = lineCmp[i-1][j].cost + 10;
+			    lineIn = i - 1;
+			    lineOut = j;
+		    }
 		    /* check for COPY */
-		    if(strcmp())
+		    if(!strcmp(originalBuffer[i-1], targetBuffer[j-1]) && minCost > lineCmp[i-1][j-1].cost) {
+			    minCost = lineCmp[i-1][j-1].cost;
+			    lineIn = i - 1;
+			    lineOut = j - 1;
+		    }
 		    lineCmp[i][j].cost = minCost;
-		    lineComp[i][j].originalLine = lineIn;
-		    lineComp[i][j].targetLine = lineOut;
-	  }
+		    lineCmp[i][j].originalLine = lineIn;
+		    lineCmp[i][j].targetLine = lineOut;
+	    }
     }
     /* display the created patch */
-    
+    i = 0;
+    j = 0;
+    unsigned int k = 0;
+    unsigned int l = 0;
+    while(i != nbOriginalLines || j != nbTargetLines) {
+	    /* ADD */
+	    if ((lineCmp[i][j].targetLine == j+1) && (lineCmp[i][j].originalLine == i)) { 
+		    printf("+ %d\n", i);
+		    printf("%s", targetBuffer[j+1]);
+	    /* DEL */
+	    } else if ((lineCmp[i][j].targetLine == j) && (lineCmp[i][j].originalLine == i+1)) { 
+		    printf("d %d\n", (i+1));  
+	    /* SUB */
+	    } else if ((lineCmp[i][j].targetLine == j+1) && (lineCmp[i][j].originalLine == i+1) && (lineCmp[i][j].cost != lineCmp[i+1][j+1].cost)) { 
+		    printf("= %d\n", i+1);
+		    printf("%s", targetBuffer[j+1]);
+	    /* COPY */
+	    } else if ((lineCmp[i][j].targetLine == j+1) && (lineCmp[i][j].originalLine == i+1)) { 
+	    /* MULTI_DEL */
+	    } else { 
+		    printf("D %d %d\n",  i+1, lineCmp[i][j].originalLine-i);
+	    }
+	    k = lineCmp[i][j].originalLine;
+	    l = lineCmp[i][j].targetLine;
+	    i = k;
+	    j = l;
+    }
     /* free all the reserved memory */
-
+    free(originalBuffer);
+    free(targetBuffer);
+    for(counter = 0; counter < nbOriginalLines; counter++) {
+	    free(lineCmp[counter]);
+    }
+    free(lineCmp);
+    return 0;
 }
 
 
