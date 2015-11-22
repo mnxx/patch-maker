@@ -49,6 +49,8 @@ void print_patch(PREVIOUS *path, char** originalBuffer, char** targetBuffer, uns
     unsigned int previousTargetLine = path[i][j].targetLine;
     if( (i + j) != 0 ) {
         print_patch(path, originalBuffer, targetBuffer, previousOriginalLine, previousTargetLine);
+    } else {
+        return;
     }
     /* now print the corresponding action */
     /* ADD */
@@ -148,9 +150,15 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     /* this initialize the first column of our price matrix */
     /* modify accordingly if not taking multiple destructions into account */
     cost[0][0] = 0;
+    path[0][0].originalLine = 0;
+    path[0][0].targetLine = 0;
     cost[1][0] = 10; // simple destruction
+    path[1][0].originalLine = 0;
+    path[1][0].targetLine = 0;
     for(counter = 2; counter < nbOriginalLines + 1; counter++) {
 	    cost[counter][0] = 15;
+        path[counter][0].originalLine = 0;
+        path[counter][0].targetLine = 0;
         // cost[counter][0] = 10 * counter;
     }
     
@@ -166,11 +174,10 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
 	unsigned int lineOut;
     
     for(lineNumber = 1; lineNumber < nbTargetLines + 1; lineNumber++) {
-        printf("%d et %d \n",lineNumber, nbTargetLines);
         j = (lineNumber) % 2;
         k = (lineNumber + 1) % 2;
         minCost = price_line(targetBuffer[lineNumber]);
-        cost[0][j] = cost[0][k] + minCost; //aka adding new line
+        cost[0][j] = cost[0][k] + minCost; // adding new line to target file
         /* calculate cost to reach (i, lineNumber) */
         for(i = 1; i < nbOriginalLines + 1; i++) {
             /* initialize with ADD, (a, b - 1) + ADD = (a, b)*/
@@ -199,13 +206,13 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
                     previousIfDel = counter;
                 }
             }
-            if(optionnalCost < minCost - 15) {
+            if((optionnalCost != INFINITY) && ((optionnalCost + 15) < minCost)) {
                 minCost = optionnalCost + 15;
                 lineIn = previousIfDel;
                 lineOut = lineNumber;
             }
             
-            /* minCost now contains the smalled value possible, we store it */
+            /* minCost now contains the smalled value possible, we store it in the array */
             cost[i][j] = minCost;
             path[i][lineNumber].originalLine = lineIn;
 			path[i][lineNumber].targetLine = lineOut;
@@ -256,4 +263,4 @@ int main(int argc, char *argv[]) {
     fclose(targetFile);
     return 0;
 }
-   
+    
