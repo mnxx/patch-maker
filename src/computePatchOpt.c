@@ -98,7 +98,7 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     lineCmp[0][0].targetLine = 0;
     /* go through our target file */
     for(j = 1; j < nbTargetLines; j++) {
-	    unsigned int minCostDEL = INFINITY;
+	    unsigned int minCostDEL = INFINITY - 100;
 	    unsigned int lineDEL = j;
 	    /* go through our original file */
 	    for(i = 1; i < nbOriginalLines; i++) {
@@ -149,8 +149,8 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     /* display the created patch */
     i = 0;
     j = 0;
-    unsigned int k = 0;
-    unsigned int l = 0;
+    //unsigned int k = 0;
+    //unsigned int l = 0;
     while(i != nbOriginalLines || j != nbTargetLines) {
 	    /* ADD */
 	    if ((lineCmp[i][j].targetLine == j+1) && (lineCmp[i][j].originalLine == i)) { 
@@ -169,17 +169,17 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
 	    } else { 
 		    printf("D %d %d\n",  i+1, lineCmp[i][j].originalLine-i);
 	    }
-	    k = lineCmp[i][j].originalLine;
-	    l = lineCmp[i][j].targetLine;
-	    i = k;
-	    j = l;
+	    i = lineCmp[i][j].originalLine;
+	    j = lineCmp[i][j].targetLine;
+	    //i = k;
+	    //j = l;
     }
     /* free all the reserved memory */
     free(originalBuffer);
     free(targetBuffer);
-    for(counter = 0; counter < nbOriginalLines; counter++) {
-	    free(lineCmp[counter]);
-    }
+    //for(counter = 0; counter < nbOriginalLines; counter++) {
+	//    free(lineCmp[counter]);
+    //}
     free(lineCmp);
     return 0;
 }
