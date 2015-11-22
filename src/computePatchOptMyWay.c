@@ -20,56 +20,44 @@
 /* define a pseudo infinite (cost) value */
 #define INFINITY INT_MAX
 
-/* enumeration of possible operators */
-enum operator {
-	ADD, SUB, DEL, MULTI_DEL
-};
-
-/* struct previous allows the user to determine how to access a specified (i, j) state */
-typedef struct previous {
-	unsigned int originalLine;
-	unsigned int targetLine;
-} *PREVIOUS;
-
 /* return price of adding line sortie to the patch */
-int price_line(char* sortie) {
+unsigned int price_line(char* sortie) {
     return 10 + strlen(sortie);// -1 pour \n?
 }
 
 /* simply returns 0 if strings are equals or 10 + Length of sortie */
-int price(char* entree, char* sortie) {
+unsigned int price(char* entree, char* sortie) {
     if(!strcmp(entree, sortie)) {
         return 0;
     }
     return price_line(sortie);
 }
 
-void print_patch(PREVIOUS *path, char** originalBuffer, char** targetBuffer, unsigned int i, unsigned int j) {
-    unsigned int previousOriginalLine = path[i][j].originalLine;
-    unsigned int previousTargetLine = path[i][j].targetLine;
+void print_patch(PREVIOUS *path, char** targetBuffer, unsigned int i, unsigned int j) {
+    int previous = path[i][j];
     if( (i + j) != 0 ) {
-        print_patch(path, originalBuffer, targetBuffer, previousOriginalLine, previousTargetLine);
+        print_patch(path, targetBuffer, previousOriginalLine, previousTargetLine);
     } else {
         return;
     }
     /* now print the corresponding action */
+    /* DEL */
+    if (previous == -1) {
+        printf("d %d\n", i);
     /* ADD */
-    if ((i == previousOriginalLine) && (j == previousTargetLine + 1)) {
+    } else if (previous == 0) {
         printf("+ %d\n", i);
         printf("%s", targetBuffer[j]);
-    /* DEL */
-    } else if ((i == previousOriginalLine + 1) && (j == previousTargetLine)) {
-        printf("d %d\n", i);
-    /* SUB/COPY */
-    } else if ((i == previousOriginalLine + 1) && (j == previousTargetLine + 1)) {
-        /* SUB */
-        if(strcmp(originalBuffer[i],targetBuffer[j])) {
-            printf("= %d\n", i);
-            printf("%s", targetBuffer[j]);
-        }
+    /* COPY */
+    } else if (previous == 1) {
+    	// nothing to do here
+    /* SUB */
+    } else if (previous == 2) {
+        printf("= %d\n", i);
+        printf("%s", targetBuffer[j]);
     /* MULTI_DEL */
     } else {
-        printf("D %d %d\n", previousOriginalLine + 1, i - previousOriginalLine);
+        printf("D %d %d\n", (i + previous + 1), (- previous));
     }
 }
 
@@ -85,81 +73,59 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     char buffer[STRING_MAX];
     unsigned int nbOriginalLines = 0;
     unsigned int nbTargetLines = 0;
-    int stringMaxOriginal = 0;
-    int stringMaxTarget = 0;
-    int stringMax = 0;
-    /* go through both files - count number of lines and find maximum line length */
+    unsigned int counter = 0;
+    /* go through both files - count number of lines and store strings for faster acces */
     while(fgets(buffer, STRING_MAX, originalFile) != NULL) {
 	    nbOriginalLines++;
-	    if(strlen(buffer) > stringMaxOriginal){
-		    stringMaxOriginal = strlen(buffer);
-	    }
     }
     while(fgets(buffer, STRING_MAX, targetFile) != NULL) {
 	    nbTargetLines++;
-	    if(strlen(buffer) > stringMaxTarget){
-		    stringMaxTarget = strlen(buffer);
-	    }
-
     }
     /* files are empty, exit program */
     if(nbOriginalLines == 0 && nbTargetLines == 0) {
 	    perror("FILES EMPTY");
 	    return EXIT_FAILURE;
     }
-    /* find maximum length of a line used in the files */
-    stringMax = stringMaxOriginal;
-    if(stringMaxOriginal < stringMaxTarget){
-	    stringMax = stringMaxTarget;
-    }
     /* rewind the files */
     rewind(originalFile);
     rewind(targetFile);
     /* create arrays stocking the string (for comparison) of a line (for cost calculation, we get the length with strlen) */
-    unsigned int counter = 0;
     char** originalBuffer = calloc(nbOriginalLines + 1, sizeof(*originalBuffer));
-    for(counter = 0; counter < nbOriginalLines + 1; counter++) {
-	    originalBuffer[counter] = calloc(stringMax, sizeof(**originalBuffer));
+    counter = 1;
+    while(fgets(buffer, STRING_MAX, originalFile) != NULL) {
+    	originalBuffer[counter++] = strdup(buffer);
     }
     /* */
     char** targetBuffer = calloc(nbTargetLines + 1, stringMax * sizeof(*targetBuffer));
-    for(counter = 0; counter < nbTargetLines + 1; counter++) {
-	    targetBuffer[counter] = calloc(stringMax, sizeof(**targetBuffer));
-    }
-    /* */
     counter = 1;
-    while(fgets(originalBuffer[counter++], stringMax + 1, originalFile) != NULL) {
-    }
-    counter = 1;
-    while(fgets(targetBuffer[counter++], stringMax + 1, targetFile) != NULL) {
+    while(fgets(buffer, STRING_MAX, targetFile) != NULL) {
+    	targetBuffer[counter++] = strdup(buffer);
     }
     
     /* insert random explanation of what is going on here */
     /* path matric to find out where we are coming from */
-    PREVIOUS *path = calloc(nbOriginalLines + 1, sizeof(*path)); 
+    int **path = malloc(((nbOriginalLines + 1) * sizeof(*path))); 
     for(counter = 0; counter < nbOriginalLines + 1; counter++) {
-	    path[counter] = calloc(nbTargetLines + 1, sizeof(**path));
+	    path[counter] = malloc(((nbTargetLines + 1) * sizeof(**path)));
     }
     
-    /* cost matrix (nbOriginalLines, 2) to calculate prices */
-    unsigned int **cost = calloc(nbOriginalLines + 1, sizeof(*cost)); 
+    /* cost(nbOriginalLines, 2) to calculate prices */
+    unsigned int **cost = malloc(((nbOriginalLines + 1) * sizeof(*cost))); 
     for(counter = 0; counter < nbOriginalLines + 1; counter++) {
-	    cost[counter] = calloc(2, sizeof(**cost));
+	    cost[counter] = malloc((2 * sizeof(**cost)));
     }
     
     /* this initialize the first column of our price matrix */
     /* modify accordingly if not taking multiple destructions into account */
     cost[0][0] = 0;
-    path[0][0].originalLine = 0;
-    path[0][0].targetLine = 0;
+    path[0][0] = 0;
     cost[1][0] = 10; // simple destruction
-    path[1][0].originalLine = 0;
-    path[1][0].targetLine = 0;
+    path[1][0] = -1;
     for(counter = 2; counter < nbOriginalLines + 1; counter++) {
-	    cost[counter][0] = 15;
-        path[counter][0].originalLine = 0;
-        path[counter][0].targetLine = 0;
+	cost[counter][0] = 15;
+        path[counter][0] = -counter;
         // cost[counter][0] = 10 * counter;
+        // path[counter][0] = -1;
     }
     
     unsigned int i;
@@ -167,37 +133,38 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     unsigned int k;
     unsigned int lineNumber;
     unsigned int optionnalCost;
-    unsigned int previousIfDel;
     /* used to store the optimal value during the process */
     unsigned int minCost;
-	unsigned int lineIn;
-	unsigned int lineOut;
+    int path_taken;
+    int previousIfDel;
     
     for(lineNumber = 1; lineNumber < nbTargetLines + 1; lineNumber++) {
         j = (lineNumber) % 2;
         k = (lineNumber + 1) % 2;
         minCost = price_line(targetBuffer[lineNumber]);
         cost[0][j] = cost[0][k] + minCost; // adding new line to target file
+        path[0][lineNumber] = 0;
         /* calculate cost to reach (i, lineNumber) */
         for(i = 1; i < nbOriginalLines + 1; i++) {
             /* initialize with ADD, (a, b - 1) + ADD = (a, b)*/
-		    minCost = cost[i][k] + price_line(targetBuffer[lineNumber]);
-			lineIn = i;
-			lineOut = lineNumber - 1;
+	    minCost = cost[i][k] + price_line(targetBuffer[lineNumber]);
+	    path_taken = 0;
             /* check for SUB/COPY, (a - 1, b - 1) + SUB/COPY = (a, b) */
             optionnalCost = cost[i-1][k] + price(originalBuffer[i], targetBuffer[lineNumber]);
-		    if(optionnalCost < minCost) {
-			    minCost = optionnalCost;
-			    lineIn = i - 1;
-			    lineOut = lineNumber - 1;
-		    }
-		    /* check for DEL, (a - 1, b) + DEL = (a, b) */
+	    if(optionnalCost < minCost) {
+	        minCost = optionnalCost;
+	        path_taken = 1;
+	        /* Case COPY */
+	        if((minCost - cost[i-1][k]) != 0) {
+	            path_taken = 2;
+	        }
+	    }
+	    /* check for DEL, (a - 1, b) + DEL = (a, b) */
             optionnalCost = cost[i-1][j] + 10;
-		    if(optionnalCost < minCost) {
-			    minCost = optionnalCost;
-			    lineIn = i - 1;
-			    lineOut = lineNumber;
-		    }
+	    if(optionnalCost < minCost) {
+		minCost = optionnalCost;
+		path_taken = -1;
+	    }
             /* check for MULTI_DEL, (a - k, b) + MULTIDEL(k) = (a, b) */
             optionnalCost = INFINITY;
             for(counter = 0; counter < i - 1; counter++) {
@@ -208,21 +175,22 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
             }
             if((optionnalCost != INFINITY) && ((optionnalCost + 15) < minCost)) {
                 minCost = optionnalCost + 15;
-                lineIn = previousIfDel;
-                lineOut = lineNumber;
+                path_taken = i - previousIfDel;
             }
             
-            /* minCost now contains the smalled value possible, we store it in the array */
+            /* minCost now contains the smallest value possible, we store it in the array */
             cost[i][j] = minCost;
-            path[i][lineNumber].originalLine = lineIn;
-			path[i][lineNumber].targetLine = lineOut;
+            path[i][lineNumber] = path_taken;
         }
     }
     
     /* print patch file in standart output */
-    print_patch(path, originalBuffer, targetBuffer, nbOriginalLines, nbTargetLines);
+    print_patch(path, targetBuffer, nbOriginalLines, nbTargetLines);
     
     /* free all the reserved memory */
+    /* MODIFY THIS!!!!!!!!!!!!!!!!!! */
+    /* THIS WILL BE CREATING MEMORY LEAK */
+    /* NEEDS TO BE MODIFIED */
     free(originalBuffer);
     free(targetBuffer);
     for(counter = 0; counter < nbOriginalLines; counter++) {
@@ -230,7 +198,6 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     }
     free(cost);
     return 0;
-   
 }
 
 
