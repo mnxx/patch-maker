@@ -28,7 +28,8 @@ int applyPatch(FILE *patchFile, FILE *originalFile){
 	int res;
 	char *str_patch=NULL; // string to hold the second line of + and =
 	char *str_file=NULL;  // string to hold the lines of the original file
-	size_t len=0;
+	size_t len_patch=0;
+	size_t len_file=0;
 
 	while(fgets(buffer,100, patchFile)!=NULL) // Read the patch file till the end
 	{
@@ -53,17 +54,18 @@ int applyPatch(FILE *patchFile, FILE *originalFile){
 		switch (instruction)
 		{
 			case '+':
-				getline(&str_patch, &len, patchFile);
+				getline(&str_patch, &len_patch, patchFile);
 				if (k==0) printf("%s", str_patch); // insert at the beginning
 				else{
 					// copy all the intermediate lines including the k-th line of the original file
 					for(i=0;i<current-previous;i++) 
 					{
-						getline(&str_file, &len, originalFile);
+						getline(&str_file, &len_file, originalFile);
 						printf("%s",str_file);	
 					}
 					printf("%s",str_patch); // insert the line after k-th line of the original file 
 				}
+				previous=current;
 				break;
 			case '=':
 				if(current<=previous) // k must be strictly increasing
@@ -72,26 +74,28 @@ int applyPatch(FILE *patchFile, FILE *originalFile){
 					exit(EXIT_FAILURE);
 				}
 
-				getline(&str_patch, &len, patchFile);
+				getline(&str_patch, &len_patch, patchFile);
 				// Copy all intermediate lines of the original file
 				// except the k-th line 
 				for(i=0;i<current-previous;i++)
 				{
-					getline(&str_file, &len, originalFile);
+					getline(&str_file, &len_file, originalFile);
 					if(i<current-previous-1)
 						printf("%s",str_file);	
 					}
 				printf("%s",str_patch); // Replace the k-th line
+				previous=current;
 				break;
 			case 'd':
 				// Copy all intermediate lines of the original file
 				// except the k-th line 
 				for(i=0;i<current-previous;i++)
 				{
-					getline(&str_file, &len, originalFile);
+					getline(&str_file, &len_file, originalFile);
 					if(i<current-previous-1)
 						printf("%s",str_file);	
 				}
+				previous=current;
 				break;
 
 			case 'D':
@@ -106,30 +110,30 @@ int applyPatch(FILE *patchFile, FILE *originalFile){
 				// original file	
 				for(i=0;i<current-previous-1;i++)
 				{
-					getline(&str_file, &len, originalFile);
+					getline(&str_file, &len_file, originalFile);
 					printf("%s",str_file);	
 				}
 				// Delete m lines starting from the k-th line of the original
 				// file
 				for(i=0;i<m;i++)
-					getline(&str_file, &len, originalFile);
+					getline(&str_file, &len_file, originalFile);
+				
+				previous=current+m-1;
 				break;
 			
 			default:
 				fprintf(stderr, "!!!!! patchFile Format Error !!!!!\n"); exit(EXIT_FAILURE);
 				break;
+		
 		}
 
-		previous=current;
 
 	}	
 
 	// Copy the remaining lines if any
-	while(getline(&str_file, &len, originalFile)!=-1) printf("%s",str_file);	
-
-
+	while(getline(&str_file, &len_file, originalFile)!=-1) printf("%s",str_file);	
 	free(str_patch);
-	free(str_file);
+    	free(str_file);
 	return 0;
 
 }
