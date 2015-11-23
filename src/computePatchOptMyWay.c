@@ -197,8 +197,6 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     /* print patch file in standart output */
     print_patch(nbOriginalLines, nbTargetLines);
 
-    printf("\n\nLe cout du test est %d.\n", cost[nbTargetLines % 2][nbOriginalLines]);
-
     /* free all the reserved memory */
     /* MODIFY THIS!!!!!!!!!!!!!!!!!! */
     /* THIS WILL BE CREATING MEMORY LEAK */
