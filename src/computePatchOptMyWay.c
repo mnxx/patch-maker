@@ -198,15 +198,25 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     print_patch(nbOriginalLines, nbTargetLines);
 
     /* free all the reserved memory */
-    /* MODIFY THIS!!!!!!!!!!!!!!!!!! */
-    /* THIS WILL BE CREATING MEMORY LEAK */
-    /* NEEDS TO BE MODIFIED */
+    // originalBuffer
+    for(counter = 0; counter < nbOriginalLines; counter++) {
+            free(originalBuffer[counter]);
+    }
     free(originalBuffer);
+    // targetBuffer
+    for(counter = 0; counter < nbTargetLines; counter++) {
+            free(targetBuffer[counter]);
+    }
     free(targetBuffer);
+    // cost
     for(counter = 0; counter < 2; counter++) {
             free(cost[counter]);
     }
     free(cost);
+    // path
+    for(counter = 0; counter < nbTargetLines + 1; counter++) {
+            free(path[counter]);
+    }
     return 0;
 }
 
