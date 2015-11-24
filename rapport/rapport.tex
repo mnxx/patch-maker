@@ -1,4 +1,4 @@
-\documentclass[a4paper, 10pt, french]{article}
+\documentclass[a4paper, 10pt, english]{article}
 % Préambule; packages qui peuvent être utiles
    \RequirePackage[T1]{fontenc}        % Ce package pourrit les pdf...
    \RequirePackage{babel,indentfirst}  % Pour les césures correctes,
@@ -17,8 +17,8 @@
 
 \title{Rapport de TP 4MMAOD : Génération de patch optimal}
 \author{
-MAILLOT Franck étudiant$_1$ (groupe étudiant$_1$) 
-\\ ROTH Manuel étudiant$_2$ (groupe étudiant$_2$) 
+MAILLOT Franck ISSC (groupe 105) 
+\\ ROTH Manuel ISSC (groupe 105) 
 }
 
 \begin{document}
@@ -26,18 +26,20 @@ MAILLOT Franck étudiant$_1$ (groupe étudiant$_1$)
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{\em Préambule}
-{\em \begin{itemize} 
-   \item Compléter ce patron de rapport en supprimant toutes les phrases en italique\,: elles ne doivent pas apparaître dans le rapport pdf.
-   \item Il sera attribué {\bf 1 point} pour la qualité globale du rapport\,: présentation, concision et clarté de l'argumentation.
-\end{itemize}
-}
+%\paragraph{\em Préambule}
+%{\em \begin{itemize} 
+%   \item Compléter ce patron de rapport en supprimant toutes les phrases en italique\,: elles ne doivent pas apparaître dans le rapport pdf.
+%   \item Il sera attribué {\bf 1 point} pour la qualité globale du rapport\,: présentation, concision et clarté de l'argumentation.
+%\end{itemize}
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Principe de notre  programme (1 point)}
-{\em Mettre ici une explication brève du principe de votre programme en  précisant la méthode implantée (récursive, itérative) et les
-choix effectués (notamment pour l'ordonnancement des instructions).
-} 
+%{\em Mettre ici une explication brève du principe de votre programme en  précisant la méthode implantée (récursive, itérative) et les
+%choix effectués (notamment pour l'ordonnancement des instructions).
+%}
+Notre programme résout la problématique de créer un patch optimal avec une approche itérative. Pour cela, on utilise un tableau bidimensionnel,
+qui nous permet de rapidement trouver la sous-solution optimale. L'affichage des commandes à effectuer est créée de fa\c{c}on récursive.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analyse du coût théorique (3 points)}
