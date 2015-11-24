@@ -3,8 +3,7 @@
 #                                                            #
 # CREATED BY:   Franck Maillot, Manuel Roth                  #
 #                                                            #
-# EXECUTABLE IN /BIN:   /bin/computePatchOpt                 #
-#                                                            #
+# EXECUTABLES IN /BIN:   /bin/computePatchOpt                 #
 ##############################################################
 
 CC=gcc
