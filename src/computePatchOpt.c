@@ -145,7 +145,6 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     unsigned int minCost;
     int path_taken;
     unsigned int optionalMultiDel;
-    unsigned int nextMultiDel;
     int counterMultiDel;
 
     for(lineNumber = 1; lineNumber < nbTargetLines + 1; lineNumber++) {
@@ -155,7 +154,6 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
         cost[j][0] = cost[k][0] + minCost; // adding new line to target file
         path[lineNumber][0] = 0;
         optionalMultiDel = INFINITY;
-        nextMultiDel = INFINITY;
         /* calculate cost to reach (i, lineNumber) */
         for(i = 1; i < nbOriginalLines + 1; i++) {
             /* initialize with ADD, (a, b - 1) + ADD = (a, b)*/
@@ -178,15 +176,14 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
                 path_taken = -1;
             }
             /* check for MULTI_DEL, (a - k, b) + MULTIDEL(k) = (a, b) */
-            if(nextMultiDel < optionalMultiDel) {
-                optionalMultiDel = nextMultiDel;
-                counterMultiDel = i - 2;
-            }
             if((optionalMultiDel != INFINITY) && ((optionalMultiDel + 15) < minCost)) {
                 minCost = optionalMultiDel + 15;
                 path_taken = counterMultiDel - i;
             }
-            nextMultiDel = cost[j][i-1];
+            if(cost[j][i-1] < optionalMultiDel) {
+                optionalMultiDel = cost[j][i-1];
+                counterMultiDel = i - 1;
+            }
 
             /* minCost now contains the smallest value possible, we store it in the array */
             cost[j][i] = minCost;
