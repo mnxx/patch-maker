@@ -19,19 +19,17 @@
 /* define a pseudo infinite (cost) value */
 #define INFINITY INT_MAX
 
-
+/* define needed bidimensional buffers */
 char** originalBuffer;
 char** targetBuffer;
 int** path;
 
-
-
 /* return price of adding line sortie to the patch */
 unsigned int price_line(unsigned int targetLineNumber) {
-    return 10 + strlen(targetBuffer[targetLineNumber]);// -1 pour \n?
+    return 10 + strlen(targetBuffer[targetLineNumber]);
 }
 
-/* simply returns 0 if strings are equals or 10 + Length of sortie */
+/* return 0 if strings are equal or (10 + length of the target line) */
 unsigned int price(unsigned int originalLineNumber, unsigned int targetLineNumber) {
     if(strcmp(originalBuffer[originalLineNumber], targetBuffer[targetLineNumber]) == 0) {
         return 0;
@@ -39,12 +37,13 @@ unsigned int price(unsigned int originalLineNumber, unsigned int targetLineNumbe
     return price_line(targetLineNumber);
 }
 
+/* print calculated optimal patch by using a recursive function */
 void print_patch(unsigned int i, unsigned int j) {
     int previous = path[j][i];
     if((i + j) == 0 ) {
         return;
     }
-    /* now print the corresponding action */
+    /* print the corresponding action */
     /* DEL */
     if (previous == -1) {
         print_patch((i - 1), j);
@@ -103,39 +102,40 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     while(fgets(buffer, STRING_MAX, originalFile) != NULL) {
             originalBuffer[counter++] = strdup(buffer);
     }
-    /* */
     targetBuffer = calloc(nbTargetLines + 1, sizeof(*targetBuffer));
     counter = 1;
     while(fgets(buffer, STRING_MAX, targetFile) != NULL) {
             targetBuffer[counter++] = strdup(buffer);
     }
-
-    /* insert random explanation of what is going on here */
-    /* path matric to find out where we are coming from */
+    
+    /* path matrix to find out where we are coming from */
     path = malloc(((nbTargetLines + 1) * sizeof(*path)));
     for(counter = 0; counter < nbTargetLines + 1; counter++) {
             path[counter] = malloc(((nbOriginalLines + 1) * sizeof(**path)));
     }
 
-    /* cost(nbOriginalLines, 2) to calculate prices */
+    /* cost(nbOriginalLines, 2) to calculate cost */
     unsigned int **cost = malloc((2  * sizeof(*cost)));
     for(counter = 0; counter < 2; counter++) {
             cost[counter] = malloc(((nbOriginalLines + 1) * sizeof(**cost)));
     }
 
-    /* this initialize the first column of our price matrix */
+    /* initialize the first column of our cost matrix */
     /* modify accordingly if not taking multiple destructions into account */
     cost[0][0] = 0;
     path[0][0] = 0;
     cost[0][1] = 10; // simple destruction
     path[0][1] = -1;
     for(counter = 2; counter < nbOriginalLines + 1; counter++) {
+        /* comment the two following lines for a restrained patch */
         cost[0][counter] = 15;
         path[0][counter] = -counter;
+        /* decomment these lines for a restrained patch */
         //cost[0][counter] = 10 * counter;
         //path[0][counter] = -1;
     }
 
+    /* variables needed to calculate the optimal patch */
     unsigned int i;
     unsigned int j;
     unsigned int k;
@@ -144,6 +144,7 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     /* used to store the optimal value during the process */
     unsigned int minCost;
     int path_taken;
+    /* comment the two following lines for a restrained patch */
     unsigned int optionalMultiDel;
     int counterMultiDel;
 
@@ -153,6 +154,7 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
         minCost = price_line(lineNumber);
         cost[j][0] = cost[k][0] + minCost; // adding new line to target file
         path[lineNumber][0] = 0;
+        /* comment the following line for a restrained patch */
         optionalMultiDel = INFINITY;
         /* calculate cost to reach (i, lineNumber) */
         for(i = 1; i < nbOriginalLines + 1; i++) {
@@ -176,6 +178,7 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
                 path_taken = -1;
             }
             /* check for MULTI_DEL, (a - k, b) + MULTIDEL(k) = (a, b) */
+            /* comment the following two if-statements for a restrained patch */
             if((optionalMultiDel != INFINITY) && ((optionalMultiDel + 15) < minCost)) {
                 minCost = optionalMultiDel + 15;
                 path_taken = counterMultiDel - i;
@@ -191,7 +194,7 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
         }
     }
 
-    /* print patch file in standart output */
+    /* print patch file in standard output */
     print_patch(nbOriginalLines, nbTargetLines);
 
     /* free all the reserved memory */
@@ -205,12 +208,12 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
             free(targetBuffer[counter]);
     }
     free(targetBuffer);
-    // cost
+    // cost buffer
     for(counter = 0; counter < 2; counter++) {
             free(cost[counter]);
     }
     free(cost);
-    // path
+    // path buffer
     for(counter = 0; counter < nbTargetLines + 1; counter++) {
             free(path[counter]);
     }
