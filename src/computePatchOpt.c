@@ -13,10 +13,10 @@
 #include <string.h>
 #include <limits.h>
 
-/* define the maximum length of a line */
+/*! define the maximum length of a line */
 #define STRING_MAX 256
 
-/* define a pseudo infinite (cost) value */
+/*! define a pseudo infinite (cost) value */
 #define INFINITY INT_MAX
 
 /* define needed bidimensional buffers */
@@ -24,12 +24,23 @@ char** originalBuffer;
 char** targetBuffer;
 int** path;
 
-/* return price of adding line sortie to the patch */
+/**
+ * price_line
+ * \brief Function to return price/cost of a target-line
+ * \param targetLineNumber  The number to access the line in our target-buffer.
+ * \returns {price/cost of adding the target-line to the patch} 
+ */
 unsigned int price_line(unsigned int targetLineNumber) {
     return 10 + strlen(targetBuffer[targetLineNumber]);
 }
 
-/* return 0 if strings are equal or (10 + length of the target line) */
+/*!
+ * price
+ * \brief Function to return price/cost of a line
+ * @param originalLineNumber   The number to access the line in our original-buffer.
+ * @param targetLineNumber  The number to access the line in our target-buffer.
+ * \returns {0 if strings are equal or (10 + length of the target line)} 
+ */
 unsigned int price(unsigned int originalLineNumber, unsigned int targetLineNumber) {
     if(strcmp(originalBuffer[originalLineNumber], targetBuffer[targetLineNumber]) == 0) {
         return 0;
@@ -37,7 +48,13 @@ unsigned int price(unsigned int originalLineNumber, unsigned int targetLineNumbe
     return price_line(targetLineNumber);
 }
 
-/* print calculated optimal patch by using a recursive function */
+/*!
+ * print_patch
+ * \brief Function to print the calculated optimal patch
+ * @param i  A column in the path array
+ * @param j  A line in the path array
+ * \returns {void} 
+ */
 void print_patch(unsigned int i, unsigned int j) {
     int previous = path[j][i];
     if((i + j) == 0 ) {
@@ -71,6 +88,7 @@ void print_patch(unsigned int i, unsigned int j) {
 
 /*!
  * Function that implements computePatchOpt
+ * \brief  Function to calculate an optimal patch
  * @param  originalFile File pointer to the original file.
  * @param  targetFile File pointer to the target file.
  * \returns { 0 if succeeds, exit code otherwise}
@@ -224,7 +242,7 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
 /**
  * Main function
  * \brief Main function
- * \param argc  A count of the number of command-line arguments
+ * \param argc  A count of the number of command-line arguments.
  * \param argv  An argument vector of the command-line arguments.
  * \warning Must be called with two filenames patchFile, originalFile as commandline parameters and in the given order.
  * \returns { 0 if succeeds, exit code otherwise}

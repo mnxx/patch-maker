@@ -1,3 +1,12 @@
+##############################################################
+# MAKEFILE                                                   #
+#                                                            #
+# CREATED BY:   Franck Maillot, Manuel Roth                  #
+#                                                            #
+# EXECUTABLE IN /BIN:   /bin/computePatchOpt                 #
+#                                                            #
+##############################################################
+
 CC=gcc
 LATEXC=pdflatex
 DOCC=doxygen
@@ -14,9 +23,9 @@ CSOURCE1=$(wildcard $(SRCDIR)/applyPatch.c)
 CSOURCE2=$(wildcard $(SRCDIR)/computePatchOpt.c)
 PDF=$(LATEXSOURCE:.tex=.pdf)
 
-
+# MAKE OPTIONS:
+# make all / make binary / make report / make doc
 all: binary report doc 
-
 
 $(BINDIR)/applyPatch: $(CSOURCE1)
 	$(CC) $(CFLAGS)  $^ -o $@
@@ -36,8 +45,8 @@ report: $(PDF)
 
 doc: $(DOCDIR)/index.html
 
+# CLEAN UP
 clean:
 	rm -rf $(DOCDIR) $(BINDIR)/* $(REPORTDIR)/*.aux $(REPORTDIR)/*.log  $(REPORTDIR)/rapport.pdf 
-
 
 .PHONY: all doc binary report 
