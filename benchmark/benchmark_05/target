@@ -1,0 +1,4986 @@
+// New GCC code for 4MMAOD
+
+#define IN_GCC 1
+#define ONE_COMPILATION_UNIT 1
+#define HAVE_CONFIG_H 1
+
+/* Extended regular expression matching and search library,
+   version 0.12.
+   Copyright (C) 1993-1999, 2000, 2001, 2002 Free Software Foundation, Inc.
+   This file is part of the GNU C Library.
+
+   The GNU C Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   The GNU C Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with the GNU C Library; if not, write to the Free
+   Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+   02111-1307 USA.  */
+
+/* This file has been modified for usage in libiberty.  It includes "xregex.h"
+   instead of <regex.h>.  The "xregex.h" header file renames all external
+   routines with an "x" prefix so they do not collide with the native regex
+   routines or with other components regex routines. */
+/* AIX requires this to be the first thing in the file. */
+#if defined _AIX && !defined __GNUC__ && !defined REGEX_MALLOC
+  #pragma alloca
+#endif
+
+/* Define to enable the use of a default linker. */
+/* #undef DEFAULT_LINKER */
+
+/* Define if you want to use __cxa_atexit, rather than atexit, to register C++
+   destructors for local statics and global objects. This is essential for
+   fully standards-compliant handling of destructors, but requires
+   __cxa_atexit in libc. */
+/* #undef DEFAULT_USE_CXA_ATEXIT */
+
+/* Define if you want the garbage collector to do object poisoning and other
+   memory allocation checks. This is quite expensive. */
+/* #undef ENABLE_GC_CHECKING */
+
+/* Define to 1 if translation of program messages to the user's native
+   language is requested. */
+#define ENABLE_NLS 1
+
+/* Define if you want all operations on RTL (the basic data structure of the
+   optimizer and back end) to be checked for dynamic type safety at runtime.
+   This is quite expensive. */
+/* #undef ENABLE_RTL_CHECKING */
+
+/* Define if you want RTL flag accesses to be checked against the RTL codes
+   that are supported for each access macro. This is relatively cheap. */
+/* #undef ENABLE_RTL_FLAG_CHECKING */
+
+/* Define if you want all operations on trees (the basic data structure of the
+   front ends) to be checked for dynamic type safety at runtime. This is
+   moderately expensive. The tree browser debugging routines will also be
+   enabled by this option. */
+/* #undef ENABLE_TREE_CHECKING */
+
+/* Define if you want to run subprograms and generated programs through
+   valgrind (a memory checker). This is extremely expensive. */
+/* #undef ENABLE_VALGRIND_CHECKING */
+
+/* Define to 1 if installation paths should be looked up in Windows32
+   Registry. Ignored on non windows32 hosts. */
+/* #undef ENABLE_WIN32_REGISTRY */
+
+/* Define to the name of a file containing a list of extra machine modes for
+   this architecture. */
+#define EXTRA_MODES_FILE "config/i386/i386-modes.def"
+
+/* Define to enable detailed memory allocation stats gathering. */
+/* #undef GATHER_STATISTICS */
+
+/* Define to the type of elements in the array set by `getgroups'. Usually
+   this is either `int' or `gid_t'. */
+#define GETGROUPS_T gid_t
+
+/* Define true if the assembler supports '.long foo@GOTOFF'. */
+#define HAVE_AS_GOTOFF_IN_DATA 1
+
+/* Define if your assembler supports the --gstabs option. */
+#define HAVE_AS_GSTABS_DEBUG_FLAG 1
+
+/* Define if your assembler supports the Sun syntax for cmov. */
+/* #undef HAVE_AS_IX86_CMOV_SUN_SYNTAX */
+
+/* Define if your assembler supports .sleb128 and .uleb128. */
+#define HAVE_AS_LEB128 1
+
+/* Define if your assembler supports ltoffx and ldxmov relocations. */
+/* #undef HAVE_AS_LTOFFX_LDXMOV_RELOCS */
+
+/* Define if your assembler supports mfcr field. */
+/* #undef HAVE_AS_MFCRF */
+
+/* Define if your assembler supports the -no-mul-bug-abort option. */
+/* #undef HAVE_AS_NO_MUL_BUG_ABORT_OPTION */
+
+/* Define if your assembler supports offsetable %lo(). */
+/* #undef HAVE_AS_OFFSETABLE_LO10 */
+
+/* Define if your assembler supports .register. */
+/* #undef HAVE_AS_REGISTER_PSEUDO_OP */
+
+/* Define if your assembler supports -relax option. */
+/* #undef HAVE_AS_RELAX_OPTION */
+
+/* Define if your assembler and linker support unaligned PC relative relocs.
+   */
+/* #undef HAVE_AS_SPARC_UA_PCREL */
+
+/* Define if your assembler and linker support unaligned PC relative relocs
+   against hidden symbols. */
+/* #undef HAVE_AS_SPARC_UA_PCREL_HIDDEN */
+
+/* Define if your assembler supports thread-local storage. */
+/* #undef HAVE_AS_TLS */
+
+/* Define to 1 if you have the `atoll' function. */
+#define HAVE_ATOLL 1
+
+/* Define to 1 if you have the `atoq' function. */
+/* #undef HAVE_ATOQ */
+
+/* Define if BANSHEE is available */
+/* #undef HAVE_BANSHEE */
+
+/* Define to 1 if you have the `clock' function. */
+#define HAVE_CLOCK 1
+
+/* Define if <time.h> defines clock_t. */
+#define HAVE_CLOCK_T 1
+
+/* Define to 1 if we found a declaration for 'abort', otherwise define to 0.
+   */
+#define HAVE_DECL_ABORT 1
+
+/* Define to 1 if we found a declaration for 'atof', otherwise define to 0. */
+#define HAVE_DECL_ATOF 1
+
+/* Define to 1 if we found a declaration for 'atol', otherwise define to 0. */
+#define HAVE_DECL_ATOL 1
+
+/* Define to 1 if we found a declaration for 'basename', otherwise define to
+   0. */
+#define HAVE_DECL_BASENAME 1
+
+/* Define to 1 if we found a declaration for 'calloc', otherwise define to 0.
+   */
+#define HAVE_DECL_CALLOC 1
+
+/* Define to 1 if we found a declaration for 'clock', otherwise define to 0.
+   */
+#define HAVE_DECL_CLOCK 1
+
+/* Define to 1 if we found a declaration for 'errno', otherwise define to 0.
+   */
+#define HAVE_DECL_ERRNO 1
+
+/* Define to 1 if we found a declaration for 'fprintf_unlocked', otherwise
+   define to 0. */
+#define HAVE_DECL_FPRINTF_UNLOCKED 0
+
+/* Define to 1 if we found a declaration for 'fputs_unlocked', otherwise
+   define to 0. */
+#define HAVE_DECL_FPUTS_UNLOCKED 0
+
+/* Define to 1 if we found a declaration for 'free', otherwise define to 0. */
+#define HAVE_DECL_FREE 1
+
+/* Define to 1 if we found a declaration for 'fwrite_unlocked', otherwise
+   define to 0. */
+#define HAVE_DECL_FWRITE_UNLOCKED 1
+
+/* Define to 1 if we found a declaration for 'getcwd', otherwise define to 0.
+   */
+#define HAVE_DECL_GETCWD 1
+
+/* Define to 1 if we found a declaration for 'getenv', otherwise define to 0.
+   */
+#define HAVE_DECL_GETENV 1
+
+/* Define to 1 if we found a declaration for 'getopt', otherwise define to 0.
+   */
+#define HAVE_DECL_GETOPT 0
+
+/* Define to 1 if we found a declaration for 'getrlimit', otherwise define to
+   0. */
+#define HAVE_DECL_GETRLIMIT 1
+
+/* Define to 1 if we found a declaration for 'getrusage', otherwise define to
+   0. */
+#define HAVE_DECL_GETRUSAGE 1
+
+/* Define to 1 if we found a declaration for 'getwd', otherwise define to 0.
+   */
+#define HAVE_DECL_GETWD 1
+
+/* Define to 1 if we found a declaration for 'ldgetname', otherwise define to
+   0. */
+#define HAVE_DECL_LDGETNAME 0
+
+/* Define to 1 if we found a declaration for 'malloc', otherwise define to 0.
+   */
+#define HAVE_DECL_MALLOC 1
+
+/* Define to 1 if we found a declaration for 'putc_unlocked', otherwise define
+   to 0. */
+#define HAVE_DECL_PUTC_UNLOCKED 1
+
+/* Define to 1 if we found a declaration for 'realloc', otherwise define to 0.
+   */
+#define HAVE_DECL_REALLOC 1
+
+/* Define to 1 if we found a declaration for 'sbrk', otherwise define to 0. */
+#define HAVE_DECL_SBRK 1
+
+/* Define to 1 if we found a declaration for 'setrlimit', otherwise define to
+   0. */
+#define HAVE_DECL_SETRLIMIT 1
+
+/* Define to 1 if we found a declaration for 'snprintf', otherwise define to
+   0. */
+#define HAVE_DECL_SNPRINTF 1
+
+/* Define to 1 if we found a declaration for 'strsignal', otherwise define to
+   0. */
+#define HAVE_DECL_STRSIGNAL 1
+
+/* Define to 1 if we found a declaration for 'strstr', otherwise define to 0.
+   */
+#define HAVE_DECL_STRSTR 1
+
+/* Define to 1 if we found a declaration for 'times', otherwise define to 0.
+   */
+#define HAVE_DECL_TIMES 1
+
+/* Define to 1 if we found a declaration for 'vasprintf', otherwise define to
+   0. */
+#define HAVE_DECL_VASPRINTF 1
+
+/* Define to 1 if you have the <direct.h> header file. */
+/* #undef HAVE_DIRECT_H */
+
+/* Define to 1 if you have the `dup2' function. */
+#define HAVE_DUP2 1
+
+/* Define to 1 if you have the <fcntl.h> header file. */
+#define HAVE_FCNTL_H 1
+
+/* Define to 1 if you have the `fork' function. */
+#define HAVE_FORK 1
+
+/* Define to 1 if you have the `fprintf_unlocked' function. */
+/* #undef HAVE_FPRINTF_UNLOCKED */
+
+/* Define to 1 if you have the `fputc_unlocked' function. */
+#define HAVE_FPUTC_UNLOCKED 1
+
+/* Define to 1 if you have the `fputs_unlocked' function. */
+#define HAVE_FPUTS_UNLOCKED 1
+
+/* Define to 1 if you have the `fwrite_unlocked' function. */
+#define HAVE_FWRITE_UNLOCKED 1
+
+/* Define if your assembler supports .balign and .p2align. */
+#define HAVE_GAS_BALIGN_AND_P2ALIGN 1
+
+/* Define if your assembler uses the new HImode fild and fist notation. */
+#define HAVE_GAS_FILDS_FISTS 1
+
+/* Define if your assembler and linker support .hidden. */
+/* #undef HAVE_GAS_HIDDEN */
+
+/* Define if your assembler supports specifying the maximum number of bytes to
+   skip when using the GAS .p2align command. */
+#define HAVE_GAS_MAX_SKIP_P2ALIGN 1
+
+/* Define if your assembler and linker support 32-bit section relative relocs
+   via '.secrel32 label'. */
+/* #undef HAVE_GAS_PE_SECREL32_RELOC */
+
+/* Define 0/1 if your assembler supports marking sections with SHF_MERGE flag.
+   */
+#define HAVE_GAS_SHF_MERGE 1
+
+/* Define if your assembler supports .subsection and .subsection -1 starts
+   emitting at the beginning of your section. */
+#define HAVE_GAS_SUBSECTION_ORDERING 1
+
+/* Define if your assembler supports .weak. */
+#define HAVE_GAS_WEAK 1
+
+/* Define to 1 if you have the `getrlimit' function. */
+#define HAVE_GETRLIMIT 1
+
+/* Define to 1 if you have the `getrusage' function. */
+#define HAVE_GETRUSAGE 1
+
+/* Define to 1 if you have the `gettimeofday' function. */
+#define HAVE_GETTIMEOFDAY 1
+
+/* Define if you have the iconv() function. */
+#define HAVE_ICONV 1
+
+/* Define to 1 if you have the <iconv.h> header file. */
+#define HAVE_ICONV_H 1
+
+/* Define .init_array/.fini_array sections are available and working. */
+/* #undef HAVE_INITFINI_ARRAY */
+
+/* Define if you have a working <inttypes.h> header file. */
+#define HAVE_INTTYPES_H 1
+
+/* Define to 1 if you have the `kill' function. */
+#define HAVE_KILL 1
+
+/* Define to 1 if you have the <langinfo.h> header file. */
+#define HAVE_LANGINFO_H 1
+
+/* Define if your <locale.h> file defines LC_MESSAGES. */
+#define HAVE_LC_MESSAGES 1
+
+/* Define to 1 if you have the <ldfcn.h> header file. */
+/* #undef HAVE_LDFCN_H */
+
+/* Define if your linker supports --as-needed and --no-as-needed options. */
+/* #undef HAVE_LD_AS_NEEDED */
+
+/* Define if your linker supports --eh-frame-hdr option. */
+#define HAVE_LD_EH_FRAME_HDR 1
+
+/* Define if your linker supports -pie option. */
+/* #undef HAVE_LD_PIE */
+
+/* Define if your linker links a mix of read-only and read-write sections into
+   a read-write section. */
+#define HAVE_LD_RO_RW_SECTION_MIXING 1
+
+/* Define to 1 if you have the <limits.h> header file. */
+#define HAVE_LIMITS_H 1
+
+/* Define to 1 if you have the <locale.h> header file. */
+#define HAVE_LOCALE_H 1
+
+/* Define if your compiler supports the \`long long' type. */
+#define HAVE_LONG_LONG 1
+
+/* Define to 1 if you have the <malloc.h> header file. */
+#define HAVE_MALLOC_H 1
+
+/* Define to 1 if you have the `mbstowcs' function. */
+#define HAVE_MBSTOWCS 1
+
+/* Define if valgrind's memcheck.h header is installed. */
+/* #undef HAVE_MEMCHECK_H */
+
+/* Define to 1 if you have the <memory.h> header file. */
+#define HAVE_MEMORY_H 1
+
+/* Define to 1 if you have the `mincore' function. */
+#define HAVE_MINCORE 1
+
+/* Define to 1 if you have the `mmap' function. */
+#define HAVE_MMAP 1
+
+/* Define if mmap with MAP_ANON(YMOUS) works. */
+#define HAVE_MMAP_ANON 1
+
+/* Define if mmap of /dev/zero works. */
+#define HAVE_MMAP_DEV_ZERO 1
+
+/* Define if read-only mmap of a plain file works. */
+#define HAVE_MMAP_FILE 1
+
+/* Define to 1 if you have the `nl_langinfo' function. */
+#define HAVE_NL_LANGINFO 1
+
+/* Define if printf supports "%p". */
+#define HAVE_PRINTF_PTR 1
+
+/* Define to 1 if you have the `putc_unlocked' function. */
+#define HAVE_PUTC_UNLOCKED 1
+
+/* Define to 1 if you have the `scandir' function. */
+#define HAVE_SCANDIR 1
+
+/* Define to 1 if you have the `setlocale' function. */
+#define HAVE_SETLOCALE 1
+
+/* Define to 1 if you have the `setrlimit' function. */
+#define HAVE_SETRLIMIT 1
+
+/* Define to 1 if you have the <stddef.h> header file. */
+#define HAVE_STDDEF_H 1
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#define HAVE_STDINT_H 1
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#define HAVE_STDLIB_H 1
+
+/* Define to 1 if you have the <strings.h> header file. */
+#define HAVE_STRINGS_H 1
+
+/* Define to 1 if you have the <string.h> header file. */
+#define HAVE_STRING_H 1
+
+/* Define to 1 if you have the `strsignal' function. */
+#define HAVE_STRSIGNAL 1
+
+/* Define if <sys/times.h> defines struct tms. */
+#define HAVE_STRUCT_TMS 1
+
+/* Define to 1 if you have the `sysconf' function. */
+#define HAVE_SYSCONF 1
+
+/* Define to 1 if you have the <sys/file.h> header file. */
+#define HAVE_SYS_FILE_H 1
+
+/* Define to 1 if you have the <sys/mman.h> header file. */
+#define HAVE_SYS_MMAN_H 1
+
+/* Define to 1 if you have the <sys/param.h> header file. */
+#define HAVE_SYS_PARAM_H 1
+
+/* Define to 1 if you have the <sys/resource.h> header file. */
+#define HAVE_SYS_RESOURCE_H 1
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#define HAVE_SYS_STAT_H 1
+
+/* Define to 1 if you have the <sys/times.h> header file. */
+#define HAVE_SYS_TIMES_H 1
+
+/* Define to 1 if you have the <sys/time.h> header file. */
+#define HAVE_SYS_TIME_H 1
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#define HAVE_SYS_TYPES_H 1
+
+/* Define to 1 if you have <sys/wait.h> that is POSIX.1 compatible. */
+#define HAVE_SYS_WAIT_H 1
+
+/* Define to 1 if you have the `times' function. */
+#define HAVE_TIMES 1
+
+/* Define to 1 if you have the <time.h> header file. */
+#define HAVE_TIME_H 1
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#define HAVE_UNISTD_H 1
+
+/* Define if valgrind's valgrind/memcheck.h header is installed. */
+/* #undef HAVE_VALGRIND_MEMCHECK_H */
+
+/* Define to 1 if you have the `vfork' function. */
+#define HAVE_VFORK 1
+
+/* Define to 1 if you have the <vfork.h> header file. */
+/* #undef HAVE_VFORK_H */
+
+/* Define to 1 if you have the <wchar.h> header file. */
+#define HAVE_WCHAR_H 1
+
+/* Define to 1 if you have the `wcswidth' function. */
+#define HAVE_WCSWIDTH 1
+
+/* Define to 1 if `fork' works. */
+#define HAVE_WORKING_FORK 1
+
+/* Define this macro if mbstowcs does not crash when its first argument is
+   NULL. */
+#define HAVE_WORKING_MBSTOWCS 1
+
+/* Define to 1 if `vfork' works. */
+#define HAVE_WORKING_VFORK 1
+
+/* Define if your compiler supports the \`__int64' type. */
+/* #undef HAVE___INT64 */
+
+/* Define if the host machine stores words of multi-word integers in
+   big-endian order. */
+/* #undef HOST_WORDS_BIG_ENDIAN */
+
+/* Define as const if the declaration of iconv() needs const. */
+#define ICONV_CONST 
+
+/* Define if host mkdir takes a single argument. */
+/* #undef MKDIR_TAKES_ONE_ARG */
+
+/* Define to 1 if HOST_WIDE_INT must be 64 bits wide (see hwint.h). */
+/* #undef NEED_64BIT_HOST_WIDE_INT */
+
+/* Define to 1 if your C compiler doesn't accept -c and -o together. */
+/* #undef NO_MINUS_C_MINUS_O */
+
+/* Define to PREFIX/include if cpp should also search that directory. */
+#define PREFIX_INCLUDE_DIR "/scratch2/smcc-extras/build/gcc-cvs/install/include"
+
+/* The number of bytes in type int */
+#define SIZEOF_INT 4
+
+/* The number of bytes in type long */
+#define SIZEOF_LONG 4
+
+/* The number of bytes in type long long */
+#define SIZEOF_LONG_LONG 8
+
+/* The number of bytes in type short */
+#define SIZEOF_SHORT 2
+
+/* The number of bytes in type void * */
+#define SIZEOF_VOID_P 4
+
+/* The number of bytes in type __int64 */
+/* #undef SIZEOF___INT64 */
+
+/* Define to 1 if you have the ANSI C header files. */
+#define STDC_HEADERS 1
+
+/* Define if you can safely include both <string.h> and <strings.h>. */
+#define STRING_WITH_STRINGS 1
+
+/* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
+#define TIME_WITH_SYS_TIME 1
+
+/* Define if your assembler mis-optimizes .eh_frame data. */
+/* #undef USE_AS_TRADITIONAL_FORMAT */
+
+/* Define if gcc should use -lunwind. */
+/* #undef USE_LIBUNWIND_EXCEPTIONS */
+
+/* Define if location_t is fileline integer cookie. */
+/* #undef USE_MAPPED_LOCATION */
+
+/* Define to be the last portion of registry key on windows hosts. */
+/* #undef WIN32_REGISTRY_KEY */
+
+/* whether byteorder is bigendian */
+/* #undef WORDS_BIGENDIAN */
+
+/* Define to `int' if <sys/types.h> doesn't define. */
+/* #undef gid_t */
+
+/* Define to `__inline__' or `__inline' if that's what the C compiler
+   calls it, or to nothing if 'inline' is not supported under any name.  */
+#ifndef __cplusplus
+/* #undef inline */
+#endif
+
+/* Define to `int' if <sys/types.h> does not define. */
+/* #undef pid_t */
+
+/* Define to \`long' if <sys/resource.h> doesn't define. */
+/* #undef rlim_t */
+
+/* Define to `int' if <sys/types.h> does not define. */
+/* #undef ssize_t */
+
+/* Define to `int' if <sys/types.h> doesn't define. */
+/* #undef uid_t */
+
+/* Define as `fork' if `vfork' does not work. */
+/* #undef vfork */
+
+#ifdef IN_GCC
+/* ANSI and traditional C compatability macros
+   Copyright 1991, 1992, 1993, 1994, 1995, 1996, 1998, 1999, 2000, 2001
+   Free Software Foundation, Inc.
+   This file is part of the GNU C Library.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
+
+/* ANSI and traditional C compatibility macros
+
+   ANSI C is assumed if __STDC__ is #defined.
+
+   Macro		ANSI C definition	Traditional C definition
+   -----		---- - ----------	----------- - ----------
+   ANSI_PROTOTYPES	1			not defined
+   PTR			`void *'		`char *'
+   PTRCONST		`void *const'		`char *'
+   LONG_DOUBLE		`long double'		`double'
+   const		not defined		`'
+   volatile		not defined		`'
+   signed		not defined		`'
+   VA_START(ap, var)	va_start(ap, var)	va_start(ap)
+
+   Note that it is safe to write "void foo();" indicating a function
+   with no return value, in all K+R compilers we have been able to test.
+
+   For declaring functions with prototypes, we also provide these:
+
+   PARAMS ((prototype))
+   -- for functions which take a fixed number of arguments.  Use this
+   when declaring the function.  When defining the function, write a
+   K+R style argument list.  For example:
+
+	char *strcpy PARAMS ((char *dest, char *source));
+	...
+	char *
+	strcpy (dest, source)
+	     char *dest;
+	     char *source;
+	{ ... }
+
+
+   VPARAMS ((prototype, ...))
+   -- for functions which take a variable number of arguments.  Use
+   PARAMS to declare the function, VPARAMS to define it.  For example:
+
+	int printf PARAMS ((const char *format, ...));
+	...
+	int
+	printf VPARAMS ((const char *format, ...))
+	{
+	   ...
+	}
+
+   For writing functions which take variable numbers of arguments, we
+   also provide the VA_OPEN, VA_CLOSE, and VA_FIXEDARG macros.  These
+   hide the differences between K+R <varargs.h> and C89 <stdarg.h> more
+   thoroughly than the simple VA_START() macro mentioned above.
+
+   VA_OPEN and VA_CLOSE are used *instead of* va_start and va_end.
+   Immediately after VA_OPEN, put a sequence of VA_FIXEDARG calls
+   corresponding to the list of fixed arguments.  Then use va_arg
+   normally to get the variable arguments, or pass your va_list object
+   around.  You do not declare the va_list yourself; VA_OPEN does it
+   for you.
+
+   Here is a complete example:
+
+	int
+	printf VPARAMS ((const char *format, ...))
+	{
+	   int result;
+
+	   VA_OPEN (ap, format);
+	   VA_FIXEDARG (ap, const char *, format);
+
+	   result = vfprintf (stdout, format, ap);
+	   VA_CLOSE (ap);
+
+	   return result;
+	}
+
+
+   You can declare variables either before or after the VA_OPEN,
+   VA_FIXEDARG sequence.  Also, VA_OPEN and VA_CLOSE are the beginning
+   and end of a block.  They must appear at the same nesting level,
+   and any variables declared after VA_OPEN go out of scope at
+   VA_CLOSE.  Unfortunately, with a K+R compiler, that includes the
+   argument list.  You can have multiple instances of VA_OPEN/VA_CLOSE
+   pairs in a single function in case you need to traverse the
+   argument list more than once.
+
+   For ease of writing code which uses GCC extensions but needs to be
+   portable to other compilers, we provide the GCC_VERSION macro that
+   simplifies testing __GNUC__ and __GNUC_MINOR__ together, and various
+   wrappers around __attribute__.  Also, __extension__ will be #defined
+   to nothing if it doesn't work.  See below.
+
+   This header also defines a lot of obsolete macros:
+   CONST, VOLATILE, SIGNED, PROTO, EXFUN, DEFUN, DEFUN_VOID,
+   AND, DOTS, NOARGS.  Don't use them.  */
+
+#ifndef	_ANSIDECL_H
+#define _ANSIDECL_H	1
+
+/* Every source file includes this file,
+   so they will all get the switch for lint.  */
+/* LINTLIBRARY */
+
+/* Using MACRO(x,y) in cpp #if conditionals does not work with some
+   older preprocessors.  Thus we can't define something like this:
+
+#define HAVE_GCC_VERSION(MAJOR, MINOR) \
+  (__GNUC__ > (MAJOR) || (__GNUC__ == (MAJOR) && __GNUC_MINOR__ >= (MINOR)))
+
+and then test "#if HAVE_GCC_VERSION(2,7)".
+
+So instead we use the macro below and test it against specific values.  */
+
+/* This macro simplifies testing whether we are using gcc, and if it
+   is of a particular minimum version. (Both major & minor numbers are
+   significant.)  This macro will evaluate to 0 if we are not using
+   gcc at all.  */
+#ifndef GCC_VERSION
+#define GCC_VERSION (__GNUC__ * 1000 + __GNUC_MINOR__)
+#endif /* GCC_VERSION */
+
+#if defined (__STDC__) || defined (_AIX) || (defined (__mips) && defined (_SYSTYPE_SVR4)) || defined(_WIN32) || (defined(__alpha) && defined(__cplusplus))
+/* All known AIX compilers implement these things (but don't always
+   define __STDC__).  The RISC/OS MIPS compiler defines these things
+   in SVR4 mode, but does not define __STDC__.  */
+/* eraxxon@alumni.rice.edu: The Compaq C++ compiler, unlike many other
+   C++ compilers, does not define __STDC__, though it acts as if this
+   was so. (Verified versions: 5.7, 6.2, 6.3, 6.5) */
+
+#define ANSI_PROTOTYPES	1
+#define PTR		void *
+#define PTRCONST	void *const
+#define LONG_DOUBLE	long double
+
+#define PARAMS(ARGS)		ARGS
+#define VPARAMS(ARGS)		ARGS
+#define VA_START(VA_LIST, VAR)	va_start(VA_LIST, VAR)
+
+/* variadic function helper macros */
+/* "struct Qdmy" swallows the semicolon after VA_OPEN/VA_FIXEDARG's
+   use without inhibiting further decls and without declaring an
+   actual variable.  */
+#define VA_OPEN(AP, VAR)	{ va_list AP; va_start(AP, VAR); { struct Qdmy
+#define VA_CLOSE(AP)		} va_end(AP); }
+#define VA_FIXEDARG(AP, T, N)	struct Qdmy
+ 
+#undef const
+#undef volatile
+#undef signed
+
+/* inline requires special treatment; it's in C99, and GCC >=2.7 supports
+   it too, but it's not in C89.  */
+#undef inline
+#if __STDC_VERSION__ > 199901L
+/* it's a keyword */
+#else
+# if GCC_VERSION >= 2007
+#  define inline __inline__   /* __inline__ prevents -pedantic warnings */
+# else
+#  define inline  /* nothing */
+# endif
+#endif
+
+/* These are obsolete.  Do not use.  */
+#ifndef IN_GCC
+#define CONST		const
+#define VOLATILE	volatile
+#define SIGNED		signed
+
+#define PROTO(type, name, arglist)	type name arglist
+#define EXFUN(name, proto)		name proto
+#define DEFUN(name, arglist, args)	name(args)
+#define DEFUN_VOID(name)		name(void)
+#define AND		,
+#define DOTS		, ...
+#define NOARGS		void
+#endif /* ! IN_GCC */
+
+#else	/* Not ANSI C.  */
+
+#undef  ANSI_PROTOTYPES
+#define PTR		char *
+#define PTRCONST	PTR
+#define LONG_DOUBLE	double
+
+#define PARAMS(args)		()
+#define VPARAMS(args)		(va_alist) va_dcl
+#define VA_START(va_list, var)	va_start(va_list)
+
+#define VA_OPEN(AP, VAR)		{ va_list AP; va_start(AP); { struct Qdmy
+#define VA_CLOSE(AP)			} va_end(AP); }
+#define VA_FIXEDARG(AP, TYPE, NAME)	TYPE NAME = va_arg(AP, TYPE)
+
+/* some systems define these in header files for non-ansi mode */
+#undef const
+#undef volatile
+#undef signed
+#undef inline
+#define const
+#define volatile
+#define signed
+#define inline
+
+#ifndef IN_GCC
+#define CONST
+#define VOLATILE
+#define SIGNED
+
+#define PROTO(type, name, arglist)	type name ()
+#define EXFUN(name, proto)		name()
+#define DEFUN(name, arglist, args)	name arglist args;
+#define DEFUN_VOID(name)		name()
+#define AND		;
+#define DOTS
+#define NOARGS
+#endif /* ! IN_GCC */
+
+#endif	/* ANSI C.  */
+
+/* Define macros for some gcc attributes.  This permits us to use the
+   macros freely, and know that they will come into play for the
+   version of gcc in which they are supported.  */
+
+#if (GCC_VERSION < 2007)
+# define __attribute__(x)
+#endif
+
+/* Attribute __malloc__ on functions was valid as of gcc 2.96. */
+#ifndef ATTRIBUTE_MALLOC
+# if (GCC_VERSION >= 2096)
+#  define ATTRIBUTE_MALLOC __attribute__ ((__malloc__))
+# else
+#  define ATTRIBUTE_MALLOC
+# endif /* GNUC >= 2.96 */
+#endif /* ATTRIBUTE_MALLOC */
+
+/* Attributes on labels were valid as of gcc 2.93. */
+#ifndef ATTRIBUTE_UNUSED_LABEL
+# if (GCC_VERSION >= 2093)
+#  define ATTRIBUTE_UNUSED_LABEL ATTRIBUTE_UNUSED
+# else
+#  define ATTRIBUTE_UNUSED_LABEL
+# endif /* GNUC >= 2.93 */
+#endif /* ATTRIBUTE_UNUSED_LABEL */
+
+#ifndef ATTRIBUTE_UNUSED
+#define ATTRIBUTE_UNUSED __attribute__ ((__unused__))
+#endif /* ATTRIBUTE_UNUSED */
+
+#ifndef ATTRIBUTE_NORETURN
+#define ATTRIBUTE_NORETURN __attribute__ ((__noreturn__))
+#endif /* ATTRIBUTE_NORETURN */
+
+/* Attribute `nonnull' was valid as of gcc 3.3.  */
+#ifndef ATTRIBUTE_NONNULL
+# if (GCC_VERSION >= 3003)
+#  define ATTRIBUTE_NONNULL(m) __attribute__ ((__nonnull__ (m)))
+# else
+#  define ATTRIBUTE_NONNULL(m)
+# endif /* GNUC >= 3.3 */
+#endif /* ATTRIBUTE_NONNULL */
+
+/* Use ATTRIBUTE_PRINTF when the format specifier must not be NULL.
+   This was the case for the `printf' format attribute by itself
+   before GCC 3.3, but as of 3.3 we need to add the `nonnull'
+   attribute to retain this behavior.  */
+#ifndef ATTRIBUTE_PRINTF
+#define ATTRIBUTE_PRINTF(m, n) __attribute__ ((__format__ (__printf__, m, n))) ATTRIBUTE_NONNULL(m)
+#define ATTRIBUTE_PRINTF_1 ATTRIBUTE_PRINTF(1, 2)
+#define ATTRIBUTE_PRINTF_2 ATTRIBUTE_PRINTF(2, 3)
+#define ATTRIBUTE_PRINTF_3 ATTRIBUTE_PRINTF(3, 4)
+#define ATTRIBUTE_PRINTF_4 ATTRIBUTE_PRINTF(4, 5)
+#define ATTRIBUTE_PRINTF_5 ATTRIBUTE_PRINTF(5, 6)
+#endif /* ATTRIBUTE_PRINTF */
+
+/* Use ATTRIBUTE_NULL_PRINTF when the format specifier may be NULL.  A
+   NULL format specifier was allowed as of gcc 3.3.  */
+#ifndef ATTRIBUTE_NULL_PRINTF
+# if (GCC_VERSION >= 3003)
+#  define ATTRIBUTE_NULL_PRINTF(m, n) __attribute__ ((__format__ (__printf__, m, n)))
+# else
+#  define ATTRIBUTE_NULL_PRINTF(m, n)
+# endif /* GNUC >= 3.3 */
+# define ATTRIBUTE_NULL_PRINTF_1 ATTRIBUTE_NULL_PRINTF(1, 2)
+# define ATTRIBUTE_NULL_PRINTF_2 ATTRIBUTE_NULL_PRINTF(2, 3)
+# define ATTRIBUTE_NULL_PRINTF_3 ATTRIBUTE_NULL_PRINTF(3, 4)
+# define ATTRIBUTE_NULL_PRINTF_4 ATTRIBUTE_NULL_PRINTF(4, 5)
+# define ATTRIBUTE_NULL_PRINTF_5 ATTRIBUTE_NULL_PRINTF(5, 6)
+#endif /* ATTRIBUTE_NULL_PRINTF */
+
+/* We use __extension__ in some places to suppress -pedantic warnings
+   about GCC extensions.  This feature didn't work properly before
+   gcc 2.8.  */
+#if GCC_VERSION < 2008
+#define __extension__
+#endif
+
+#endif	/* ansidecl.h	*/
+#endif
+
+/* config.h.  Generated by configure.  */
+/* config.in.  Generated from configure.ac by autoheader.  */
+
+/* Define to one of `_getb67', `GETB67', `getb67' for Cray-2 and Cray-YMP
+   systems. This function is required for `alloca.c' support on those systems.
+   */
+/* #undef CRAY_STACKSEG_END */
+
+/* Define to 1 if using `alloca.c'. */
+/* #undef C_ALLOCA */
+
+/* Define if you want more run-time sanity checks. */
+/* #undef ENABLE_CHECKING */
+
+/* Define to 1 if translation of program messages to the user's native
+   language is requested. */
+#define ENABLE_NLS 1
+
+/* Define to 1 if you have `alloca', as a function or macro. */
+#define HAVE_ALLOCA 1
+
+/* Define to 1 if you have <alloca.h> and it should be used (not on Ultrix).
+   */
+#define HAVE_ALLOCA_H 1
+
+/* Define to 1 if you have the declaration of `abort', and to 0 if you don't.
+   */
+#define HAVE_DECL_ABORT 1
+
+/* Define to 1 if you have the declaration of `fprintf_unlocked', and to 0 if
+   you don't. */
+#define HAVE_DECL_FPRINTF_UNLOCKED 0
+
+/* Define to 1 if you have the declaration of `fputc_unlocked', and to 0 if
+   you don't. */
+#define HAVE_DECL_FPUTC_UNLOCKED 1
+
+/* Define to 1 if you have the declaration of `fwrite_unlocked', and to 0 if
+   you don't. */
+#define HAVE_DECL_FWRITE_UNLOCKED 1
+
+/* Define to 1 if you have the declaration of `putc_unlocked', and to 0 if you
+   don't. */
+#define HAVE_DECL_PUTC_UNLOCKED 1
+
+/* Define to 1 if you have the <fcntl.h> header file. */
+#define HAVE_FCNTL_H 1
+
+/* Define to 1 if you have the `fprintf_unlocked' function. */
+/* #undef HAVE_FPRINTF_UNLOCKED */
+
+/* Define to 1 if you have the `fputc_unlocked' function. */
+#define HAVE_FPUTC_UNLOCKED 1
+
+/* Define to 1 if you have the `fputs_unlocked' function. */
+#define HAVE_FPUTS_UNLOCKED 1
+
+/* Define to 1 if you have the `fwrite_unlocked' function. */
+#define HAVE_FWRITE_UNLOCKED 1
+
+/* Define if you have the iconv() function. */
+#define HAVE_ICONV 1
+
+/* Define to 1 if you have the <iconv.h> header file. */
+#define HAVE_ICONV_H 1
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#define HAVE_INTTYPES_H 1
+
+/* Define if you have <langinfo.h> and nl_langinfo(CODESET). */
+#define HAVE_LANGINFO_CODESET 1
+
+/* Define to 1 if you have the <limits.h> header file. */
+#define HAVE_LIMITS_H 1
+
+/* Define to 1 if you have the <locale.h> header file. */
+#define HAVE_LOCALE_H 1
+
+/* Define to 1 if you have the <memory.h> header file. */
+#define HAVE_MEMORY_H 1
+
+/* Define to 1 if libc includes obstacks. */
+#define HAVE_OBSTACK 1
+
+/* Define to 1 if you have the `putc_unlocked' function. */
+#define HAVE_PUTC_UNLOCKED 1
+
+/* Define to 1 if you have the <stddef.h> header file. */
+#define HAVE_STDDEF_H 1
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#define HAVE_STDINT_H 1
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#define HAVE_STDLIB_H 1
+
+/* Define to 1 if you have the <strings.h> header file. */
+#define HAVE_STRINGS_H 1
+
+/* Define to 1 if you have the <string.h> header file. */
+#define HAVE_STRING_H 1
+
+/* Define to 1 if you have the <sys/file.h> header file. */
+#define HAVE_SYS_FILE_H 1
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#define HAVE_SYS_STAT_H 1
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#define HAVE_SYS_TYPES_H 1
+
+/* Define if <sys/types.h> defines \`uchar'. */
+/* #undef HAVE_UCHAR */
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#define HAVE_UNISTD_H 1
+
+/* Define to the widest efficient host integer type at least as wide as the
+   target's size_t type. */
+#define HOST_WIDE_INT long
+
+/* Define as const if the declaration of iconv() needs const. */
+#define ICONV_CONST 
+
+/* Name of package */
+#define PACKAGE "cpplib"
+
+/* Define to the address where bug reports for this package should be sent. */
+#define PACKAGE_BUGREPORT "gcc-bugs@gcc.gnu.org"
+
+/* Define to the full name of this package. */
+#define PACKAGE_NAME "cpplib"
+
+/* Define to the full name and version of this package. */
+#define PACKAGE_STRING "cpplib  "
+
+/* Define to the one symbol short name of this package. */
+#define PACKAGE_TARNAME "cpplib"
+
+/* Define to the version of this package. */
+#define PACKAGE_VERSION " "
+
+/* The size of a `int', as computed by sizeof. */
+#define SIZEOF_INT 4
+
+/* The size of a `long', as computed by sizeof. */
+#define SIZEOF_LONG 4
+
+/* If using the C implementation of alloca, define if you know the
+   direction of stack growth for your system; otherwise it will be
+   automatically deduced at run-time.
+	STACK_DIRECTION > 0 => grows toward higher addresses
+	STACK_DIRECTION < 0 => grows toward lower addresses
+	STACK_DIRECTION = 0 => direction of growth unknown */
+/* #undef STACK_DIRECTION */
+
+/* Define to 1 if you have the ANSI C header files. */
+#define STDC_HEADERS 1
+
+/* Define if you can safely include both <string.h> and <strings.h>. */
+#define STRING_WITH_STRINGS 1
+
+/* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
+#define TIME_WITH_SYS_TIME 1
+
+/* Define to 1 if your <sys/time.h> declares `struct tm'. */
+/* #undef TM_IN_SYS_TIME */
+
+/* Version number of package */
+#define VERSION " "
+
+/* Define to empty if `const' does not conform to ANSI C. */
+/* #undef const */
+
+/* Define to `__inline__' or `__inline' if that's what the C compiler
+   calls it, or to nothing if 'inline' is not supported under any name.  */
+#ifndef __cplusplus
+/* #undef inline */
+#endif
+
+/* Define to `long' if <sys/types.h> does not define. */
+/* #undef off_t */
+
+/* Define to `unsigned' if <sys/types.h> does not define. */
+/* #undef size_t */
+/* config.h.  Generated by configure.  */
+/* config.in.  Generated from configure.ac by autoheader.  */
+
+/* 1234 = LIL_ENDIAN, 4321 = BIGENDIAN */
+#define BYTEORDER 1234
+
+/* Define to one of _getb67, GETB67, getb67 for Cray-2 and Cray-YMP systems.
+   This function is required for alloca.c support on those systems. */
+/* #undef CRAY_STACKSEG_END */
+
+/* Define to 1 if you have the <alloca.h> header file. */
+#define HAVE_ALLOCA_H 1
+
+/* Define to 1 if you have the `asprintf' function. */
+#define HAVE_ASPRINTF 1
+
+/* Define to 1 if you have the `atexit' function. */
+#define HAVE_ATEXIT 1
+
+/* Define to 1 if you have the `basename' function. */
+#define HAVE_BASENAME 1
+
+/* Define to 1 if you have the `bcmp' function. */
+#define HAVE_BCMP 1
+
+/* Define to 1 if you have the `bcopy' function. */
+#define HAVE_BCOPY 1
+
+/* Define to 1 if you have the `bsearch' function. */
+#define HAVE_BSEARCH 1
+
+/* Define to 1 if you have the `bzero' function. */
+#define HAVE_BZERO 1
+
+/* Define to 1 if you have the `calloc' function. */
+#define HAVE_CALLOC 1
+
+/* Define to 1 if you have the `canonicalize_file_name' function. */
+#define HAVE_CANONICALIZE_FILE_NAME 1
+
+/* Define to 1 if you have the `clock' function. */
+#define HAVE_CLOCK 1
+
+/* Define to 1 if you have the <fcntl.h> header file. */
+#define HAVE_FCNTL_H 1
+
+/* Define to 1 if you have the `ffs' function. */
+#define HAVE_FFS 1
+
+/* Define to 1 if you have the `fork' function. */
+#define HAVE_FORK 1
+
+/* Define to 1 if you have the `getcwd' function. */
+#define HAVE_GETCWD 1
+
+/* Define to 1 if you have the `getpagesize' function. */
+#define HAVE_GETPAGESIZE 1
+
+/* Define to 1 if you have the `getrusage' function. */
+#define HAVE_GETRUSAGE 1
+
+/* Define to 1 if you have the `getsysinfo' function. */
+/* #undef HAVE_GETSYSINFO */
+
+/* Define to 1 if you have the `gettimeofday' function. */
+#define HAVE_GETTIMEOFDAY 1
+
+/* Define to 1 if you have the `index' function. */
+#define HAVE_INDEX 1
+
+/* Define to 1 if you have the `insque' function. */
+#define HAVE_INSQUE 1
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#define HAVE_INTTYPES_H 1
+
+/* Define to 1 if you have the <limits.h> header file. */
+#define HAVE_LIMITS_H 1
+
+/* Define to 1 if you have the <machine/hal_sysinfo.h> header file. */
+/* #undef HAVE_MACHINE_HAL_SYSINFO_H */
+
+/* Define to 1 if you have the <malloc.h> header file. */
+#define HAVE_MALLOC_H 1
+
+/* Define to 1 if you have the `memchr' function. */
+#define HAVE_MEMCHR 1
+
+/* Define to 1 if you have the `memcmp' function. */
+#define HAVE_MEMCMP 1
+
+/* Define to 1 if you have the `memcpy' function. */
+#define HAVE_MEMCPY 1
+
+/* Define to 1 if you have the `memmove' function. */
+#define HAVE_MEMMOVE 1
+
+/* Define to 1 if you have the <memory.h> header file. */
+#define HAVE_MEMORY_H 1
+
+/* Define to 1 if you have the `mempcpy' function. */
+#define HAVE_MEMPCPY 1
+
+/* Define to 1 if you have the `memset' function. */
+#define HAVE_MEMSET 1
+
+/* Define to 1 if you have the `mkstemps' function. */
+/* #undef HAVE_MKSTEMPS */
+
+/* Define to 1 if you have a working `mmap' system call. */
+#define HAVE_MMAP 1
+
+/* Define to 1 if you have the `on_exit' function. */
+#define HAVE_ON_EXIT 1
+
+/* Define to 1 if you have the `psignal' function. */
+#define HAVE_PSIGNAL 1
+
+/* Define to 1 if you have the `pstat_getdynamic' function. */
+/* #undef HAVE_PSTAT_GETDYNAMIC */
+
+/* Define to 1 if you have the `pstat_getstatic' function. */
+/* #undef HAVE_PSTAT_GETSTATIC */
+
+/* Define to 1 if you have the `putenv' function. */
+#define HAVE_PUTENV 1
+
+/* Define to 1 if you have the `random' function. */
+#define HAVE_RANDOM 1
+
+/* Define to 1 if you have the `realpath' function. */
+#define HAVE_REALPATH 1
+
+/* Define to 1 if you have the `rename' function. */
+#define HAVE_RENAME 1
+
+/* Define to 1 if you have the `rindex' function. */
+#define HAVE_RINDEX 1
+
+/* Define to 1 if you have the `sbrk' function. */
+#define HAVE_SBRK 1
+
+/* Define to 1 if you have the `setenv' function. */
+#define HAVE_SETENV 1
+
+/* Define to 1 if you have the `sigsetmask' function. */
+#define HAVE_SIGSETMASK 1
+
+/* Define to 1 if you have the `snprintf' function. */
+#define HAVE_SNPRINTF 1
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#define HAVE_STDINT_H 1
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#define HAVE_STDLIB_H 1
+
+/* Define to 1 if you have the `stpcpy' function. */
+#define HAVE_STPCPY 1
+
+/* Define to 1 if you have the `stpncpy' function. */
+#define HAVE_STPNCPY 1
+
+/* Define to 1 if you have the `strcasecmp' function. */
+#define HAVE_STRCASECMP 1
+
+/* Define to 1 if you have the `strchr' function. */
+#define HAVE_STRCHR 1
+
+/* Define to 1 if you have the `strdup' function. */
+#define HAVE_STRDUP 1
+
+/* Define to 1 if you have the `strerror' function. */
+#define HAVE_STRERROR 1
+
+/* Define to 1 if you have the <strings.h> header file. */
+#define HAVE_STRINGS_H 1
+
+/* Define to 1 if you have the <string.h> header file. */
+#define HAVE_STRING_H 1
+
+/* Define to 1 if you have the `strncasecmp' function. */
+#define HAVE_STRNCASECMP 1
+
+/* Define to 1 if you have the `strrchr' function. */
+#define HAVE_STRRCHR 1
+
+/* Define to 1 if you have the `strsignal' function. */
+#define HAVE_STRSIGNAL 1
+
+/* Define to 1 if you have the `strstr' function. */
+#define HAVE_STRSTR 1
+
+/* Define to 1 if you have the `strtod' function. */
+#define HAVE_STRTOD 1
+
+/* Define to 1 if you have the `strtol' function. */
+#define HAVE_STRTOL 1
+
+/* Define to 1 if you have the `strtoul' function. */
+#define HAVE_STRTOUL 1
+
+/* Define to 1 if you have the `sysconf' function. */
+#define HAVE_SYSCONF 1
+
+/* Define to 1 if you have the `sysctl' function. */
+#define HAVE_SYSCTL 1
+
+/* Define to 1 if you have the `sysmp' function. */
+/* #undef HAVE_SYSMP */
+
+/* Define if you have the sys_errlist variable. */
+#define HAVE_SYS_ERRLIST 1
+
+/* Define to 1 if you have the <sys/file.h> header file. */
+#define HAVE_SYS_FILE_H 1
+
+/* Define to 1 if you have the <sys/mman.h> header file. */
+#define HAVE_SYS_MMAN_H 1
+
+/* Define if you have the sys_nerr variable. */
+#define HAVE_SYS_NERR 1
+
+/* Define to 1 if you have the <sys/param.h> header file. */
+#define HAVE_SYS_PARAM_H 1
+
+/* Define to 1 if you have the <sys/pstat.h> header file. */
+/* #undef HAVE_SYS_PSTAT_H */
+
+/* Define to 1 if you have the <sys/resource.h> header file. */
+#define HAVE_SYS_RESOURCE_H 1
+
+/* Define if you have the sys_siglist variable. */
+#define HAVE_SYS_SIGLIST 1
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#define HAVE_SYS_STAT_H 1
+
+/* Define to 1 if you have the <sys/sysctl.h> header file. */
+#define HAVE_SYS_SYSCTL_H 1
+
+/* Define to 1 if you have the <sys/sysinfo.h> header file. */
+#define HAVE_SYS_SYSINFO_H 1
+
+/* Define to 1 if you have the <sys/sysmp.h> header file. */
+/* #undef HAVE_SYS_SYSMP_H */
+
+/* Define to 1 if you have the <sys/systemcfg.h> header file. */
+/* #undef HAVE_SYS_SYSTEMCFG_H */
+
+/* Define to 1 if you have the <sys/table.h> header file. */
+/* #undef HAVE_SYS_TABLE_H */
+
+/* Define to 1 if you have the <sys/time.h> header file. */
+#define HAVE_SYS_TIME_H 1
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#define HAVE_SYS_TYPES_H 1
+
+/* Define to 1 if you have <sys/wait.h> that is POSIX.1 compatible. */
+#define HAVE_SYS_WAIT_H 1
+
+/* Define to 1 if you have the `table' function. */
+/* #undef HAVE_TABLE */
+
+/* Define to 1 if you have the `times' function. */
+#define HAVE_TIMES 1
+
+/* Define to 1 if you have the <time.h> header file. */
+#define HAVE_TIME_H 1
+
+/* Define to 1 if you have the `tmpnam' function. */
+#define HAVE_TMPNAM 1
+
+/* Define if you have the \`uintptr_t' type. */
+#define HAVE_UINTPTR_T 1
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#define HAVE_UNISTD_H 1
+
+/* Define to 1 if you have the `vasprintf' function. */
+#define HAVE_VASPRINTF 1
+
+/* Define to 1 if you have the `vfork' function. */
+#define HAVE_VFORK 1
+
+/* Define to 1 if you have the <vfork.h> header file. */
+/* #undef HAVE_VFORK_H */
+
+/* Define to 1 if you have the `vfprintf' function. */
+#define HAVE_VFPRINTF 1
+
+/* Define to 1 if you have the `vprintf' function. */
+#define HAVE_VPRINTF 1
+
+/* Define to 1 if you have the `vsnprintf' function. */
+#define HAVE_VSNPRINTF 1
+
+/* Define to 1 if you have the `vsprintf' function. */
+#define HAVE_VSPRINTF 1
+
+/* Define to 1 if you have the `waitpid' function. */
+#define HAVE_WAITPID 1
+
+/* Define to 1 if `fork' works. */
+#define HAVE_WORKING_FORK 1
+
+/* Define to 1 if `vfork' works. */
+#define HAVE_WORKING_VFORK 1
+
+/* Define to 1 if you have the `_doprnt' function. */
+/* #undef HAVE__DOPRNT */
+
+/* Define if you have the _system_configuration variable. */
+/* #undef HAVE__SYSTEM_CONFIGURATION */
+
+/* Define if the host machine stores words of multi-word integers in
+   big-endian order. */
+/* #undef HOST_WORDS_BIG_ENDIAN */
+
+/* Define if canonicalize_file_name is not declared in system header files. */
+#define NEED_DECLARATION_CANONICALIZE_FILE_NAME 1
+
+/* Define if errno must be declared even when <errno.h> is included. */
+/* #undef NEED_DECLARATION_ERRNO */
+
+/* Define to 1 if your C compiler doesn't accept -c and -o together. */
+/* #undef NO_MINUS_C_MINUS_O */
+
+/* Define if you know the direction of stack growth for your system; otherwise
+   it will be automatically deduced at run-time. STACK_DIRECTION > 0 => grows
+   toward higher addresses STACK_DIRECTION < 0 => grows toward lower addresses
+   STACK_DIRECTION = 0 => direction of growth unknown */
+#define STACK_DIRECTION -1
+
+/* Define to 1 if you have the ANSI C header files. */
+#define STDC_HEADERS 1
+
+/* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
+#define TIME_WITH_SYS_TIME 1
+
+/* Define to an unsigned 64-bit type available in the compiler. */
+#define UNSIGNED_64BIT_TYPE uint64_t
+
+/* whether byteorder is bigendian */
+/* #undef WORDS_BIGENDIAN */
+
+/* Define to empty if `const' does not conform to ANSI C. */
+/* #undef const */
+
+/* Define to `__inline__' or `__inline' if that's what the C compiler
+   calls it, or to nothing if 'inline' is not supported under any name.  */
+#ifndef __cplusplus
+/* #undef inline */
+#endif
+
+/* Define to `int' if <sys/types.h> does not define. */
+/* #undef pid_t */
+
+/* Define to `unsigned long' if <sys/types.h> does not define. */
+/* #undef uintptr_t */
+
+/* Define as `fork' if `vfork' does not work. */
+/* #undef vfork */
+
+#define HAVE_LIBINTL_H 1
+
+#endif /* GCC_CONFIG_H */
+
+
+#ifndef PARAMS
+# if defined __GNUC__ || (defined __STDC__ && __STDC__)
+#  define PARAMS(args) args
+# else
+#  define PARAMS(args) ()
+# endif  /* GCC.  */
+#endif  /* Not PARAMS.  */
+
+#ifndef INSIDE_RECURSION
+
+# if defined STDC_HEADERS && !defined emacs
+#  include <stddef.h>
+# else
+/* We need this for `regex.h', and perhaps for the Emacs include files.  */
+#  include <sys/types.h>
+# endif
+
+# define WIDE_CHAR_SUPPORT (HAVE_WCTYPE_H && HAVE_WCHAR_H && HAVE_BTOWC)
+
+/* For platform which support the ISO C amendement 1 functionality we
+   support user defined character classes.  */
+# if defined _LIBC || WIDE_CHAR_SUPPORT
+/* Solaris 2.5 has a bug: <wchar.h> must be included before <wctype.h>.  */
+#  include <wchar.h>
+#  include <wctype.h>
+# endif
+
+/* This is for other GNU distributions with internationalized messages.  */
+# if (HAVE_LIBINTL_H && ENABLE_NLS) || defined _LIBC
+#  include <libintl.h>
+#  ifdef _LIBC
+#   undef gettext
+#   define gettext(msgid) __dcgettext ("libc", msgid, LC_MESSAGES)
+#  endif
+# else
+#  define gettext(msgid) (msgid)
+# endif
+
+# ifndef gettext_noop
+/* This define is so xgettext can find the internationalizable
+   strings.  */
+#  define gettext_noop(String) String
+# endif
+
+/* The `emacs' switch turns on certain matching commands
+   that make sense only in Emacs. */
+# ifdef emacs
+
+# else  /* not emacs */
+
+/* If we are not linking with Emacs proper,
+   we can't use the relocating allocator
+   even if config.h says that we can.  */
+#  undef REL_ALLOC
+
+#  if defined STDC_HEADERS || defined _LIBC
+#   include <stdlib.h>
+#  else
+char *malloc ();
+char *realloc ();
+#  endif
+
+/* When used in Emacs's lib-src, we need to get bzero and bcopy somehow.
+   If nothing else has been done, use the method below.  */
+#  ifdef INHIBIT_STRING_HEADER
+#   if !(defined HAVE_BZERO && defined HAVE_BCOPY)
+#    if !defined bzero && !defined bcopy
+#     undef INHIBIT_STRING_HEADER
+#    endif
+#   endif
+#  endif
+
+/* This is the normal way of making sure we have a bcopy and a bzero.
+   This is used in most programs--a few other programs avoid this
+   by defining INHIBIT_STRING_HEADER.  */
+#  ifndef INHIBIT_STRING_HEADER
+#   if defined HAVE_STRING_H || defined STDC_HEADERS || defined _LIBC
+#    include <string.h>
+#    ifndef bzero
+#     ifndef _LIBC
+#      define bzero(s, n)	(memset (s, '\0', n), (s))
+#     else
+#      define bzero(s, n)	__bzero (s, n)
+#     endif
+#    endif
+#   else
+#    include <strings.h>
+#    ifndef memcmp
+#     define memcmp(s1, s2, n)	bcmp (s1, s2, n)
+#    endif
+#    ifndef memcpy
+#     define memcpy(d, s, n)	(bcopy (s, d, n), (d))
+#    endif
+#   endif
+#  endif
+
+/* Define the syntax stuff for \<, \>, etc.  */
+
+/* This must be nonzero for the wordchar and notwordchar pattern
+   commands in re_match_2.  */
+#  ifndef Sword
+#   define Sword 1
+#  endif
+
+#  ifdef SWITCH_ENUM_BUG
+#   define SWITCH_ENUM_CAST(x) ((int)(x))
+#  else
+#   define SWITCH_ENUM_CAST(x) (x)
+#  endif
+
+# endif /* not emacs */
+
+# if defined _LIBC || HAVE_LIMITS_H
+#  include <limits.h>
+# endif
+
+# ifndef MB_LEN_MAX
+#  define MB_LEN_MAX 1
+# endif
+
+/* Get the interface, including the syntax bits.  */
+/* This file redefines all regex external names before including
+   a renamed copy of glibc's regex.h.  */
+
+#ifndef _XREGEX_H
+#define _XREGEX_H 1
+
+#  define regfree xregfree 
+#  define regexec xregexec
+#  define regcomp xregcomp
+#  define regerror xregerror
+#  define re_set_registers xre_set_registers
+#  define re_match_2 xre_match_2
+#  define re_match xre_match
+#  define re_search xre_search
+#  define re_compile_pattern xre_compile_pattern
+#  define re_set_syntax xre_set_syntax
+#  define re_search_2 xre_search_2
+#  define re_compile_fastmap xre_compile_fastmap
+#  define re_syntax_options xre_syntax_options
+#  define re_max_failures xre_max_failures
+
+#  define _REGEX_RE_COMP
+#  define re_comp xre_comp
+#  define re_exec xre_exec
+
+/* Definitions for data structures and routines for the regular
+   expression library, version 0.12.
+   Copyright (C) 1985,1989-1993,1995-1998, 2000 Free Software Foundation, Inc.
+   This file is part of the GNU C Library.  Its master source is NOT part of
+   the C library, however.  The master source lives in /gd/gnu/lib.
+
+   The GNU C Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   The GNU C Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with the GNU C Library; if not, write to the Free
+   Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+   02111-1307 USA.  */
+
+#ifndef _REGEX_H
+#define _REGEX_H 1
+
+/* Allow the use in C++ code.  */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* POSIX says that <sys/types.h> must be included (by the caller) before
+   <regex.h>.  */
+
+#if !defined _POSIX_C_SOURCE && !defined _POSIX_SOURCE && defined VMS
+/* VMS doesn't have `size_t' in <sys/types.h>, even though POSIX says it
+   should be there.  */
+# include <stddef.h>
+#endif
+
+/* The following two types have to be signed and unsigned integer type
+   wide enough to hold a value of a pointer.  For most ANSI compilers
+   ptrdiff_t and size_t should be likely OK.  Still size of these two
+   types is 2 for Microsoft C.  Ugh... */
+typedef long int s_reg_t;
+typedef unsigned long int active_reg_t;
+
+/* The following bits are used to determine the regexp syntax we
+   recognize.  The set/not-set meanings are chosen so that Emacs syntax
+   remains the value 0.  The bits are given in alphabetical order, and
+   the definitions shifted by one from the previous bit; thus, when we
+   add or remove a bit, only one other definition need change.  */
+typedef unsigned long int reg_syntax_t;
+
+/* If this bit is not set, then \ inside a bracket expression is literal.
+   If set, then such a \ quotes the following character.  */
+#define RE_BACKSLASH_ESCAPE_IN_LISTS ((unsigned long int) 1)
+
+/* If this bit is not set, then + and ? are operators, and \+ and \? are
+     literals.
+   If set, then \+ and \? are operators and + and ? are literals.  */
+#define RE_BK_PLUS_QM (RE_BACKSLASH_ESCAPE_IN_LISTS << 1)
+
+/* If this bit is set, then character classes are supported.  They are:
+     [:alpha:], [:upper:], [:lower:],  [:digit:], [:alnum:], [:xdigit:],
+     [:space:], [:print:], [:punct:], [:graph:], and [:cntrl:].
+   If not set, then character classes are not supported.  */
+#define RE_CHAR_CLASSES (RE_BK_PLUS_QM << 1)
+
+/* If this bit is set, then ^ and $ are always anchors (outside bracket
+     expressions, of course).
+   If this bit is not set, then it depends:
+        ^  is an anchor if it is at the beginning of a regular
+           expression or after an open-group or an alternation operator;
+        $  is an anchor if it is at the end of a regular expression, or
+           before a close-group or an alternation operator.
+
+   This bit could be (re)combined with RE_CONTEXT_INDEP_OPS, because
+   POSIX draft 11.2 says that * etc. in leading positions is undefined.
+   We already implemented a previous draft which made those constructs
+   invalid, though, so we haven't changed the code back.  */
+#define RE_CONTEXT_INDEP_ANCHORS (RE_CHAR_CLASSES << 1)
+
+/* If this bit is set, then special characters are always special
+     regardless of where they are in the pattern.
+   If this bit is not set, then special characters are special only in
+     some contexts; otherwise they are ordinary.  Specifically,
+     * + ? and intervals are only special when not after the beginning,
+     open-group, or alternation operator.  */
+#define RE_CONTEXT_INDEP_OPS (RE_CONTEXT_INDEP_ANCHORS << 1)
+
+/* If this bit is set, then *, +, ?, and { cannot be first in an re or
+     immediately after an alternation or begin-group operator.  */
+#define RE_CONTEXT_INVALID_OPS (RE_CONTEXT_INDEP_OPS << 1)
+/* Define if you want more run-time sanity checks. This one gets a grab bag of
+   miscellaneous but relatively cheap checks. */
+/* #undef ENABLE_CHECKING */
+
+/* Define if you want fold checked that it never destructs its argument. This
+   is quite expensive. */
+/* #undef ENABLE_FOLD_CHECKING */
+
+/* Define if you want the garbage collector to operate in maximally paranoid
+   mode, validating the entire heap and collecting garbage at every
+   opportunity. This is extremely expensive. */
+/* #undef ENABLE_GC_ALWAYS_COLLECT */
+
+
+/* If this bit is set, then . matches newline.
+   If not set, then it doesn't.  */
+#define RE_DOT_NEWLINE (RE_CONTEXT_INVALID_OPS << 1)
+
+/* If this bit is set, then . doesn't match NUL.
+   If not set, then it does.  */
+#define RE_DOT_NOT_NULL (RE_DOT_NEWLINE << 1)
+
+/* If this bit is set, nonmatching lists [^...] do not match newline.
+   If not set, they do.  */
+#define RE_HAT_LISTS_NOT_NEWLINE (RE_DOT_NOT_NULL << 1)
+
+/* If this bit is set, either \{...\} or {...} defines an
+     interval, depending on RE_NO_BK_BRACES.
+   If not set, \{, \}, {, and } are literals.  */
+#define RE_INTERVALS (RE_HAT_LISTS_NOT_NEWLINE << 1)
+
+/* If this bit is set, +, ? and | aren't recognized as operators.
+   If not set, they are.  */
+#define RE_LIMITED_OPS (RE_INTERVALS << 1)
+
+/* If this bit is set, newline is an alternation operator.
+   If not set, newline is literal.  */
+#define RE_NEWLINE_ALT (RE_LIMITED_OPS << 1)
+
+/* If this bit is set, then `{...}' defines an interval, and \{ and \}
+     are literals.
+  If not set, then `\{...\}' defines an interval.  */
+#define RE_NO_BK_BRACES (RE_NEWLINE_ALT << 1)
+
+/* If this bit is set, (...) defines a group, and \( and \) are literals.
+   If not set, \(...\) defines a group, and ( and ) are literals.  */
+#define RE_NO_BK_PARENS (RE_NO_BK_BRACES << 1)
+
+/* If this bit is set, then \<digit> matches <digit>.
+   If not set, then \<digit> is a back-reference.  */
+#define RE_NO_BK_REFS (RE_NO_BK_PARENS << 1)
+
+/* If this bit is set, then | is an alternation operator, and \| is literal.
+   If not set, then \| is an alternation operator, and | is literal.  */
+#define RE_NO_BK_VBAR (RE_NO_BK_REFS << 1)
+
+/* If this bit is set, then an ending range point collating higher
+     than the starting range point, as in [z-a], is invalid.
+   If not set, then when ending range point collates higher than the
+     starting range point, the range is ignored.  */
+#define RE_NO_EMPTY_RANGES (RE_NO_BK_VBAR << 1)
+
+/* If this bit is set, then an unmatched ) is ordinary.
+   If not set, then an unmatched ) is invalid.  */
+#define RE_UNMATCHED_RIGHT_PAREN_ORD (RE_NO_EMPTY_RANGES << 1)
+
+/* If this bit is set, succeed as soon as we match the whole pattern,
+   without further backtracking.  */
+#define RE_NO_POSIX_BACKTRACKING (RE_UNMATCHED_RIGHT_PAREN_ORD << 1)
+
+/* If this bit is set, do not process the GNU regex operators.
+   If not set, then the GNU regex operators are recognized. */
+#define RE_NO_GNU_OPS (RE_NO_POSIX_BACKTRACKING << 1)
+
+/* If this bit is set, turn on internal regex debugging.
+   If not set, and debugging was on, turn it off.
+   This only works if regex.c is compiled -DDEBUG.
+   We define this bit always, so that all that's needed to turn on
+   debugging is to recompile regex.c; the calling code can always have
+   this bit set, and it won't affect anything in the normal case. */
+#define RE_DEBUG (RE_NO_GNU_OPS << 1)
+
+/* If this bit is set, a syntactically invalid interval is treated as
+   a string of ordinary characters.  For example, the ERE 'a{1' is
+   treated as 'a\{1'.  */
+#define RE_INVALID_INTERVAL_ORD (RE_DEBUG << 1)
+
+/* This global variable defines the particular regexp syntax to use (for
+   some interfaces).  When a regexp is compiled, the syntax used is
+   stored in the pattern buffer, so changing this does not affect
+   already-compiled regexps.  */
+extern reg_syntax_t re_syntax_options;
+
+/* Define combinations of the above bits for the standard possibilities.
+   (The [[[ comments delimit what gets put into the Texinfo file, so
+   don't delete them!)  */
+/* [[[begin syntaxes]]] */
+#define RE_SYNTAX_EMACS 0
+
+#define RE_SYNTAX_AWK							\
+  (RE_BACKSLASH_ESCAPE_IN_LISTS   | RE_DOT_NOT_NULL			\
+   | RE_NO_BK_PARENS              | RE_NO_BK_REFS			\
+   | RE_NO_BK_VBAR                | RE_NO_EMPTY_RANGES			\
+   | RE_DOT_NEWLINE		  | RE_CONTEXT_INDEP_ANCHORS		\
+   | RE_UNMATCHED_RIGHT_PAREN_ORD | RE_NO_GNU_OPS)
+
+#define RE_SYNTAX_GNU_AWK						\
+  ((RE_SYNTAX_POSIX_EXTENDED | RE_BACKSLASH_ESCAPE_IN_LISTS | RE_DEBUG)	\
+   & ~(RE_DOT_NOT_NULL | RE_INTERVALS | RE_CONTEXT_INDEP_OPS))
+
+#define RE_SYNTAX_POSIX_AWK 						\
+  (RE_SYNTAX_POSIX_EXTENDED | RE_BACKSLASH_ESCAPE_IN_LISTS		\
+   | RE_INTERVALS	    | RE_NO_GNU_OPS)
+
+#define RE_SYNTAX_GREP							\
+  (RE_BK_PLUS_QM              | RE_CHAR_CLASSES				\
+   | RE_HAT_LISTS_NOT_NEWLINE | RE_INTERVALS				\
+   | RE_NEWLINE_ALT)
+
+#define RE_SYNTAX_EGREP							\
+  (RE_CHAR_CLASSES        | RE_CONTEXT_INDEP_ANCHORS			\
+   | RE_CONTEXT_INDEP_OPS | RE_HAT_LISTS_NOT_NEWLINE			\
+   | RE_NEWLINE_ALT       | RE_NO_BK_PARENS				\
+   | RE_NO_BK_VBAR)
+
+#define RE_SYNTAX_POSIX_EGREP						\
+  (RE_SYNTAX_EGREP | RE_INTERVALS | RE_NO_BK_BRACES			\
+   | RE_INVALID_INTERVAL_ORD)
+
+/* P1003.2/D11.2, section 4.20.7.1, lines 5078ff.  */
+#define RE_SYNTAX_ED RE_SYNTAX_POSIX_BASIC
+
+#define RE_SYNTAX_SED RE_SYNTAX_POSIX_BASIC
+
+/* Syntax bits common to both basic and extended POSIX regex syntax.  */
+#define _RE_SYNTAX_POSIX_COMMON						\
+  (RE_CHAR_CLASSES | RE_DOT_NEWLINE      | RE_DOT_NOT_NULL		\
+   | RE_INTERVALS  | RE_NO_EMPTY_RANGES)
+
+#define RE_SYNTAX_POSIX_BASIC						\
+  (_RE_SYNTAX_POSIX_COMMON | RE_BK_PLUS_QM)
+
+/* Differs from ..._POSIX_BASIC only in that RE_BK_PLUS_QM becomes
+   RE_LIMITED_OPS, i.e., \? \+ \| are not recognized.  Actually, this
+   isn't minimal, since other operators, such as \`, aren't disabled.  */
+#define RE_SYNTAX_POSIX_MINIMAL_BASIC					\
+  (_RE_SYNTAX_POSIX_COMMON | RE_LIMITED_OPS)
+
+#define RE_SYNTAX_POSIX_EXTENDED					\
+  (_RE_SYNTAX_POSIX_COMMON  | RE_CONTEXT_INDEP_ANCHORS			\
+   | RE_CONTEXT_INDEP_OPS   | RE_NO_BK_BRACES				\
+   | RE_NO_BK_PARENS        | RE_NO_BK_VBAR				\
+   | RE_CONTEXT_INVALID_OPS | RE_UNMATCHED_RIGHT_PAREN_ORD)
+
+/* Differs from ..._POSIX_EXTENDED in that RE_CONTEXT_INDEP_OPS is
+   removed and RE_NO_BK_REFS is added.  */
+#define RE_SYNTAX_POSIX_MINIMAL_EXTENDED				\
+  (_RE_SYNTAX_POSIX_COMMON  | RE_CONTEXT_INDEP_ANCHORS			\
+   | RE_CONTEXT_INVALID_OPS | RE_NO_BK_BRACES				\
+   | RE_NO_BK_PARENS        | RE_NO_BK_REFS				\
+   | RE_NO_BK_VBAR	    | RE_UNMATCHED_RIGHT_PAREN_ORD)
+/* [[[end syntaxes]]] */
+
+/* Maximum number of duplicates an interval can allow.  Some systems
+   (erroneously) define this in other header files, but we want our
+   value, so remove any previous define.  */
+#ifdef RE_DUP_MAX
+# undef RE_DUP_MAX
+#endif
+/* If sizeof(int) == 2, then ((1 << 15) - 1) overflows.  */
+#define RE_DUP_MAX (0x7fff)
+
+
+/* POSIX `cflags' bits (i.e., information for `regcomp').  */
+
+/* If this bit is set, then use extended regular expression syntax.
+   If not set, then use basic regular expression syntax.  */
+#define REG_EXTENDED 1
+
+/* If this bit is set, then ignore case when matching.
+   If not set, then case is significant.  */
+#define REG_ICASE (REG_EXTENDED << 1)
+
+/* If this bit is set, then anchors do not match at newline
+     characters in the string.
+   If not set, then anchors do match at newlines.  */
+#define REG_NEWLINE (REG_ICASE << 1)
+
+/* If this bit is set, then report only success or fail in regexec.
+   If not set, then returns differ between not matching and errors.  */
+#define REG_NOSUB (REG_NEWLINE << 1)
+
+
+/* POSIX `eflags' bits (i.e., information for regexec).  */
+
+/* If this bit is set, then the beginning-of-line operator doesn't match
+     the beginning of the string (presumably because it's not the
+     beginning of a line).
+   If not set, then the beginning-of-line operator does match the
+     beginning of the string.  */
+#define REG_NOTBOL 1
+
+/* Like REG_NOTBOL, except for the end-of-line.  */
+#define REG_NOTEOL (1 << 1)
+
+
+/* If any error codes are removed, changed, or added, update the
+   `re_error_msg' table in regex.c.  */
+typedef enum
+{
+#ifdef _XOPEN_SOURCE
+  REG_ENOSYS = -1,	/* This will never happen for this implementation.  */
+#endif
+
+  REG_NOERROR = 0,	/* Success.  */
+  REG_NOMATCH,		/* Didn't find a match (for regexec).  */
+
+  /* POSIX regcomp return error codes.  (In the order listed in the
+     standard.)  */
+  REG_BADPAT,		/* Invalid pattern.  */
+  REG_ECOLLATE,		/* Not implemented.  */
+  REG_ECTYPE,		/* Invalid character class name.  */
+  REG_EESCAPE,		/* Trailing backslash.  */
+  REG_ESUBREG,		/* Invalid back reference.  */
+  REG_EBRACK,		/* Unmatched left bracket.  */
+  REG_EPAREN,		/* Parenthesis imbalance.  */
+  REG_EBRACE,		/* Unmatched \{.  */
+  REG_BADBR,		/* Invalid contents of \{\}.  */
+  REG_ERANGE,		/* Invalid range end.  */
+  REG_ESPACE,		/* Ran out of memory.  */
+  REG_BADRPT,		/* No preceding re for repetition op.  */
+
+  /* Error codes we've added.  */
+  REG_EEND,		/* Premature end.  */
+  REG_ESIZE,		/* Compiled pattern bigger than 2^16 bytes.  */
+  REG_ERPAREN		/* Unmatched ) or \); not returned from regcomp.  */
+} reg_errcode_t;
+
+/* This data structure represents a compiled pattern.  Before calling
+   the pattern compiler, the fields `buffer', `allocated', `fastmap',
+   `translate', and `no_sub' can be set.  After the pattern has been
+   compiled, the `re_nsub' field is available.  All other fields are
+   private to the regex routines.  */
+
+#ifndef RE_TRANSLATE_TYPE
+# define RE_TRANSLATE_TYPE char *
+#endif
+
+struct re_pattern_buffer
+{
+/* [[[begin pattern_buffer]]] */
+	/* Space that holds the compiled pattern.  It is declared as
+          `unsigned char *' because its elements are
+           sometimes used as array indexes.  */
+  unsigned char *buffer;
+
+	/* Number of bytes to which `buffer' points.  */
+  unsigned long int allocated;
+
+	/* Number of bytes actually used in `buffer'.  */
+  unsigned long int used;
+
+        /* Syntax setting with which the pattern was compiled.  */
+  reg_syntax_t syntax;
+
+        /* Pointer to a fastmap, if any, otherwise zero.  re_search uses
+           the fastmap, if there is one, to skip over impossible
+           starting points for matches.  */
+  char *fastmap;
+
+        /* Either a translate table to apply to all characters before
+           comparing them, or zero for no translation.  The translation
+           is applied to a pattern when it is compiled and to a string
+           when it is matched.  */
+  RE_TRANSLATE_TYPE translate;
+
+	/* Number of subexpressions found by the compiler.  */
+  size_t re_nsub;
+
+        /* Zero if this pattern cannot match the empty string, one else.
+           Well, in truth it's used only in `re_search_2', to see
+           whether or not we should use the fastmap, so we don't set
+           this absolutely perfectly; see `re_compile_fastmap' (the
+           `duplicate' case).  */
+  unsigned can_be_null : 1;
+
+        /* If REGS_UNALLOCATED, allocate space in the `regs' structure
+             for `max (RE_NREGS, re_nsub + 1)' groups.
+           If REGS_REALLOCATE, reallocate space if necessary.
+           If REGS_FIXED, use what's there.  */
+#define REGS_UNALLOCATED 0
+#define REGS_REALLOCATE 1
+#define REGS_FIXED 2
+  unsigned regs_allocated : 2;
+
+        /* Set to zero when `regex_compile' compiles a pattern; set to one
+           by `re_compile_fastmap' if it updates the fastmap.  */
+  unsigned fastmap_accurate : 1;
+
+        /* If set, `re_match_2' does not return information about
+           subexpressions.  */
+  unsigned no_sub : 1;
+
+        /* If set, a beginning-of-line anchor doesn't match at the
+           beginning of the string.  */
+  unsigned not_bol : 1;
+
+        /* Similarly for an end-of-line anchor.  */
+  unsigned not_eol : 1;
+
+        /* If true, an anchor at a newline matches.  */
+  unsigned newline_anchor : 1;
+
+/* [[[end pattern_buffer]]] */
+};
+
+typedef struct re_pattern_buffer regex_t;
+
+/* Type for byte offsets within the string.  POSIX mandates this.  */
+typedef int regoff_t;
+
+
+/* This is the structure we store register match data in.  See
+   regex.texinfo for a full description of what registers match.  */
+struct re_registers
+{
+  unsigned num_regs;
+  regoff_t *start;
+  regoff_t *end;
+};
+
+
+/* If `regs_allocated' is REGS_UNALLOCATED in the pattern buffer,
+   `re_match_2' returns information about at least this many registers
+   the first time a `regs' structure is passed.  */
+#ifndef RE_NREGS
+# define RE_NREGS 30
+#endif
+
+
+/* POSIX specification for registers.  Aside from the different names than
+   `re_registers', POSIX uses an array of structures, instead of a
+   structure of arrays.  */
+typedef struct
+{
+  regoff_t rm_so;  /* Byte offset from string's start to substring's start.  */
+  regoff_t rm_eo;  /* Byte offset from string's start to substring's end.  */
+} regmatch_t;
+
+/* Declarations for routines.  */
+
+/* To avoid duplicating every routine declaration -- once with a
+   prototype (if we are ANSI), and once without (if we aren't) -- we
+   use the following macro to declare argument types.  This
+   unfortunately clutters up the declarations a bit, but I think it's
+   worth it.  */
+
+#if __STDC__
+
+# define _RE_ARGS(args) args
+
+#else /* not __STDC__ */
+
+# define _RE_ARGS(args) ()
+
+#endif /* not __STDC__ */
+
+/* Sets the current default syntax to SYNTAX, and return the old syntax.
+   You can also simply assign to the `re_syntax_options' variable.  */
+extern reg_syntax_t re_set_syntax _RE_ARGS ((reg_syntax_t syntax));
+
+/* Compile the regular expression PATTERN, with length LENGTH
+   and syntax given by the global `re_syntax_options', into the buffer
+   BUFFER.  Return NULL if successful, and an error string if not.  */
+extern const char *re_compile_pattern
+  _RE_ARGS ((const char *pattern, size_t length,
+             struct re_pattern_buffer *buffer));
+
+
+/* Compile a fastmap for the compiled pattern in BUFFER; used to
+   accelerate searches.  Return 0 if successful and -2 if was an
+   internal error.  */
+extern int re_compile_fastmap _RE_ARGS ((struct re_pattern_buffer *buffer));
+
+
+/* Search in the string STRING (with length LENGTH) for the pattern
+   compiled into BUFFER.  Start searching at position START, for RANGE
+   characters.  Return the starting position of the match, -1 for no
+   match, or -2 for an internal error.  Also return register
+   information in REGS (if REGS and BUFFER->no_sub are nonzero).  */
+extern int re_search
+  _RE_ARGS ((struct re_pattern_buffer *buffer, const char *string,
+            int length, int start, int range, struct re_registers *regs));
+
+
+/* Like `re_search', but search in the concatenation of STRING1 and
+   STRING2.  Also, stop searching at index START + STOP.  */
+extern int re_search_2
+  _RE_ARGS ((struct re_pattern_buffer *buffer, const char *string1,
+             int length1, const char *string2, int length2,
+             int start, int range, struct re_registers *regs, int stop));
+
+
+/* Like `re_search', but return how many characters in STRING the regexp
+   in BUFFER matched, starting at position START.  */
+extern int re_match
+  _RE_ARGS ((struct re_pattern_buffer *buffer, const char *string,
+             int length, int start, struct re_registers *regs));
+
+
+/* Relates to `re_match' as `re_search_2' relates to `re_search'.  */
+extern int re_match_2
+  _RE_ARGS ((struct re_pattern_buffer *buffer, const char *string1,
+             int length1, const char *string2, int length2,
+             int start, struct re_registers *regs, int stop));
+
+
+/* Set REGS to hold NUM_REGS registers, storing them in STARTS and
+   ENDS.  Subsequent matches using BUFFER and REGS will use this memory
+   for recording register information.  STARTS and ENDS must be
+   allocated with malloc, and must each be at least `NUM_REGS * sizeof
+   (regoff_t)' bytes long.
+
+   If NUM_REGS == 0, then subsequent matches should allocate their own
+   register data.
+
+   Unless this function is called, the first search or match using
+   PATTERN_BUFFER will allocate its own register data, without
+   freeing the old data.  */
+extern void re_set_registers
+  _RE_ARGS ((struct re_pattern_buffer *buffer, struct re_registers *regs,
+             unsigned num_regs, regoff_t *starts, regoff_t *ends));
+
+#if defined _REGEX_RE_COMP || defined _LIBC
+# ifndef _CRAY
+/* 4.2 bsd compatibility.  */
+extern char *re_comp _RE_ARGS ((const char *));
+extern int re_exec _RE_ARGS ((const char *));
+# endif
+#endif
+
+/* GCC 2.95 and later have "__restrict"; C99 compilers have
+   "restrict", and "configure" may have defined "restrict".  */
+#ifndef __restrict
+# if ! (2 < __GNUC__ || (2 == __GNUC__ && 95 <= __GNUC_MINOR__))
+#  if defined restrict || 199901L <= __STDC_VERSION__
+#   define __restrict restrict
+#  else
+#   define __restrict
+#  endif
+# endif
+#endif
+
+/* GCC 3.1 and later support declaring arrays as non-overlapping
+   using the syntax array_name[restrict]  */
+#ifndef __restrict_arr
+# if ! (3 < __GNUC__ || (3 == __GNUC__ && 1 <= __GNUC_MINOR__)) || defined (__GNUG__)
+#  define __restrict_arr
+# else
+#  define __restrict_arr __restrict
+# endif
+#endif
+
+/* POSIX compatibility.  */
+extern int regcomp _RE_ARGS ((regex_t *__restrict __preg,
+			      const char *__restrict __pattern,
+			      int __cflags));
+
+extern int regexec _RE_ARGS ((const regex_t *__restrict __preg,
+			      const char *__restrict __string, size_t __nmatch,
+			      regmatch_t __pmatch[__restrict_arr],
+			      int __eflags));
+
+extern size_t regerror _RE_ARGS ((int __errcode, const regex_t *__preg,
+				  char *__errbuf, size_t __errbuf_size));
+
+extern void regfree _RE_ARGS ((regex_t *__preg));
+
+
+#ifdef __cplusplus
+}
+#endif	/* C++ */
+
+#endif /* regex.h */
+
+/*
+Local variables:
+make-backup-files: t
+version-control: t
+trim-versions-without-asking: nil
+End:
+*/
+
+#endif /* xregex.h */
+
+/* isalpha etc. are used for the character classes.  */
+# include <ctype.h>
+
+/* Jim Meyering writes:
+
+   "... Some ctype macros are valid only for character codes that
+   isascii says are ASCII (SGI's IRIX-4.0.5 is one such system --when
+   using /bin/cc or gcc but without giving an ansi option).  So, all
+   ctype uses should be through macros like ISPRINT...  If
+   STDC_HEADERS is defined, then autoconf has verified that the ctype
+   macros don't need to be guarded with references to isascii. ...
+   Defining isascii to 1 should let any compiler worth its salt
+   eliminate the && through constant folding."
+   Solaris defines some of these symbols so we must undefine them first.  */
+
+# undef ISASCII
+# if defined STDC_HEADERS || (!defined isascii && !defined HAVE_ISASCII)
+#  define ISASCII(c) 1
+# else
+#  define ISASCII(c) isascii(c)
+# endif
+
+# ifdef isblank
+#  define ISBLANK(c) (ISASCII (c) && isblank (c))
+# else
+#  define ISBLANK(c) ((c) == ' ' || (c) == '\t')
+# endif
+# ifdef isgraph
+#  define ISGRAPH(c) (ISASCII (c) && isgraph (c))
+# else
+#  define ISGRAPH(c) (ISASCII (c) && isprint (c) && !isspace (c))
+# endif
+
+# undef ISPRINT
+# define ISPRINT(c) (ISASCII (c) && isprint (c))
+# define ISDIGIT(c) (ISASCII (c) && isdigit (c))
+# define ISALNUM(c) (ISASCII (c) && isalnum (c))
+# define ISALPHA(c) (ISASCII (c) && isalpha (c))
+# define ISCNTRL(c) (ISASCII (c) && iscntrl (c))
+# define ISLOWER(c) (ISASCII (c) && islower (c))
+# define ISPUNCT(c) (ISASCII (c) && ispunct (c))
+# define ISSPACE(c) (ISASCII (c) && isspace (c))
+# define ISUPPER(c) (ISASCII (c) && isupper (c))
+# define ISXDIGIT(c) (ISASCII (c) && isxdigit (c))
+
+# ifdef _tolower
+#  define TOLOWER(c) _tolower(c)
+# else
+#  define TOLOWER(c) tolower(c)
+# endif
+
+# ifndef NULL
+#  define NULL (void *)0
+# endif
+
+/* We remove any previous definition of `SIGN_EXTEND_CHAR',
+   since ours (we hope) works properly with all combinations of
+   machines, compilers, `char' and `unsigned char' argument types.
+   (Per Bothner suggested the basic approach.)  */
+# undef SIGN_EXTEND_CHAR
+# if __STDC__
+#  define SIGN_EXTEND_CHAR(c) ((signed char) (c))
+# else  /* not __STDC__ */
+/* As in Harbison and Steele.  */
+#  define SIGN_EXTEND_CHAR(c) ((((unsigned char) (c)) ^ 128) - 128)
+# endif
+
+# ifndef emacs
+/* How many characters in the character set.  */
+#  define CHAR_SET_SIZE 256
+
+#  ifdef SYNTAX_TABLE
+
+extern char *re_syntax_table;
+
+#  else /* not SYNTAX_TABLE */
+
+static char re_syntax_table[CHAR_SET_SIZE];
+
+static void init_syntax_once PARAMS ((void));
+
+static void
+init_syntax_once ()
+{
+   register int c;
+   static int done = 0;
+
+   if (done)
+     return;
+   bzero (re_syntax_table, sizeof re_syntax_table);
+
+   for (c = 0; c < CHAR_SET_SIZE; ++c)
+     if (ISALNUM (c))
+	re_syntax_table[c] = Sword;
+
+   re_syntax_table['_'] = Sword;
+
+   done = 1;
+}
+
+#  endif /* not SYNTAX_TABLE */
+
+#  define SYNTAX(c) re_syntax_table[(unsigned char) (c)]
+
+# endif /* emacs */
+
+/* Integer type for pointers.  */
+# if !defined _LIBC && !defined HAVE_UINTPTR_T
+typedef unsigned long int uintptr_t;
+# endif
+
+/* Should we use malloc or alloca?  If REGEX_MALLOC is not defined, we
+   use `alloca' instead of `malloc'.  This is because using malloc in
+   re_search* or re_match* could cause memory leaks when C-g is used in
+   Emacs; also, malloc is slower and causes storage fragmentation.  On
+   the other hand, malloc is more portable, and easier to debug.
+
+   Because we sometimes use alloca, some routines have to be macros,
+   not functions -- `alloca'-allocated space disappears at the end of the
+   function it is called in.  */
+
+# ifdef REGEX_MALLOC
+
+#  define REGEX_ALLOCATE malloc
+#  define REGEX_REALLOCATE(source, osize, nsize) realloc (source, nsize)
+#  define REGEX_FREE free
+
+# else /* not REGEX_MALLOC  */
+
+/* Emacs already defines alloca, sometimes.  */
+#  ifndef alloca
+
+/* Make alloca work the best possible way.  */
+#   ifdef __GNUC__
+#    define alloca __builtin_alloca
+#   else /* not __GNUC__ */
+#    if HAVE_ALLOCA_H
+#     include <alloca.h>
+#    endif /* HAVE_ALLOCA_H */
+#   endif /* not __GNUC__ */
+
+#  endif /* not alloca */
+
+#  define REGEX_ALLOCATE alloca
+
+/* Assumes a `char *destination' variable.  */
+#  define REGEX_REALLOCATE(source, osize, nsize)			\
+  (destination = (char *) alloca (nsize),				\
+   memcpy (destination, source, osize))
+
+/* No need to do anything to free, after alloca.  */
+#  define REGEX_FREE(arg) ((void)0) /* Do nothing!  But inhibit gcc warning.  */
+
+# endif /* not REGEX_MALLOC */
+
+/* Define how to allocate the failure stack.  */
+
+# if defined REL_ALLOC && defined REGEX_MALLOC
+
+#  define REGEX_ALLOCATE_STACK(size)				\
+  r_alloc (&failure_stack_ptr, (size))
+#  define REGEX_REALLOCATE_STACK(source, osize, nsize)		\
+  r_re_alloc (&failure_stack_ptr, (nsize))
+#  define REGEX_FREE_STACK(ptr)					\
+  r_alloc_free (&failure_stack_ptr)
+
+# else /* not using relocating allocator */
+
+#  ifdef REGEX_MALLOC
+
+#   define REGEX_ALLOCATE_STACK malloc
+#   define REGEX_REALLOCATE_STACK(source, osize, nsize) realloc (source, nsize)
+#   define REGEX_FREE_STACK free
+
+#  else /* not REGEX_MALLOC */
+
+#   define REGEX_ALLOCATE_STACK alloca
+
+#   define REGEX_REALLOCATE_STACK(source, osize, nsize)			\
+   REGEX_REALLOCATE (source, osize, nsize)
+/* No need to explicitly free anything.  */
+#   define REGEX_FREE_STACK(arg)
+
+#  endif /* not REGEX_MALLOC */
+# endif /* not using relocating allocator */
+
+
+/* True if `size1' is non-NULL and PTR is pointing anywhere inside
+   `string1' or just past its end.  This works if PTR is NULL, which is
+   a good thing.  */
+# define FIRST_STRING_P(ptr) 					\
+  (size1 && string1 <= (ptr) && (ptr) <= string1 + size1)
+
+/* (Re)Allocate N items of type T using malloc, or fail.  */
+# define TALLOC(n, t) ((t *) malloc ((n) * sizeof (t)))
+# define RETALLOC(addr, n, t) ((addr) = (t *) realloc (addr, (n) * sizeof (t)))
+# define RETALLOC_IF(addr, n, t) \
+  if (addr) RETALLOC((addr), (n), t); else (addr) = TALLOC ((n), t)
+# define REGEX_TALLOC(n, t) ((t *) REGEX_ALLOCATE ((n) * sizeof (t)))
+
+# define BYTEWIDTH 8 /* In bits.  */
+
+# define STREQ(s1, s2) ((strcmp (s1, s2) == 0))
+
+# undef MAX
+# undef MIN
+# define MAX(a, b) ((a) > (b) ? (a) : (b))
+# define MIN(a, b) ((a) < (b) ? (a) : (b))
+
+typedef char boolean;
+# define false 0
+# define true 1
+
+static reg_errcode_t byte_regex_compile _RE_ARGS ((const char *pattern, size_t size,
+                                                   reg_syntax_t syntax,
+                                                   struct re_pattern_buffer *bufp));
+
+static int byte_re_match_2_internal PARAMS ((struct re_pattern_buffer *bufp,
+					     const char *string1, int size1,
+					     const char *string2, int size2,
+					     int pos,
+					     struct re_registers *regs,
+					     int stop));
+static int byte_re_search_2 PARAMS ((struct re_pattern_buffer *bufp,
+				     const char *string1, int size1,
+				     const char *string2, int size2,
+				     int startpos, int range,
+				     struct re_registers *regs, int stop));
+static int byte_re_compile_fastmap PARAMS ((struct re_pattern_buffer *bufp));
+
+#ifdef MBS_SUPPORT
+static reg_errcode_t wcs_regex_compile _RE_ARGS ((const char *pattern, size_t size,
+                                                   reg_syntax_t syntax,
+                                                   struct re_pattern_buffer *bufp));
+
+
+static int wcs_re_match_2_internal PARAMS ((struct re_pattern_buffer *bufp,
+					    const char *cstring1, int csize1,
+					    const char *cstring2, int csize2,
+					    int pos,
+					    struct re_registers *regs,
+					    int stop,
+					    wchar_t *string1, int size1,
+					    wchar_t *string2, int size2,
+					    int *mbs_offset1, int *mbs_offset2));
+static int wcs_re_search_2 PARAMS ((struct re_pattern_buffer *bufp,
+				    const char *string1, int size1,
+				    const char *string2, int size2,
+				    int startpos, int range,
+				    struct re_registers *regs, int stop));
+static int wcs_re_compile_fastmap PARAMS ((struct re_pattern_buffer *bufp));
+#endif
+
+/* These are the command codes that appear in compiled regular
+   expressions.  Some opcodes are followed by argument bytes.  A
+   command code can specify any interpretation whatsoever for its
+   arguments.  Zero bytes may appear in the compiled regular expression.  */
+
+typedef enum
+{
+  no_op = 0,
+
+  /* Succeed right away--no more backtracking.  */
+  succeed,
+
+        /* Followed by one byte giving n, then by n literal bytes.  */
+  exactn,
+
+# ifdef MBS_SUPPORT
+	/* Same as exactn, but contains binary data.  */
+  exactn_bin,
+# endif
+
+        /* Matches any (more or less) character.  */
+  anychar,
+
+        /* Matches any one char belonging to specified set.  First
+           following byte is number of bitmap bytes.  Then come bytes
+           for a bitmap saying which chars are in.  Bits in each byte
+           are ordered low-bit-first.  A character is in the set if its
+           bit is 1.  A character too large to have a bit in the map is
+           automatically not in the set.  */
+        /* ifdef MBS_SUPPORT, following element is length of character
+	   classes, length of collating symbols, length of equivalence
+	   classes, length of character ranges, and length of characters.
+	   Next, character class element, collating symbols elements,
+	   equivalence class elements, range elements, and character
+	   elements follow.
+	   See regex_compile function.  */
+  charset,
+
+        /* Same parameters as charset, but match any character that is
+           not one of those specified.  */
+  charset_not,
+
+        /* Start remembering the text that is matched, for storing in a
+           register.  Followed by one byte with the register number, in
+           the range 0 to one less than the pattern buffer's re_nsub
+           field.  Then followed by one byte with the number of groups
+           inner to this one.  (This last has to be part of the
+           start_memory only because we need it in the on_failure_jump
+           of re_match_2.)  */
+  start_memory,
+
+        /* Stop remembering the text that is matched and store it in a
+           memory register.  Followed by one byte with the register
+           number, in the range 0 to one less than `re_nsub' in the
+           pattern buffer, and one byte with the number of inner groups,
+           just like `start_memory'.  (We need the number of inner
+           groups here because we don't have any easy way of finding the
+           corresponding start_memory when we're at a stop_memory.)  */
+  stop_memory,
+
+        /* Match a duplicate of something remembered. Followed by one
+           byte containing the register number.  */
+  duplicate,
+
+        /* Fail unless at beginning of line.  */
+  begline,
+
+        /* Fail unless at end of line.  */
+  endline,
+
+        /* Succeeds if at beginning of buffer (if emacs) or at beginning
+           of string to be matched (if not).  */
+  begbuf,
+
+        /* Analogously, for end of buffer/string.  */
+  endbuf,
+
+        /* Followed by two byte relative address to which to jump.  */
+  jump,
+
+	/* Same as jump, but marks the end of an alternative.  */
+  jump_past_alt,
+
+        /* Followed by two-byte relative address of place to resume at
+           in case of failure.  */
+        /* ifdef MBS_SUPPORT, the size of address is 1.  */
+  on_failure_jump,
+
+        /* Like on_failure_jump, but pushes a placeholder instead of the
+           current string position when executed.  */
+  on_failure_keep_string_jump,
+
+        /* Throw away latest failure point and then jump to following
+           two-byte relative address.  */
+        /* ifdef MBS_SUPPORT, the size of address is 1.  */
+  pop_failure_jump,
+
+        /* Change to pop_failure_jump if know won't have to backtrack to
+           match; otherwise change to jump.  This is used to jump
+           back to the beginning of a repeat.  If what follows this jump
+           clearly won't match what the repeat does, such that we can be
+           sure that there is no use backtracking out of repetitions
+           already matched, then we change it to a pop_failure_jump.
+           Followed by two-byte address.  */
+        /* ifdef MBS_SUPPORT, the size of address is 1.  */
+  maybe_pop_jump,
+
+        /* Jump to following two-byte address, and push a dummy failure
+           point. This failure point will be thrown away if an attempt
+           is made to use it for a failure.  A `+' construct makes this
+           before the first repeat.  Also used as an intermediary kind
+           of jump when compiling an alternative.  */
+        /* ifdef MBS_SUPPORT, the size of address is 1.  */
+  dummy_failure_jump,
+
+	/* Push a dummy failure point and continue.  Used at the end of
+	   alternatives.  */
+  push_dummy_failure,
+
+        /* Followed by two-byte relative address and two-byte number n.
+           After matching N times, jump to the address upon failure.  */
+        /* ifdef MBS_SUPPORT, the size of address is 1.  */
+  succeed_n,
+
+        /* Followed by two-byte relative address, and two-byte number n.
+           Jump to the address N times, then fail.  */
+        /* ifdef MBS_SUPPORT, the size of address is 1.  */
+  jump_n,
+
+        /* Set the following two-byte relative address to the
+           subsequent two-byte number.  The address *includes* the two
+           bytes of number.  */
+        /* ifdef MBS_SUPPORT, the size of address is 1.  */
+  set_number_at,
+
+  wordchar,	/* Matches any word-constituent character.  */
+  notwordchar,	/* Matches any char that is not a word-constituent.  */
+
+  wordbeg,	/* Succeeds if at word beginning.  */
+  wordend,	/* Succeeds if at word end.  */
+
+  wordbound,	/* Succeeds if at a word boundary.  */
+  notwordbound	/* Succeeds if not at a word boundary.  */
+
+# ifdef emacs
+  ,before_dot,	/* Succeeds if before point.  */
+  at_dot,	/* Succeeds if at point.  */
+  after_dot,	/* Succeeds if after point.  */
+
+	/* Matches any character whose syntax is specified.  Followed by
+           a byte which contains a syntax code, e.g., Sword.  */
+  syntaxspec,
+
+	/* Matches any character whose syntax is not that specified.  */
+  notsyntaxspec
+# endif /* emacs */
+} re_opcode_t;
+#endif /* not INSIDE_RECURSION */
+
+
+#ifdef BYTE
+# define CHAR_T char
+# define UCHAR_T unsigned char
+# define COMPILED_BUFFER_VAR bufp->buffer
+# define OFFSET_ADDRESS_SIZE 2
+# if defined (__STDC__) || defined (ALMOST_STDC) || defined (HAVE_STRINGIZE)
+#  define PREFIX(name) byte_##name
+# else
+#  define PREFIX(name) byte_/**/name
+# endif
+# define ARG_PREFIX(name) name
+# define PUT_CHAR(c) putchar (c)
+#else
+# ifdef WCHAR
+#  define CHAR_T wchar_t
+#  define UCHAR_T wchar_t
+#  define COMPILED_BUFFER_VAR wc_buffer
+#  define OFFSET_ADDRESS_SIZE 1 /* the size which STORE_NUMBER macro use */
+#  define CHAR_CLASS_SIZE ((__alignof__(wctype_t)+sizeof(wctype_t))/sizeof(CHAR_T)+1)
+#  if defined (__STDC__) || defined (ALMOST_STDC) || defined (HAVE_STRINGIZE)
+#   define PREFIX(name) wcs_##name
+#   define ARG_PREFIX(name) c##name
+#  else
+#   define PREFIX(name) wcs_/**/name
+#   define ARG_PREFIX(name) c/**/name
+#  endif
+/* Should we use wide stream??  */
+#  define PUT_CHAR(c) printf ("%C", c);
+#  define TRUE 1
+#  define FALSE 0
+# else
+#  ifdef MBS_SUPPORT
+#   define WCHAR
+#   define INSIDE_RECURSION
+/* Extended regular expression matching and search library,
+   version 0.12.
+   (Implements POSIX draft P1003.2/D11.2, except for some of the
+   internationalization features.)
+   Copyright (C) 1993-1999, 2000, 2001, 2002 Free Software Foundation, Inc.
+   This file is part of the GNU C Library.
+
+   The GNU C Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   The GNU C Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with the GNU C Library; if not, write to the Free
+   Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+   02111-1307 USA.  */
+
+/* This file has been modified for usage in libiberty.  It includes "xregex.h"
+   instead of <regex.h>.  The "xregex.h" header file renames all external
+   routines with an "x" prefix so they do not collide with the native regex
+   routines or with other components regex routines. */
+/* AIX requires this to be the first thing in the file. */
+#if defined _AIX && !defined __GNUC__ && !defined REGEX_MALLOC
+  #pragma alloca
+#endif
+
+#undef	_GNU_SOURCE
+#define _GNU_SOURCE
+
+#ifdef HAVE_CONFIG_H
+#endif
+
+
+#ifndef PARAMS
+# if defined __GNUC__ || (defined __STDC__ && __STDC__)
+#  define PARAMS(args) args
+# else
+#  define PARAMS(args) ()
+# endif  /* GCC.  */
+#endif  /* Not PARAMS.  */
+
+
+
+#ifdef BYTE
+# define CHAR_T char
+# define UCHAR_T unsigned char
+# define COMPILED_BUFFER_VAR bufp->buffer
+# define OFFSET_ADDRESS_SIZE 2
+# if defined (__STDC__) || defined (ALMOST_STDC) || defined (HAVE_STRINGIZE)
+#  define PREFIX(name) byte_##name
+# else
+#  define PREFIX(name) byte_/**/name
+# endif
+# define ARG_PREFIX(name) name
+# define PUT_CHAR(c) putchar (c)
+#else
+# ifdef WCHAR
+#  define CHAR_T wchar_t
+#  define UCHAR_T wchar_t
+#  define COMPILED_BUFFER_VAR wc_buffer
+#  define OFFSET_ADDRESS_SIZE 1 /* the size which STORE_NUMBER macro use */
+#  define CHAR_CLASS_SIZE ((__alignof__(wctype_t)+sizeof(wctype_t))/sizeof(CHAR_T)+1)
+#  if defined (__STDC__) || defined (ALMOST_STDC) || defined (HAVE_STRINGIZE)
+#   define PREFIX(name) wcs_##name
+#   define ARG_PREFIX(name) c##name
+#  else
+#   define PREFIX(name) wcs_/**/name
+#   define ARG_PREFIX(name) c/**/name
+#  endif
+/* Should we use wide stream??  */
+#  define PUT_CHAR(c) printf ("%C", c);
+#  define TRUE 1
+#  define FALSE 0
+# else
+#  ifdef MBS_SUPPORT
+#   define WCHAR
+#   define INSIDE_RECURSION
+/*#   include "regex.c"*/
+#   undef INSIDE_RECURSION
+#  endif
+#  define BYTE
+#  define INSIDE_RECURSION
+/*#  include "regex.c"*/
+#  undef INSIDE_RECURSION
+# endif
+#endif
+
+#ifdef INSIDE_RECURSION
+/* Common operations on the compiled pattern.  */
+
+/* Store NUMBER in two contiguous bytes starting at DESTINATION.  */
+/* ifdef MBS_SUPPORT, we store NUMBER in 1 element.  */
+
+# ifdef WCHAR
+#  define STORE_NUMBER(destination, number)				\
+  do {									\
+    *(destination) = (UCHAR_T)(number);				\
+  } while (0)
+# else /* BYTE */
+#  define STORE_NUMBER(destination, number)				\
+  do {									\
+    (destination)[0] = (number) & 0377;					\
+    (destination)[1] = (number) >> 8;					\
+  } while (0)
+# endif /* WCHAR */
+
+/* Same as STORE_NUMBER, except increment DESTINATION to
+   the byte after where the number is stored.  Therefore, DESTINATION
+   must be an lvalue.  */
+/* ifdef MBS_SUPPORT, we store NUMBER in 1 element.  */
+
+# define STORE_NUMBER_AND_INCR(destination, number)			\
+  do {									\
+    STORE_NUMBER (destination, number);					\
+    (destination) += OFFSET_ADDRESS_SIZE;				\
+  } while (0)
+
+/* Put into DESTINATION a number stored in two contiguous bytes starting
+   at SOURCE.  */
+/* ifdef MBS_SUPPORT, we store NUMBER in 1 element.  */
+
+# ifdef WCHAR
+#  define EXTRACT_NUMBER(destination, source)				\
+  do {									\
+    (destination) = *(source);						\
+  } while (0)
+# else /* BYTE */
+#  define EXTRACT_NUMBER(destination, source)				\
+  do {									\
+    (destination) = *(source) & 0377;					\
+    (destination) += SIGN_EXTEND_CHAR (*((source) + 1)) << 8;		\
+  } while (0)
+# endif
+
+# ifdef DEBUG
+static void PREFIX(extract_number) _RE_ARGS ((int *dest, UCHAR_T *source));
+static void
+PREFIX(extract_number) (dest, source)
+    int *dest;
+    UCHAR_T *source;
+{
+#  ifdef WCHAR
+  *dest = *source;
+#  else /* BYTE */
+  int temp = SIGN_EXTEND_CHAR (*(source + 1));
+  *dest = *source & 0377;
+  *dest += temp << 8;
+#  endif
+}
+
+#  ifndef EXTRACT_MACROS /* To debug the macros.  */
+#   undef EXTRACT_NUMBER
+#   define EXTRACT_NUMBER(dest, src) PREFIX(extract_number) (&dest, src)
+#  endif /* not EXTRACT_MACROS */
+
+# endif /* DEBUG */
+
+/* Same as EXTRACT_NUMBER, except increment SOURCE to after the number.
+   SOURCE must be an lvalue.  */
+
+# define EXTRACT_NUMBER_AND_INCR(destination, source)			\
+  do {									\
+    EXTRACT_NUMBER (destination, source);				\
+    (source) += OFFSET_ADDRESS_SIZE; 					\
+  } while (0)
+
+# ifdef DEBUG
+static void PREFIX(extract_number_and_incr) _RE_ARGS ((int *destination,
+						       UCHAR_T **source));
+static void
+PREFIX(extract_number_and_incr) (destination, source)
+    int *destination;
+    UCHAR_T **source;
+{
+  PREFIX(extract_number) (destination, *source);
+  *source += OFFSET_ADDRESS_SIZE;
+}
+
+#  ifndef EXTRACT_MACROS
+#   undef EXTRACT_NUMBER_AND_INCR
+#   define EXTRACT_NUMBER_AND_INCR(dest, src) \
+  PREFIX(extract_number_and_incr) (&dest, &src)
+#  endif /* not EXTRACT_MACROS */
+
+# endif /* DEBUG */
+
+
+
+/* If DEBUG is defined, Regex prints many voluminous messages about what
+   it is doing (if the variable `debug' is nonzero).  If linked with the
+   main program in `iregex.c', you can enter patterns and strings
+   interactively.  And if linked with the main program in `main.c' and
+   the other test files, you can run the already-written tests.  */
+
+# ifdef DEBUG
+
+#  ifndef DEFINED_ONCE
+
+/* We use standard I/O for debugging.  */
+#   include <stdio.h>
+
+/* It is useful to test things that ``must'' be true when debugging.  */
+#   include <assert.h>
+
+static int debug;
+
+#   define DEBUG_STATEMENT(e) e
+#   define DEBUG_PRINT1(x) if (debug) printf (x)
+#   define DEBUG_PRINT2(x1, x2) if (debug) printf (x1, x2)
+#   define DEBUG_PRINT3(x1, x2, x3) if (debug) printf (x1, x2, x3)
+#   define DEBUG_PRINT4(x1, x2, x3, x4) if (debug) printf (x1, x2, x3, x4)
+#  endif /* not DEFINED_ONCE */
+
+#  define DEBUG_PRINT_COMPILED_PATTERN(p, s, e) 			\
+  if (debug) PREFIX(print_partial_compiled_pattern) (s, e)
+#  define DEBUG_PRINT_DOUBLE_STRING(w, s1, sz1, s2, sz2)		\
+  if (debug) PREFIX(print_double_string) (w, s1, sz1, s2, sz2)
+
+
+/* Print the fastmap in human-readable form.  */
+
+#  ifndef DEFINED_ONCE
+void
+print_fastmap (fastmap)
+    char *fastmap;
+{
+  unsigned was_a_range = 0;
+  unsigned i = 0;
+
+  while (i < (1 << BYTEWIDTH))
+    {
+      if (fastmap[i++])
+	{
+	  was_a_range = 0;
+          putchar (i - 1);
+          while (i < (1 << BYTEWIDTH)  &&  fastmap[i])
+            {
+              was_a_range = 1;
+              i++;
+            }
+	  if (was_a_range)
+            {
+              printf ("-");
+              putchar (i - 1);
+            }
+        }
+    }
+  putchar ('\n');
+}
+#  endif /* not DEFINED_ONCE */
+
+
+/* Print a compiled pattern string in human-readable form, starting at
+   the START pointer into it and ending just before the pointer END.  */
+
+void
+PREFIX(print_partial_compiled_pattern) (start, end)
+    UCHAR_T *start;
+    UCHAR_T *end;
+{
+  int mcnt, mcnt2;
+  UCHAR_T *p1;
+  UCHAR_T *p = start;
+  UCHAR_T *pend = end;
+
+  if (start == NULL)
+    {
+      printf ("(null)\n");
+      return;
+    }
+
+  /* Loop over pattern commands.  */
+  while (p < pend)
+    {
+#  ifdef _LIBC
+      printf ("%td:\t", p - start);
+#  else
+      printf ("%ld:\t", (long int) (p - start));
+#  endif
+
+      switch ((re_opcode_t) *p++)
+	{
+        case no_op:
+          printf ("/no_op");
+          break;
+
+	case exactn:
+	  mcnt = *p++;
+          printf ("/exactn/%d", mcnt);
+          do
+	    {
+              putchar ('/');
+	      PUT_CHAR (*p++);
+            }
+          while (--mcnt);
+          break;
+
+#  ifdef MBS_SUPPORT
+	case exactn_bin:
+	  mcnt = *p++;
+	  printf ("/exactn_bin/%d", mcnt);
+          do
+	    {
+	      printf("/%lx", (long int) *p++);
+            }
+          while (--mcnt);
+          break;
+#  endif /* MBS_SUPPORT */
+
+	case start_memory:
+          mcnt = *p++;
+          printf ("/start_memory/%d/%ld", mcnt, (long int) *p++);
+          break;
+
+	case stop_memory:
+          mcnt = *p++;
+	  printf ("/stop_memory/%d/%ld", mcnt, (long int) *p++);
+          break;
+
+	case duplicate:
+	  printf ("/duplicate/%ld", (long int) *p++);
+	  break;
+
+	case anychar:
+	  printf ("/anychar");
+	  break;
+
+	case charset:
+        case charset_not:
+          {
+#  ifdef WCHAR
+	    int i, length;
+	    wchar_t *workp = p;
+	    printf ("/charset [%s",
+	            (re_opcode_t) *(workp - 1) == charset_not ? "^" : "");
+	    p += 5;
+	    length = *workp++; /* the length of char_classes */
+	    for (i=0 ; i<length ; i++)
+	      printf("[:%lx:]", (long int) *p++);
+	    length = *workp++; /* the length of collating_symbol */
+	    for (i=0 ; i<length ;)
+	      {
+		printf("[.");
+		while(*p != 0)
+		  PUT_CHAR((i++,*p++));
+		i++,p++;
+		printf(".]");
+	      }
+	    length = *workp++; /* the length of equivalence_class */
+	    for (i=0 ; i<length ;)
+	      {
+		printf("[=");
+		while(*p != 0)
+		  PUT_CHAR((i++,*p++));
+		i++,p++;
+		printf("=]");
+	      }
+	    length = *workp++; /* the length of char_range */
+	    for (i=0 ; i<length ; i++)
+	      {
+		wchar_t range_start = *p++;
+		wchar_t range_end = *p++;
+		printf("%C-%C", range_start, range_end);
+	      }
+	    length = *workp++; /* the length of char */
+	    for (i=0 ; i<length ; i++)
+	      printf("%C", *p++);
+	    putchar (']');
+#  else
+            register int c, last = -100;
+	    register int in_range = 0;
+
+	    printf ("/charset [%s",
+	            (re_opcode_t) *(p - 1) == charset_not ? "^" : "");
+
+            assert (p + *p < pend);
+
+            for (c = 0; c < 256; c++)
+	      if (c / 8 < *p
+		  && (p[1 + (c/8)] & (1 << (c % 8))))
+		{
+		  /* Are we starting a range?  */
+		  if (last + 1 == c && ! in_range)
+		    {
+		      putchar ('-');
+		      in_range = 1;
+		    }
+		  /* Have we broken a range?  */
+		  else if (last + 1 != c && in_range)
+              {
+		      putchar (last);
+		      in_range = 0;
+		    }
+
+		  if (! in_range)
+		    putchar (c);
+
+		  last = c;
+              }
+
+	    if (in_range)
+	      putchar (last);
+
+	    putchar (']');
+
+	    p += 1 + *p;
+#  endif /* WCHAR */
+	  }
+	  break;
+
+	case begline:
+	  printf ("/begline");
+          break;
+
+	case endline:
+          printf ("/endline");
+          break;
+
+	case on_failure_jump:
+          PREFIX(extract_number_and_incr) (&mcnt, &p);
+#  ifdef _LIBC
+  	  printf ("/on_failure_jump to %td", p + mcnt - start);
+#  else
+  	  printf ("/on_failure_jump to %ld", (long int) (p + mcnt - start));
+#  endif
+          break;
+
+	case on_failure_keep_string_jump:
+          PREFIX(extract_number_and_incr) (&mcnt, &p);
+#  ifdef _LIBC
+  	  printf ("/on_failure_keep_string_jump to %td", p + mcnt - start);
+#  else
+  	  printf ("/on_failure_keep_string_jump to %ld",
+		  (long int) (p + mcnt - start));
+#  endif
+          break;
+
+	case dummy_failure_jump:
+          PREFIX(extract_number_and_incr) (&mcnt, &p);
+#  ifdef _LIBC
+  	  printf ("/dummy_failure_jump to %td", p + mcnt - start);
+#  else
+  	  printf ("/dummy_failure_jump to %ld", (long int) (p + mcnt - start));
+#  endif
+          break;
+
+	case push_dummy_failure:
+          printf ("/push_dummy_failure");
+          break;
+
+        case maybe_pop_jump:
+          PREFIX(extract_number_and_incr) (&mcnt, &p);
+#  ifdef _LIBC
+  	  printf ("/maybe_pop_jump to %td", p + mcnt - start);
+#  else
+  	  printf ("/maybe_pop_jump to %ld", (long int) (p + mcnt - start));
+#  endif
+	  break;
+
+        case pop_failure_jump:
+	  PREFIX(extract_number_and_incr) (&mcnt, &p);
+#  ifdef _LIBC
+  	  printf ("/pop_failure_jump to %td", p + mcnt - start);
+#  else
+  	  printf ("/pop_failure_jump to %ld", (long int) (p + mcnt - start));
+#  endif
+	  break;
+
+        case jump_past_alt:
+	  PREFIX(extract_number_and_incr) (&mcnt, &p);
+#  ifdef _LIBC
+  	  printf ("/jump_past_alt to %td", p + mcnt - start);
+#  else
+  	  printf ("/jump_past_alt to %ld", (long int) (p + mcnt - start));
+#  endif
+	  break;
+
+        case jump:
+	  PREFIX(extract_number_and_incr) (&mcnt, &p);
+#  ifdef _LIBC
+  	  printf ("/jump to %td", p + mcnt - start);
+#  else
+  	  printf ("/jump to %ld", (long int) (p + mcnt - start));
+#  endif
+	  break;
+
+        case succeed_n:
+          PREFIX(extract_number_and_incr) (&mcnt, &p);
+	  p1 = p + mcnt;
+          PREFIX(extract_number_and_incr) (&mcnt2, &p);
+#  ifdef _LIBC
+	  printf ("/succeed_n to %td, %d times", p1 - start, mcnt2);
+#  else
+	  printf ("/succeed_n to %ld, %d times",
+		  (long int) (p1 - start), mcnt2);
+#  endif
+          break;
+
+        case jump_n:
+          PREFIX(extract_number_and_incr) (&mcnt, &p);
+	  p1 = p + mcnt;
+          PREFIX(extract_number_and_incr) (&mcnt2, &p);
+	  printf ("/jump_n to %d, %d times", p1 - start, mcnt2);
+          break;
+
+        case set_number_at:
+          PREFIX(extract_number_and_incr) (&mcnt, &p);
+	  p1 = p + mcnt;
+          PREFIX(extract_number_and_incr) (&mcnt2, &p);
+#  ifdef _LIBC
+	  printf ("/set_number_at location %td to %d", p1 - start, mcnt2);
+#  else
+	  printf ("/set_number_at location %ld to %d",
+		  (long int) (p1 - start), mcnt2);
+#  endif
+          break;
+
+        case wordbound:
+	  printf ("/wordbound");
+	  break;
+
+	case notwordbound:
+	  printf ("/notwordbound");
+          break;
+
+	case wordbeg:
+	  printf ("/wordbeg");
+	  break;
+
+	case wordend:
+	  printf ("/wordend");
+	  break;
+
+#  ifdef emacs
+	case before_dot:
+	  printf ("/before_dot");
+          break;
+
+	case at_dot:
+	  printf ("/at_dot");
+          break;
+
+	case after_dot:
+	  printf ("/after_dot");
+          break;
+
+	case syntaxspec:
+          printf ("/syntaxspec");
+	  mcnt = *p++;
+	  printf ("/%d", mcnt);
+          break;
+
+	case notsyntaxspec:
+          printf ("/notsyntaxspec");
+	  mcnt = *p++;
+	  printf ("/%d", mcnt);
+	  break;
+#  endif /* emacs */
+
+	case wordchar:
+	  printf ("/wordchar");
+          break;
+
+	case notwordchar:
+	  printf ("/notwordchar");
+          break;
+
+	case begbuf:
+	  printf ("/begbuf");
+          break;
+
+	case endbuf:
+	  printf ("/endbuf");
+          break;
+
+        default:
+          printf ("?%ld", (long int) *(p-1));
+	}
+
+      putchar ('\n');
+    }
+
+#  ifdef _LIBC
+  printf ("%td:\tend of pattern.\n", p - start);
+#  else
+  printf ("%ld:\tend of pattern.\n", (long int) (p - start));
+#  endif
+}
+
+
+void
+PREFIX(print_compiled_pattern) (bufp)
+    struct re_pattern_buffer *bufp;
+{
+  UCHAR_T *buffer = (UCHAR_T*) bufp->buffer;
+
+  PREFIX(print_partial_compiled_pattern) (buffer, buffer
+				  + bufp->used / sizeof(UCHAR_T));
+  printf ("%ld bytes used/%ld bytes allocated.\n",
+	  bufp->used, bufp->allocated);
+
+  if (bufp->fastmap_accurate && bufp->fastmap)
+    {
+      printf ("fastmap: ");
+      print_fastmap (bufp->fastmap);
+    }
+
+#  ifdef _LIBC
+  printf ("re_nsub: %Zd\t", bufp->re_nsub);
+#  else
+  printf ("re_nsub: %ld\t", (long int) bufp->re_nsub);
+#  endif
+  printf ("regs_alloc: %d\t", bufp->regs_allocated);
+  printf ("can_be_null: %d\t", bufp->can_be_null);
+  printf ("newline_anchor: %d\n", bufp->newline_anchor);
+  printf ("no_sub: %d\t", bufp->no_sub);
+  printf ("not_bol: %d\t", bufp->not_bol);
+  printf ("not_eol: %d\t", bufp->not_eol);
+  printf ("syntax: %lx\n", bufp->syntax);
+  /* Perhaps we should print the translate table?  */
+}
+
+
+void
+PREFIX(print_double_string) (where, string1, size1, string2, size2)
+    const CHAR_T *where;
+    const CHAR_T *string1;
+    const CHAR_T *string2;
+    int size1;
+    int size2;
+{
+  int this_char;
+
+  if (where == NULL)
+    printf ("(null)");
+  else
+    {
+      int cnt;
+
+      if (FIRST_STRING_P (where))
+        {
+          for (this_char = where - string1; this_char < size1; this_char++)
+	    PUT_CHAR (string1[this_char]);
+
+          where = string2;
+        }
+
+      cnt = 0;
+      for (this_char = where - string2; this_char < size2; this_char++)
+	{
+	  PUT_CHAR (string2[this_char]);
+	  if (++cnt > 100)
+	    {
+	      fputs ("...", stdout);
+	      break;
+	    }
+	}
+    }
+}
+
+#  ifndef DEFINED_ONCE
+void
+printchar (c)
+     int c;
+{
+  putc (c, stderr);
+}
+#  endif
+
+# else /* not DEBUG */
+
+#  ifndef DEFINED_ONCE
+#   undef assert
+#   define assert(e)
+
+#   define DEBUG_STATEMENT(e)
+#   define DEBUG_PRINT1(x)
+#   define DEBUG_PRINT2(x1, x2)
+#   define DEBUG_PRINT3(x1, x2, x3)
+#   define DEBUG_PRINT4(x1, x2, x3, x4)
+#  endif /* not DEFINED_ONCE */
+#  define DEBUG_PRINT_COMPILED_PATTERN(p, s, e)
+#  define DEBUG_PRINT_DOUBLE_STRING(w, s1, sz1, s2, sz2)
+
+# endif /* not DEBUG */
+
+
+
+# ifdef WCHAR
+/* This  convert a multibyte string to a wide character string.
+   And write their correspondances to offset_buffer(see below)
+   and write whether each wchar_t is binary data to is_binary.
+   This assume invalid multibyte sequences as binary data.
+   We assume offset_buffer and is_binary is already allocated
+   enough space.  */
+
+static size_t convert_mbs_to_wcs (CHAR_T *dest, const unsigned char* src,
+				  size_t len, int *offset_buffer,
+				  char *is_binary);
+static size_t
+convert_mbs_to_wcs (dest, src, len, offset_buffer, is_binary)
+     CHAR_T *dest;
+     const unsigned char* src;
+     size_t len; /* the length of multibyte string.  */
+
+     /* It hold correspondances between src(char string) and
+	dest(wchar_t string) for optimization.
+	e.g. src  = "xxxyzz"
+             dest = {'X', 'Y', 'Z'}
+	      (each "xxx", "y" and "zz" represent one multibyte character
+	       corresponding to 'X', 'Y' and 'Z'.)
+	  offset_buffer = {0, 0+3("xxx"), 0+3+1("y"), 0+3+1+2("zz")}
+	  	        = {0, 3, 4, 6}
+     */
+     int *offset_buffer;
+     char *is_binary;
+{
+  wchar_t *pdest = dest;
+  const unsigned char *psrc = src;
+  size_t wc_count = 0;
+
+  mbstate_t mbs;
+  int i, consumed;
+  size_t mb_remain = len;
+  size_t mb_count = 0;
+
+  /* Initialize the conversion state.  */
+  memset (&mbs, 0, sizeof (mbstate_t));
+
+  offset_buffer[0] = 0;
+  for( ; mb_remain > 0 ; ++wc_count, ++pdest, mb_remain -= consumed,
+	 psrc += consumed)
+    {
+#ifdef _LIBC
+      consumed = __mbrtowc (pdest, psrc, mb_remain, &mbs);
+#else
+      consumed = mbrtowc (pdest, psrc, mb_remain, &mbs);
+#endif
+
+      if (consumed <= 0)
+	/* failed to convert. maybe src contains binary data.
+	   So we consume 1 byte manualy.  */
+	{
+	  *pdest = *psrc;
+	  consumed = 1;
+	  is_binary[wc_count] = TRUE;
+	}
+      else
+	is_binary[wc_count] = FALSE;
+      /* In sjis encoding, we use yen sign as escape character in
+	 place of reverse solidus. So we convert 0x5c(yen sign in
+	 sjis) to not 0xa5(yen sign in UCS2) but 0x5c(reverse
+	 solidus in UCS2).  */
+      if (consumed == 1 && (int) *psrc == 0x5c && (int) *pdest == 0xa5)
+	*pdest = (wchar_t) *psrc;
+
+      offset_buffer[wc_count + 1] = mb_count += consumed;
+    }
+
+  /* Fill remain of the buffer with sentinel.  */
+  for (i = wc_count + 1 ; i <= len ; i++)
+    offset_buffer[i] = mb_count + 1;
+
+  return wc_count;
+}
+
+# endif /* WCHAR */
+
+#else /* not INSIDE_RECURSION */
+
+/* Set by `re_set_syntax' to the current regexp syntax to recognize.  Can
+   also be assigned to arbitrarily: each pattern buffer stores its own
+   syntax, so it can be changed between regex compilations.  */
+/* This has no initializer because initialized variables in Emacs
+   become read-only after dumping.  */
+reg_syntax_t re_syntax_options;
+
+
+/* Specify the precise syntax of regexps for compilation.  This provides
+   for compatibility for various utilities which historically have
+   different, incompatible syntaxes.
+
+   The argument SYNTAX is a bit mask comprised of the various bits
+   defined in regex.h.  We return the old syntax.  */
+
+reg_syntax_t
+re_set_syntax (syntax)
+    reg_syntax_t syntax;
+{
+  reg_syntax_t ret = re_syntax_options;
+
+  re_syntax_options = syntax;
+# ifdef DEBUG
+  if (syntax & RE_DEBUG)
+    debug = 1;
+  else if (debug) /* was on but now is not */
+    debug = 0;
+# endif /* DEBUG */
+  return ret;
+}
+# ifdef _LIBC
+weak_alias (__re_set_syntax, re_set_syntax)
+# endif
+
+/* This table gives an error message for each of the error codes listed
+   in regex.h.  Obviously the order here has to be same as there.
+   POSIX doesn't require that we do anything for REG_NOERROR,
+   but why not be nice?  */
+
+static const char *re_error_msgid[] =
+  {
+    gettext_noop ("Success"),	/* REG_NOERROR */
+    gettext_noop ("No match"),	/* REG_NOMATCH */
+    gettext_noop ("Invalid regular expression"), /* REG_BADPAT */
+    gettext_noop ("Invalid collation character"), /* REG_ECOLLATE */
+    gettext_noop ("Invalid character class name"), /* REG_ECTYPE */
+    gettext_noop ("Trailing backslash"), /* REG_EESCAPE */
+    gettext_noop ("Invalid back reference"), /* REG_ESUBREG */
+    gettext_noop ("Unmatched [ or [^"),	/* REG_EBRACK */
+    gettext_noop ("Unmatched ( or \\("), /* REG_EPAREN */
+    gettext_noop ("Unmatched \\{"), /* REG_EBRACE */
+    gettext_noop ("Invalid content of \\{\\}"), /* REG_BADBR */
+    gettext_noop ("Invalid range end"),	/* REG_ERANGE */
+    gettext_noop ("Memory exhausted"), /* REG_ESPACE */
+    gettext_noop ("Invalid preceding regular expression"), /* REG_BADRPT */
+    gettext_noop ("Premature end of regular expression"), /* REG_EEND */
+    gettext_noop ("Regular expression too big"), /* REG_ESIZE */
+    gettext_noop ("Unmatched ) or \\)") /* REG_ERPAREN */
+  };
+
+#endif /* INSIDE_RECURSION */
+
+#ifndef DEFINED_ONCE
+/* Avoiding alloca during matching, to placate r_alloc.  */
+
+/* Define MATCH_MAY_ALLOCATE unless we need to make sure that the
+   searching and matching functions should not call alloca.  On some
+   systems, alloca is implemented in terms of malloc, and if we're
+   using the relocating allocator routines, then malloc could cause a
+   relocation, which might (if the strings being searched are in the
+   ralloc heap) shift the data out from underneath the regexp
+   routines.
+
+   Here's another reason to avoid allocation: Emacs
+   processes input from X in a signal handler; processing X input may
+   call malloc; if input arrives while a matching routine is calling
+   malloc, then we're scrod.  But Emacs can't just block input while
+   calling matching routines; then we don't notice interrupts when
+   they come in.  So, Emacs blocks input around all regexp calls
+   except the matching calls, which it leaves unprotected, in the
+   faith that they will not malloc.  */
+
+/* Normally, this is fine.  */
+# define MATCH_MAY_ALLOCATE
+
+/* When using GNU C, we are not REALLY using the C alloca, no matter
+   what config.h may say.  So don't take precautions for it.  */
+# ifdef __GNUC__
+#  undef C_ALLOCA
+# endif
+
+/* The match routines may not allocate if (1) they would do it with malloc
+   and (2) it's not safe for them to use malloc.
+   Note that if REL_ALLOC is defined, matching would not use malloc for the
+   failure stack, but we would still use it for the register vectors;
+   so REL_ALLOC should not affect this.  */
+# if (defined C_ALLOCA || defined REGEX_MALLOC) && defined emacs
+#  undef MATCH_MAY_ALLOCATE
+# endif
+#endif /* not DEFINED_ONCE */
+
+#ifdef INSIDE_RECURSION
+/* Failure stack declarations and macros; both re_compile_fastmap and
+   re_match_2 use a failure stack.  These have to be macros because of
+   REGEX_ALLOCATE_STACK.  */
+
+
+/* Number of failure points for which to initially allocate space
+   when matching.  If this number is exceeded, we allocate more
+   space, so it is not a hard limit.  */
+# ifndef INIT_FAILURE_ALLOC
+#  define INIT_FAILURE_ALLOC 5
+# endif
+
+/* Roughly the maximum number of failure points on the stack.  Would be
+   exactly that if always used MAX_FAILURE_ITEMS items each time we failed.
+   This is a variable only so users of regex can assign to it; we never
+   change it ourselves.  */
+
+# ifdef INT_IS_16BIT
+
+#  ifndef DEFINED_ONCE
+#   if defined MATCH_MAY_ALLOCATE
+/* 4400 was enough to cause a crash on Alpha OSF/1,
+   whose default stack limit is 2mb.  */
+long int re_max_failures = 4000;
+#   else
+long int re_max_failures = 2000;
+#   endif
+#  endif
+
+union PREFIX(fail_stack_elt)
+{
+  UCHAR_T *pointer;
+  long int integer;
+};
+
+typedef union PREFIX(fail_stack_elt) PREFIX(fail_stack_elt_t);
+
+typedef struct
+{
+  PREFIX(fail_stack_elt_t) *stack;
+  unsigned long int size;
+  unsigned long int avail;		/* Offset of next open position.  */
+} PREFIX(fail_stack_type);
+
+# else /* not INT_IS_16BIT */
+
+#  ifndef DEFINED_ONCE
+#   if defined MATCH_MAY_ALLOCATE
+/* 4400 was enough to cause a crash on Alpha OSF/1,
+   whose default stack limit is 2mb.  */
+int re_max_failures = 4000;
+#   else
+int re_max_failures = 2000;
+#   endif
+#  endif
+
+union PREFIX(fail_stack_elt)
+{
+  UCHAR_T *pointer;
+  int integer;
+};
+
+typedef union PREFIX(fail_stack_elt) PREFIX(fail_stack_elt_t);
+
+typedef struct
+{
+  PREFIX(fail_stack_elt_t) *stack;
+  unsigned size;
+  unsigned avail;			/* Offset of next open position.  */
+} PREFIX(fail_stack_type);
+
+# endif /* INT_IS_16BIT */
+
+# ifndef DEFINED_ONCE
+#  define FAIL_STACK_EMPTY()     (fail_stack.avail == 0)
+#  define FAIL_STACK_PTR_EMPTY() (fail_stack_ptr->avail == 0)
+#  define FAIL_STACK_FULL()      (fail_stack.avail == fail_stack.size)
+# endif
+
+
+/* Define macros to initialize and free the failure stack.
+   Do `return -2' if the alloc fails.  */
+
+# ifdef MATCH_MAY_ALLOCATE
+#  define INIT_FAIL_STACK()						\
+  do {									\
+    fail_stack.stack = (PREFIX(fail_stack_elt_t) *)		\
+      REGEX_ALLOCATE_STACK (INIT_FAILURE_ALLOC * sizeof (PREFIX(fail_stack_elt_t))); \
+									\
+    if (fail_stack.stack == NULL)				\
+      return -2;							\
+									\
+    fail_stack.size = INIT_FAILURE_ALLOC;			\
+    fail_stack.avail = 0;					\
+  } while (0)
+
+#  define RESET_FAIL_STACK()  REGEX_FREE_STACK (fail_stack.stack)
+# else
+#  define INIT_FAIL_STACK()						\
+  do {									\
+    fail_stack.avail = 0;					\
+  } while (0)
+
+#  define RESET_FAIL_STACK()
+# endif
+
+
+/* Double the size of FAIL_STACK, up to approximately `re_max_failures' items.
+
+   Return 1 if succeeds, and 0 if either ran out of memory
+   allocating space for it or it was already too large.
+
+   REGEX_REALLOCATE_STACK requires `destination' be declared.   */
+
+# define DOUBLE_FAIL_STACK(fail_stack)					\
+  ((fail_stack).size > (unsigned) (re_max_failures * MAX_FAILURE_ITEMS)	\
+   ? 0									\
+   : ((fail_stack).stack = (PREFIX(fail_stack_elt_t) *)			\
+        REGEX_REALLOCATE_STACK ((fail_stack).stack, 			\
+          (fail_stack).size * sizeof (PREFIX(fail_stack_elt_t)),	\
+          ((fail_stack).size << 1) * sizeof (PREFIX(fail_stack_elt_t))),\
+									\
+      (fail_stack).stack == NULL					\
+      ? 0								\
+      : ((fail_stack).size <<= 1, 					\
+         1)))
+
+
+/* Push pointer POINTER on FAIL_STACK.
+   Return 1 if was able to do so and 0 if ran out of memory allocating
+   space to do so.  */
+# define PUSH_PATTERN_OP(POINTER, FAIL_STACK)				\
+  ((FAIL_STACK_FULL ()							\
+    && !DOUBLE_FAIL_STACK (FAIL_STACK))					\
+   ? 0									\
+   : ((FAIL_STACK).stack[(FAIL_STACK).avail++].pointer = POINTER,	\
+      1))
+
+/* Push a pointer value onto the failure stack.
+   Assumes the variable `fail_stack'.  Probably should only
+   be called from within `PUSH_FAILURE_POINT'.  */
+# define PUSH_FAILURE_POINTER(item)					\
+  fail_stack.stack[fail_stack.avail++].pointer = (UCHAR_T *) (item)
+
+/* This pushes an integer-valued item onto the failure stack.
+   Assumes the variable `fail_stack'.  Probably should only
+   be called from within `PUSH_FAILURE_POINT'.  */
+# define PUSH_FAILURE_INT(item)					\
+  fail_stack.stack[fail_stack.avail++].integer = (item)
+
+/* Push a fail_stack_elt_t value onto the failure stack.
+   Assumes the variable `fail_stack'.  Probably should only
+   be called from within `PUSH_FAILURE_POINT'.  */
+# define PUSH_FAILURE_ELT(item)					\
+  fail_stack.stack[fail_stack.avail++] =  (item)
+
+/* These three POP... operations complement the three PUSH... operations.
+   All assume that `fail_stack' is nonempty.  */
+# define POP_FAILURE_POINTER() fail_stack.stack[--fail_stack.avail].pointer
+# define POP_FAILURE_INT() fail_stack.stack[--fail_stack.avail].integer
+# define POP_FAILURE_ELT() fail_stack.stack[--fail_stack.avail]
+
+/* Used to omit pushing failure point id's when we're not debugging.  */
+# ifdef DEBUG
+#  define DEBUG_PUSH PUSH_FAILURE_INT
+#  define DEBUG_POP(item_addr) *(item_addr) = POP_FAILURE_INT ()
+# else
+#  define DEBUG_PUSH(item)
+#  define DEBUG_POP(item_addr)
+# endif
+
+
+/* Push the information about the state we will need
+   if we ever fail back to it.
+
+   Requires variables fail_stack, regstart, regend, reg_info, and
+   num_regs_pushed be declared.  DOUBLE_FAIL_STACK requires `destination'
+   be declared.
+
+   Does `return FAILURE_CODE' if runs out of memory.  */
+
+# define PUSH_FAILURE_POINT(pattern_place, string_place, failure_code)	\
+  do {									\
+    char *destination;							\
+    /* Must be int, so when we don't save any registers, the arithmetic	\
+       of 0 + -1 isn't done as unsigned.  */				\
+    /* Can't be int, since there is not a shred of a guarantee that int	\
+       is wide enough to hold a value of something to which pointer can	\
+       be assigned */							\
+    active_reg_t this_reg;						\
+    									\
+    DEBUG_STATEMENT (failure_id++);					\
+    DEBUG_STATEMENT (nfailure_points_pushed++);				\
+    DEBUG_PRINT2 ("\nPUSH_FAILURE_POINT #%u:\n", failure_id);		\
+    DEBUG_PRINT2 ("  Before push, next avail: %d\n", (fail_stack).avail);\
+    DEBUG_PRINT2 ("                     size: %d\n", (fail_stack).size);\
+									\
+    DEBUG_PRINT2 ("  slots needed: %ld\n", NUM_FAILURE_ITEMS);		\
+    DEBUG_PRINT2 ("     available: %d\n", REMAINING_AVAIL_SLOTS);	\
+									\
+    /* Ensure we have enough space allocated for what we will push.  */	\
+    while (REMAINING_AVAIL_SLOTS < NUM_FAILURE_ITEMS)			\
+      {									\
+        if (!DOUBLE_FAIL_STACK (fail_stack))				\
+          return failure_code;						\
+									\
+        DEBUG_PRINT2 ("\n  Doubled stack; size now: %d\n",		\
+		       (fail_stack).size);				\
+        DEBUG_PRINT2 ("  slots available: %d\n", REMAINING_AVAIL_SLOTS);\
+      }									\
+									\
+    /* Push the info, starting with the registers.  */			\
+    DEBUG_PRINT1 ("\n");						\
+									\
+    if (1)								\
+      for (this_reg = lowest_active_reg; this_reg <= highest_active_reg; \
+	   this_reg++)							\
+	{								\
+	  DEBUG_PRINT2 ("  Pushing reg: %lu\n", this_reg);		\
+	  DEBUG_STATEMENT (num_regs_pushed++);				\
+									\
+	  DEBUG_PRINT2 ("    start: %p\n", regstart[this_reg]);		\
+	  PUSH_FAILURE_POINTER (regstart[this_reg]);			\
+									\
+	  DEBUG_PRINT2 ("    end: %p\n", regend[this_reg]);		\
+	  PUSH_FAILURE_POINTER (regend[this_reg]);			\
+									\
+	  DEBUG_PRINT2 ("    info: %p\n      ",				\
+			reg_info[this_reg].word.pointer);		\
+	  DEBUG_PRINT2 (" match_null=%d",				\
+			REG_MATCH_NULL_STRING_P (reg_info[this_reg]));	\
+	  DEBUG_PRINT2 (" active=%d", IS_ACTIVE (reg_info[this_reg]));	\
+	  DEBUG_PRINT2 (" matched_something=%d",			\
+			MATCHED_SOMETHING (reg_info[this_reg]));	\
+	  DEBUG_PRINT2 (" ever_matched=%d",				\
+			EVER_MATCHED_SOMETHING (reg_info[this_reg]));	\
+	  DEBUG_PRINT1 ("\n");						\
+	  PUSH_FAILURE_ELT (reg_info[this_reg].word);			\
+	}								\
+									\
+    DEBUG_PRINT2 ("  Pushing  low active reg: %ld\n", lowest_active_reg);\
+    PUSH_FAILURE_INT (lowest_active_reg);				\
+									\
+    DEBUG_PRINT2 ("  Pushing high active reg: %ld\n", highest_active_reg);\
+    PUSH_FAILURE_INT (highest_active_reg);				\
+									\
+    DEBUG_PRINT2 ("  Pushing pattern %p:\n", pattern_place);		\
+    DEBUG_PRINT_COMPILED_PATTERN (bufp, pattern_place, pend);		\
+    PUSH_FAILURE_POINTER (pattern_place);				\
+									\
+    DEBUG_PRINT2 ("  Pushing string %p: `", string_place);		\
+    DEBUG_PRINT_DOUBLE_STRING (string_place, string1, size1, string2,   \
+				 size2);				\
+    DEBUG_PRINT1 ("'\n");						\
+    PUSH_FAILURE_POINTER (string_place);				\
+									\
+    DEBUG_PRINT2 ("  Pushing failure id: %u\n", failure_id);		\
+    DEBUG_PUSH (failure_id);						\
+  } while (0)
+
+# ifndef DEFINED_ONCE
+/* This is the number of items that are pushed and popped on the stack
+   for each register.  */
+#  define NUM_REG_ITEMS  3
+
+/* Individual items aside from the registers.  */
+#  ifdef DEBUG
+#   define NUM_NONREG_ITEMS 5 /* Includes failure point id.  */
+#  else
+#   define NUM_NONREG_ITEMS 4
+#  endif
+
+/* We push at most this many items on the stack.  */
+/* We used to use (num_regs - 1), which is the number of registers
+   this regexp will save; but that was changed to 5
+   to avoid stack overflow for a regexp with lots of parens.  */
+#  define MAX_FAILURE_ITEMS (5 * NUM_REG_ITEMS + NUM_NONREG_ITEMS)
+
+/* We actually push this many items.  */
+#  define NUM_FAILURE_ITEMS				\
+  (((0							\
+     ? 0 : highest_active_reg - lowest_active_reg + 1)	\
+    * NUM_REG_ITEMS)					\
+   + NUM_NONREG_ITEMS)
+
+/* How many items can still be added to the stack without overflowing it.  */
+#  define REMAINING_AVAIL_SLOTS ((fail_stack).size - (fail_stack).avail)
+# endif /* not DEFINED_ONCE */
+
+
+/* Pops what PUSH_FAIL_STACK pushes.
+
+   We restore into the parameters, all of which should be lvalues:
+     STR -- the saved data position.
+     PAT -- the saved pattern position.
+     LOW_REG, HIGH_REG -- the highest and lowest active registers.
+     REGSTART, REGEND -- arrays of string positions.
+     REG_INFO -- array of information about each subexpression.
+
+   Also assumes the variables `fail_stack' and (if debugging), `bufp',
+   `pend', `string1', `size1', `string2', and `size2'.  */
+# define POP_FAILURE_POINT(str, pat, low_reg, high_reg, regstart, regend, reg_info)\
+{									\
+  DEBUG_STATEMENT (unsigned failure_id;)				\
+  active_reg_t this_reg;						\
+  const UCHAR_T *string_temp;						\
+									\
+  assert (!FAIL_STACK_EMPTY ());					\
+									\
+  /* Remove failure points and point to how many regs pushed.  */	\
+  DEBUG_PRINT1 ("POP_FAILURE_POINT:\n");				\
+  DEBUG_PRINT2 ("  Before pop, next avail: %d\n", fail_stack.avail);	\
+  DEBUG_PRINT2 ("                    size: %d\n", fail_stack.size);	\
+									\
+  assert (fail_stack.avail >= NUM_NONREG_ITEMS);			\
+									\
+  DEBUG_POP (&failure_id);						\
+  DEBUG_PRINT2 ("  Popping failure id: %u\n", failure_id);		\
+									\
+  /* If the saved string location is NULL, it came from an		\
+     on_failure_keep_string_jump opcode, and we want to throw away the	\
+     saved NULL, thus retaining our current position in the string.  */	\
+  string_temp = POP_FAILURE_POINTER ();					\
+  if (string_temp != NULL)						\
+    str = (const CHAR_T *) string_temp;					\
+									\
+  DEBUG_PRINT2 ("  Popping string %p: `", str);				\
+  DEBUG_PRINT_DOUBLE_STRING (str, string1, size1, string2, size2);	\
+  DEBUG_PRINT1 ("'\n");							\
+									\
+  pat = (UCHAR_T *) POP_FAILURE_POINTER ();				\
+  DEBUG_PRINT2 ("  Popping pattern %p:\n", pat);			\
+  DEBUG_PRINT_COMPILED_PATTERN (bufp, pat, pend);			\
+									\
+  /* Restore register info.  */						\
+  high_reg = (active_reg_t) POP_FAILURE_INT ();				\
+  DEBUG_PRINT2 ("  Popping high active reg: %ld\n", high_reg);		\
+									\
+  low_reg = (active_reg_t) POP_FAILURE_INT ();				\
+  DEBUG_PRINT2 ("  Popping  low active reg: %ld\n", low_reg);		\
+									\
+  if (1)								\
+    for (this_reg = high_reg; this_reg >= low_reg; this_reg--)		\
+      {									\
+	DEBUG_PRINT2 ("    Popping reg: %ld\n", this_reg);		\
+									\
+	reg_info[this_reg].word = POP_FAILURE_ELT ();			\
+	DEBUG_PRINT2 ("      info: %p\n",				\
+		      reg_info[this_reg].word.pointer);			\
+									\
+	regend[this_reg] = (const CHAR_T *) POP_FAILURE_POINTER ();	\
+	DEBUG_PRINT2 ("      end: %p\n", regend[this_reg]);		\
+									\
+	regstart[this_reg] = (const CHAR_T *) POP_FAILURE_POINTER ();	\
+	DEBUG_PRINT2 ("      start: %p\n", regstart[this_reg]);		\
+      }									\
+  else									\
+    {									\
+      for (this_reg = highest_active_reg; this_reg > high_reg; this_reg--) \
+	{								\
+	  reg_info[this_reg].word.integer = 0;				\
+	  regend[this_reg] = 0;						\
+	  regstart[this_reg] = 0;					\
+	}								\
+      highest_active_reg = high_reg;					\
+    }									\
+									\
+  set_regs_matched_done = 0;						\
+  DEBUG_STATEMENT (nfailure_points_popped++);				\
+} /* POP_FAILURE_POINT */
+
+/* Structure for per-register (a.k.a. per-group) information.
+   Other register information, such as the
+   starting and ending positions (which are addresses), and the list of
+   inner groups (which is a bits list) are maintained in separate
+   variables.
+
+   We are making a (strictly speaking) nonportable assumption here: that
+   the compiler will pack our bit fields into something that fits into
+   the type of `word', i.e., is something that fits into one item on the
+   failure stack.  */
+
+
+/* Declarations and macros for re_match_2.  */
+union PREFIX(fail_stack_elt)
+{
+  UCHAR_T *pointer;
+  long int integer;
+};
+
+typedef union PREFIX(fail_stack_elt) PREFIX(fail_stack_elt_t);
+
+typedef struct
+{
+  PREFIX(fail_stack_elt_t) *stack;
+  unsigned long int size;
+  unsigned long int avail;		/* Offset of next open position.  */
+} PREFIX(fail_stack_type);
+
+# else /* not INT_IS_16BIT */
+
+#  ifndef DEFINED_ONCE
+#   if defined MATCH_MAY_ALLOCATE
+/* 4400 was enough to cause a crash on Alpha OSF/1,
+   whose default stack limit is 2mb.  */
+int re_max_failures = 4000;
+#   else
+int re_max_failures = 2000;
+#   endif
+#  endif
+
+union PREFIX(fail_stack_elt)
+{
+  UCHAR_T *pointer;
+  int integer;
+};
+
+typedef union PREFIX(fail_stack_elt) PREFIX(fail_stack_elt_t);
+
+typedef struct
+{
+  PREFIX(fail_stack_elt_t) *stack;
+  unsigned size;
+  unsigned avail;			/* Offset of next open position.  */
+} PREFIX(fail_stack_type);
+
+# endif /* INT_IS_16BIT */
+
+# ifndef DEFINED_ONCE
+#  define FAIL_STACK_EMPTY()     (fail_stack.avail == 0)
+#  define FAIL_STACK_PTR_EMPTY() (fail_stack_ptr->avail == 0)
+#  define FAIL_STACK_FULL()      (fail_stack.avail == fail_stack.size)
+# endif
+
+
+/* Define macros to initialize and free the failure stack.
+   Do `return -2' if the alloc fails.  */
+
+# ifdef MATCH_MAY_ALLOCATE
+#  define INIT_FAIL_STACK()						\
+  do {									\
+    fail_stack.stack = (PREFIX(fail_stack_elt_t) *)		\
+      REGEX_ALLOCATE_STACK (INIT_FAILURE_ALLOC * sizeof (PREFIX(fail_stack_elt_t))); \
+									\
+    if (fail_stack.stack == NULL)				\
+      return -2;							\
+									\
+    fail_stack.size = INIT_FAILURE_ALLOC;			\
+    fail_stack.avail = 0;					\
+  } while (0)
+
+#  define RESET_FAIL_STACK()  REGEX_FREE_STACK (fail_stack.stack)
+# else
+#  define INIT_FAIL_STACK()						\
+  do {									\
+    fail_stack.avail = 0;					\
+  } while (0)
+
+#  define RESET_FAIL_STACK()
+# endif
+
+
+/* Double the size of FAIL_STACK, up to approximately `re_max_failures' items.
+
+   Return 1 if succeeds, and 0 if either ran out of memory
+   allocating space for it or it was already too large.
+
+   REGEX_REALLOCATE_STACK requires `destination' be declared.   */
+
+# define DOUBLE_FAIL_STACK(fail_stack)					\
+  ((fail_stack).size > (unsigned) (re_max_failures * MAX_FAILURE_ITEMS)	\
+   ? 0									\
+   : ((fail_stack).stack = (PREFIX(fail_stack_elt_t) *)			\
+        REGEX_REALLOCATE_STACK ((fail_stack).stack, 			\
+          (fail_stack).size * sizeof (PREFIX(fail_stack_elt_t)),	\
+          ((fail_stack).size << 1) * sizeof (PREFIX(fail_stack_elt_t))),\
+									\
+      (fail_stack).stack == NULL					\
+      ? 0								\
+      : ((fail_stack).size <<= 1, 					\
+         1)))
+
+
+/* Push pointer POINTER on FAIL_STACK.
+   Return 1 if was able to do so and 0 if ran out of memory allocating
+   space to do so.  */
+# define PUSH_PATTERN_OP(POINTER, FAIL_STACK)				\
+  ((FAIL_STACK_FULL ()							\
+    && !DOUBLE_FAIL_STACK (FAIL_STACK))					\
+   ? 0									\
+   : ((FAIL_STACK).stack[(FAIL_STACK).avail++].pointer = POINTER,	\
+      1))
+
+/* Push a pointer value onto the failure stack.
+   Assumes the variable `fail_stack'.  Probably should only
+   be called from within `PUSH_FAILURE_POINT'.  */
+# define PUSH_FAILURE_POINTER(item)					\
+  fail_stack.stack[fail_stack.avail++].pointer = (UCHAR_T *) (item)
+
+/* This pushes an integer-valued item onto the failure stack.
+   Assumes the variable `fail_stack'.  Probably should only
+   be called from within `PUSH_FAILURE_POINT'.  */
+# define PUSH_FAILURE_INT(item)					\
+  fail_stack.stack[fail_stack.avail++].integer = (item)
+
+/* Push a fail_stack_elt_t value onto the failure stack.
+   Assumes the variable `fail_stack'.  Probably should only
+   be called from within `PUSH_FAILURE_POINT'.  */
+# define PUSH_FAILURE_ELT(item)					\
+  fail_stack.stack[fail_stack.avail++] =  (item)
+
+/* These three POP... operations complement the three PUSH... operations.
+   All assume that `fail_stack' is nonempty.  */
+# define POP_FAILURE_POINTER() fail_stack.stack[--fail_stack.avail].pointer
+# define POP_FAILURE_INT() fail_stack.stack[--fail_stack.avail].integer
+# define POP_FAILURE_ELT() fail_stack.stack[--fail_stack.avail]
+
+/* Used to omit pushing failure point id's when we're not debugging.  */
+# ifdef DEBUG
+#  define DEBUG_PUSH PUSH_FAILURE_INT
+#  define DEBUG_POP(item_addr) *(item_addr) = POP_FAILURE_INT ()
+# else
+#  define DEBUG_PUSH(item)
+#  define DEBUG_POP(item_addr)
+# endif
+
+
+/* Push the information about the state we will need
+   if we ever fail back to it.
+
+   Requires variables fail_stack, regstart, regend, reg_info, and
+   num_regs_pushed be declared.  DOUBLE_FAIL_STACK requires `destination'
+   be declared.
+
+   Does `return FAILURE_CODE' if runs out of memory.  */
+
+# define PUSH_FAILURE_POINT(pattern_place, string_place, failure_code)	\
+  do {									\
+    char *destination;							\
+    /* Must be int, so when we don't save any registers, the arithmetic	\
+       of 0 + -1 isn't done as unsigned.  */				\
+    /* Can't be int, since there is not a shred of a guarantee that int	\
+       is wide enough to hold a value of something to which pointer can	\
+       be assigned */							\
+    active_reg_t this_reg;						\
+    									\
+ 
+typedef union
+{
+  PREFIX(fail_stack_elt_t) word;
+  struct
+  {
+      /* This field is one if this group can match the empty string,
+         zero if not.  If not yet determined,  `MATCH_NULL_UNSET_VALUE'.  */
+# define MATCH_NULL_UNSET_VALUE 3
+    unsigned match_null_string_p : 2;
+    unsigned is_active : 1;
+    unsigned matched_something : 1;
+    unsigned ever_matched_something : 1;
+  } bits;
+} PREFIX(register_info_type);
+
+# ifndef DEFINED_ONCE
+#  define REG_MATCH_NULL_STRING_P(R)  ((R).bits.match_null_string_p)
+#  define IS_ACTIVE(R)  ((R).bits.is_active)
+#  define MATCHED_SOMETHING(R)  ((R).bits.matched_something)
+#  define EVER_MATCHED_SOMETHING(R)  ((R).bits.ever_matched_something)
+
+
+/* Call this when have matched a real character; it sets `matched' flags
+   for the subexpressions which we are currently inside.  Also records
+   that those subexprs have matched.  */
+#  define SET_REGS_MATCHED()						\
+  do									\
+    {									\
+      if (!set_regs_matched_done)					\
+	{								\
+	  active_reg_t r;						\
+	  set_regs_matched_done = 1;					\
+	  for (r = lowest_active_reg; r <= highest_active_reg; r++)	\
+	    {								\
+	      MATCHED_SOMETHING (reg_info[r])				\
+		= EVER_MATCHED_SOMETHING (reg_info[r])			\
+		= 1;							\
+	    }								\
+	}								\
+    }									\
+  while (0)
+# endif /* not DEFINED_ONCE */
+
+/* Registers are set to a sentinel when they haven't yet matched.  */
+static CHAR_T PREFIX(reg_unset_dummy);
+# define REG_UNSET_VALUE (&PREFIX(reg_unset_dummy))
+# define REG_UNSET(e) ((e) == REG_UNSET_VALUE)
+
+/* Subroutine declarations and macros for regex_compile.  */
+static void PREFIX(store_op1) _RE_ARGS ((re_opcode_t op, UCHAR_T *loc, int arg));
+static void PREFIX(store_op2) _RE_ARGS ((re_opcode_t op, UCHAR_T *loc,
+				 int arg1, int arg2));
+static void PREFIX(insert_op1) _RE_ARGS ((re_opcode_t op, UCHAR_T *loc,
+				  int arg, UCHAR_T *end));
+static void PREFIX(insert_op2) _RE_ARGS ((re_opcode_t op, UCHAR_T *loc,
+				  int arg1, int arg2, UCHAR_T *end));
+static boolean PREFIX(at_begline_loc_p) _RE_ARGS ((const CHAR_T *pattern,
+					   const CHAR_T *p,
+					   reg_syntax_t syntax));
+static boolean PREFIX(at_endline_loc_p) _RE_ARGS ((const CHAR_T *p,
+					   const CHAR_T *pend,
+					   reg_syntax_t syntax));
+# ifdef WCHAR
+static reg_errcode_t wcs_compile_range _RE_ARGS ((CHAR_T range_start,
+						  const CHAR_T **p_ptr,
+						  const CHAR_T *pend,
+						  char *translate,
+						  reg_syntax_t syntax,
+						  UCHAR_T *b,
+						  CHAR_T *char_set));
+static void insert_space _RE_ARGS ((int num, CHAR_T *loc, CHAR_T *end));
+# else /* BYTE */
+static reg_errcode_t byte_compile_range _RE_ARGS ((unsigned int range_start,
+						   const char **p_ptr,
+						   const char *pend,
+						   char *translate,
+						   reg_syntax_t syntax,
+						   unsigned char *b));
+# endif /* WCHAR */
+
+/* Fetch the next character in the uncompiled pattern---translating it
+   if necessary.  Also cast from a signed character in the constant
+   string passed to us by the user to an unsigned char that we can use
+   as an array index (in, e.g., `translate').  */
+/* ifdef MBS_SUPPORT, we translate only if character <= 0xff,
+   because it is impossible to allocate 4GB array for some encodings
+   which have 4 byte character_set like UCS4.  */
+# ifndef PATFETCH
+#  ifdef WCHAR
+#   define PATFETCH(c)							\
+  do {if (p == pend) return REG_EEND;					\
+    c = (UCHAR_T) *p++;							\
+    if (translate && (c <= 0xff)) c = (UCHAR_T) translate[c];		\
+  } while (0)
+#  else /* BYTE */
+#   define PATFETCH(c)							\
+  do {if (p == pend) return REG_EEND;					\
+    c = (unsigned char) *p++;						\
+    if (translate) c = (unsigned char) translate[c];			\
+  } while (0)
+#  endif /* WCHAR */
+# endif
+
+/* Fetch the next character in the uncompiled pattern, with no
+   translation.  */
+# define PATFETCH_RAW(c)						\
+  do {if (p == pend) return REG_EEND;					\
+    c = (UCHAR_T) *p++; 	       					\
+  } while (0)
+
+/* Go backwards one character in the pattern.  */
+# define PATUNFETCH p--
+
+
+/* If `translate' is non-null, return translate[D], else just D.  We
+   cast the subscript to translate because some data is declared as
+   `char *', to avoid warnings when a string constant is passed.  But
+   when we use a character as a subscript we must make it unsigned.  */
+/* ifdef MBS_SUPPORT, we translate only if character <= 0xff,
+   because it is impossible to allocate 4GB array for some encodings
+   which have 4 byte character_set like UCS4.  */
+
+# ifndef TRANSLATE
+#  ifdef WCHAR
+#   define TRANSLATE(d) \
+  ((translate && ((UCHAR_T) (d)) <= 0xff) \
+   ? (char) translate[(unsigned char) (d)] : (d))
+# else /* BYTE */
+#   define TRANSLATE(d) \
+  (translate ? (char) translate[(unsigned char) (d)] : (d))
+#  endif /* WCHAR */
+# endif
+
+
+/* Macros for outputting the compiled pattern into `buffer'.  */
+
+/* If the buffer isn't allocated when it comes in, use this.  */
+# define INIT_BUF_SIZE  (32 * sizeof(UCHAR_T))
+
+/* Make sure we have at least N more bytes of space in buffer.  */
+# ifdef WCHAR
+#  define GET_BUFFER_SPACE(n)						\
+    while (((unsigned long)b - (unsigned long)COMPILED_BUFFER_VAR	\
+            + (n)*sizeof(CHAR_T)) > bufp->allocated)			\
+      EXTEND_BUFFER ()
+# else /* BYTE */
+#  define GET_BUFFER_SPACE(n)						\
+    while ((unsigned long) (b - bufp->buffer + (n)) > bufp->allocated)	\
+      EXTEND_BUFFER ()
+# endif /* WCHAR */
+
+/* Make sure we have one more byte of buffer space and then add C to it.  */
+# define BUF_PUSH(c)							\
+  do {									\
+    GET_BUFFER_SPACE (1);						\
+    *b++ = (UCHAR_T) (c);						\
+  } while (0)
+
+
+/* Ensure we have two more bytes of buffer space and then append C1 and C2.  */
+# define BUF_PUSH_2(c1, c2)						\
+  do {									\
+    GET_BUFFER_SPACE (2);						\
+    *b++ = (UCHAR_T) (c1);						\
+    *b++ = (UCHAR_T) (c2);						\
+  } while (0)
+
+
+/* As with BUF_PUSH_2, except for three bytes.  */
+# define BUF_PUSH_3(c1, c2, c3)						\
+  do {									\
+    GET_BUFFER_SPACE (3);						\
+    *b++ = (UCHAR_T) (c1);						\
+    *b++ = (UCHAR_T) (c2);						\
+    *b++ = (UCHAR_T) (c3);						\
+  } while (0)
+
+/* Store a jump with opcode OP at LOC to location TO.  We store a
+   relative address offset by the three bytes the jump itself occupies.  */
+# define STORE_JUMP(op, loc, to) \
+ PREFIX(store_op1) (op, loc, (int) ((to) - (loc) - (1 + OFFSET_ADDRESS_SIZE)))
+
+/* Likewise, for a two-argument jump.  */
+# define STORE_JUMP2(op, loc, to, arg) \
+  PREFIX(store_op2) (op, loc, (int) ((to) - (loc) - (1 + OFFSET_ADDRESS_SIZE)), arg)
+
+/* Like `STORE_JUMP', but for inserting.  Assume `b' is the buffer end.  */
+# define INSERT_JUMP(op, loc, to) \
+  PREFIX(insert_op1) (op, loc, (int) ((to) - (loc) - (1 + OFFSET_ADDRESS_SIZE)), b)
+
+/* Like `STORE_JUMP2', but for inserting.  Assume `b' is the buffer end.  */
+# define INSERT_JUMP2(op, loc, to, arg) \
+  PREFIX(insert_op2) (op, loc, (int) ((to) - (loc) - (1 + OFFSET_ADDRESS_SIZE)),\
+	      arg, b)
+
+/* This is not an arbitrary limit: the arguments which represent offsets
+   into the pattern are two bytes long.  So if 2^16 bytes turns out to
+   be too small, many things would have to change.  */
+/* Any other compiler which, like MSC, has allocation limit below 2^16
+   bytes will have to use approach similar to what was done below for
+   MSC and drop MAX_BUF_SIZE a bit.  Otherwise you may end up
+   reallocating to 0 bytes.  Such thing is not going to work too well.
+   You have been warned!!  */
+# ifndef DEFINED_ONCE
+#  if defined _MSC_VER  && !defined WIN32
+/* Microsoft C 16-bit versions limit malloc to approx 65512 bytes.
+   The REALLOC define eliminates a flurry of conversion warnings,
+   but is not required. */
+#   define MAX_BUF_SIZE  65500L
+#   define REALLOC(p,s) realloc ((p), (size_t) (s))
+#  else
+#   define MAX_BUF_SIZE (1L << 16)
+#   define REALLOC(p,s) realloc ((p), (s))
+#  endif
+
+/* Extend the buffer by twice its current size via realloc and
+   reset the pointers that pointed into the old block to point to the
+   correct places in the new one.  If extending the buffer results in it
+   being larger than MAX_BUF_SIZE, then flag memory exhausted.  */
+#  if __BOUNDED_POINTERS__
+#   define SET_HIGH_BOUND(P) (__ptrhigh (P) = __ptrlow (P) + bufp->allocated)
+#   define MOVE_BUFFER_POINTER(P) \
+  (__ptrlow (P) += incr, SET_HIGH_BOUND (P), __ptrvalue (P) += incr)
+#   define ELSE_EXTEND_BUFFER_HIGH_BOUND	\
+  else						\
+    {						\
+      SET_HIGH_BOUND (b);			\
+      SET_HIGH_BOUND (begalt);			\
+      if (fixup_alt_jump)			\
+	SET_HIGH_BOUND (fixup_alt_jump);	\
+      if (laststart)				\
+	SET_HIGH_BOUND (laststart);		\
+      if (pending_exact)			\
+	SET_HIGH_BOUND (pending_exact);		\
+    }
+#  else
+#   define MOVE_BUFFER_POINTER(P) (P) += incr
+#   define ELSE_EXTEND_BUFFER_HIGH_BOUND
+#  endif
+# endif /* not DEFINED_ONCE */
+
+# ifdef WCHAR
+#  define EXTEND_BUFFER()						\
+  do {									\
+    UCHAR_T *old_buffer = COMPILED_BUFFER_VAR;				\
+    int wchar_count;							\
+    if (bufp->allocated + sizeof(UCHAR_T) > MAX_BUF_SIZE)		\
+      return REG_ESIZE;							\
+    bufp->allocated <<= 1;						\
+    if (bufp->allocated > MAX_BUF_SIZE)					\
+      bufp->allocated = MAX_BUF_SIZE;					\
+    /* How many characters the new buffer can have?  */			\
+    wchar_count = bufp->allocated / sizeof(UCHAR_T);			\
+    if (wchar_count == 0) wchar_count = 1;				\
+    /* Truncate the buffer to CHAR_T align.  */			\
+    bufp->allocated = wchar_count * sizeof(UCHAR_T);			\
+    RETALLOC (COMPILED_BUFFER_VAR, wchar_count, UCHAR_T);		\
+    bufp->buffer = (char*)COMPILED_BUFFER_VAR;				\
+    if (COMPILED_BUFFER_VAR == NULL)					\
+      return REG_ESPACE;						\
+    /* If the buffer moved, move all the pointers into it.  */		\
+    if (old_buffer != COMPILED_BUFFER_VAR)				\
+      {									\
+	int incr = COMPILED_BUFFER_VAR - old_buffer;			\
+	MOVE_BUFFER_POINTER (b);					\
+	MOVE_BUFFER_POINTER (begalt);					\
+	if (fixup_alt_jump)						\
+	  MOVE_BUFFER_POINTER (fixup_alt_jump);				\
+	if (laststart)							\
+	  MOVE_BUFFER_POINTER (laststart);				\
+	if (pending_exact)						\
+	  MOVE_BUFFER_POINTER (pending_exact);				\
+      }									\
+    ELSE_EXTEND_BUFFER_HIGH_BOUND					\
+  } while (0)
+# else /* BYTE */
+#  define EXTEND_BUFFER()						\
+  do {									\
+    UCHAR_T *old_buffer = COMPILED_BUFFER_VAR;				\
+    if (bufp->allocated == MAX_BUF_SIZE)				\
+      return REG_ESIZE;							\
+    bufp->allocated <<= 1;						\
+    if (bufp->allocated > MAX_BUF_SIZE)					\
+      bufp->allocated = MAX_BUF_SIZE;					\
+    bufp->buffer = (UCHAR_T *) REALLOC (COMPILED_BUFFER_VAR,		\
+						bufp->allocated);	\
+    if (COMPILED_BUFFER_VAR == NULL)					\
+      return REG_ESPACE;						\
+    /* If the buffer moved, move all the pointers into it.  */		\
+    if (old_buffer != COMPILED_BUFFER_VAR)				\
+      {									\
+	int incr = COMPILED_BUFFER_VAR - old_buffer;			\
+	MOVE_BUFFER_POINTER (b);					\
+	MOVE_BUFFER_POINTER (begalt);					\
+	if (fixup_alt_jump)						\
+	  MOVE_BUFFER_POINTER (fixup_alt_jump);				\
+	if (laststart)							\
+	  MOVE_BUFFER_POINTER (laststart);				\
+	if (pending_exact)						\
+	  MOVE_BUFFER_POINTER (pending_exact);				\
+      }									\
+    ELSE_EXTEND_BUFFER_HIGH_BOUND					\
+  } while (0)
+# endif /* WCHAR */
+
+# ifndef DEFINED_ONCE
+/* Since we have one byte reserved for the register number argument to
+   {start,stop}_memory, the maximum number of groups we can report
+   things about is what fits in that byte.  */
+#  define MAX_REGNUM 255
+
+/* But patterns can have more than `MAX_REGNUM' registers.  We just
+   ignore the excess.  */
+typedef unsigned regnum_t;
+
+
+/* Macros for the compile stack.  */
+
+/* Since offsets can go either forwards or backwards, this type needs to
+   be able to hold values from -(MAX_BUF_SIZE - 1) to MAX_BUF_SIZE - 1.  */
+/* int may be not enough when sizeof(int) == 2.  */
+typedef long pattern_offset_t;
+
+typedef struct
+{
+  pattern_offset_t begalt_offset;
+  pattern_offset_t fixup_alt_jump;
+  pattern_offset_t inner_group_offset;
+  pattern_offset_t laststart_offset;
+  regnum_t regnum;
+} compile_stack_elt_t;
+
+
+typedef struct
+{
+  compile_stack_elt_t *stack;
+  unsigned size;
+  unsigned avail;			/* Offset of next open position.  */
+} compile_stack_type;
+
+
+#  define INIT_COMPILE_STACK_SIZE 32
+
+#  define COMPILE_STACK_EMPTY  (compile_stack.avail == 0)
+#  define COMPILE_STACK_FULL  (compile_stack.avail == compile_stack.size)
+
+/* The next available element.  */
+#  define COMPILE_STACK_TOP (compile_stack.stack[compile_stack.avail])
+
+# endif /* not DEFINED_ONCE */
+
+/* Set the bit for character C in a list.  */
+# ifndef DEFINED_ONCE
+#  define SET_LIST_BIT(c)                               \
+  (b[((unsigned char) (c)) / BYTEWIDTH]               \
+   |= 1 << (((unsigned char) c) % BYTEWIDTH))
+# endif /* DEFINED_ONCE */
+
+/* Get the next unsigned number in the uncompiled pattern.  */
+# define GET_UNSIGNED_NUMBER(num) \
+  {									\
+    while (p != pend)							\
+      {									\
+	PATFETCH (c);							\
+	if (c < '0' || c > '9')						\
+	  break;							\
+	if (num <= RE_DUP_MAX)						\
+	  {								\
+	    if (num < 0)						\
+	      num = 0;							\
+	    num = num * 10 + c - '0';					\
+	  }								\
+      }									\
+  }
+
+# ifndef DEFINED_ONCE
+#  if defined _LIBC || WIDE_CHAR_SUPPORT
+/* The GNU C library provides support for user-defined character classes
+   and the functions from ISO C amendement 1.  */
+#   ifdef CHARCLASS_NAME_MAX
+#    define CHAR_CLASS_MAX_LENGTH CHARCLASS_NAME_MAX
+#   else
+/* This shouldn't happen but some implementation might still have this
+   problem.  Use a reasonable default value.  */
+#    define CHAR_CLASS_MAX_LENGTH 256
+#   endif
+
+#   ifdef _LIBC
+#    define IS_CHAR_CLASS(string) __wctype (string)
+#   else
+#    define IS_CHAR_CLASS(string) wctype (string)
+#   endif
+#  else
+#   define CHAR_CLASS_MAX_LENGTH  6 /* Namely, `xdigit'.  */
+
+#   define IS_CHAR_CLASS(string)					\
+   (STREQ (string, "alpha") || STREQ (string, "upper")			\
+    || STREQ (string, "lower") || STREQ (string, "digit")		\
+    || STREQ (string, "alnum") || STREQ (string, "xdigit")		\
+    || STREQ (string, "space") || STREQ (string, "print")		\
+    || STREQ (string, "punct") || STREQ (string, "graph")		\
+    || STREQ (string, "cntrl") || STREQ (string, "blank"))
+#  endif
+# endif /* DEFINED_ONCE */
+
+# ifndef MATCH_MAY_ALLOCATE
+
+/* If we cannot allocate large objects within re_match_2_internal,
+   we make the fail stack and register vectors global.
+   The fail stack, we grow to the maximum size when a regexp
+   is compiled.
+   The register vectors, we adjust in size each time we
+   compile a regexp, according to the number of registers it needs.  */
+
+static PREFIX(fail_stack_type) fail_stack;
+
+/* Size with which the following vectors are currently allocated.
+   That is so we can make them bigger as needed,
+   but never make them smaller.  */
+#  ifdef DEFINED_ONCE
+static int regs_allocated_size;
+
+static const char **     regstart, **     regend;
+static const char ** old_regstart, ** old_regend;
+static const char **best_regstart, **best_regend;
+static const char **reg_dummy;
+#  endif /* DEFINED_ONCE */
+
+static PREFIX(register_info_type) *PREFIX(reg_info);
+static PREFIX(register_info_type) *PREFIX(reg_info_dummy);
+
+/* Make the register vectors big enough for NUM_REGS registers,
+   but don't make them smaller.  */
+
+static void
+PREFIX(regex_grow_registers) (num_regs)
+     int num_regs;
+{
+  if (num_regs > regs_allocated_size)
+    {
+      RETALLOC_IF (regstart,	 num_regs, const char *);
+      RETALLOC_IF (regend,	 num_regs, const char *);
+      RETALLOC_IF (old_regstart, num_regs, const char *);
+      RETALLOC_IF (old_regend,	 num_regs, const char *);
+      RETALLOC_IF (best_regstart, num_regs, const char *);
+      RETALLOC_IF (best_regend,	 num_regs, const char *);
+      RETALLOC_IF (PREFIX(reg_info), num_regs, PREFIX(register_info_type));
+      RETALLOC_IF (reg_dummy,	 num_regs, const char *);
+      RETALLOC_IF (PREFIX(reg_info_dummy), num_regs, PREFIX(register_info_type));
+
+      regs_allocated_size = num_regs;
+    }
+}
+
+# endif /* not MATCH_MAY_ALLOCATE */
+
+# ifndef DEFINED_ONCE
+static boolean group_in_compile_stack _RE_ARGS ((compile_stack_type
+						 compile_stack,
+						 regnum_t regnum));
+# endif /* not DEFINED_ONCE */
+
+/* `regex_compile' compiles PATTERN (of length SIZE) according to SYNTAX.
+   Returns one of error codes defined in `regex.h', or zero for success.
+
+   Assumes the `allocated' (and perhaps `buffer') and `translate'
+   fields are set in BUFP on entry.
+
+   If it succeeds, results are put in BUFP (if it returns an error, the
+   contents of BUFP are undefined):
+     `buffer' is the compiled pattern;
+     `syntax' is set to SYNTAX;
+     `used' is set to the length of the compiled pattern;
+     `fastmap_accurate' is zero;
+     `re_nsub' is the number of subexpressions in PATTERN;
+     `not_bol' and `not_eol' are zero;
+
+   The `fastmap' and `newline_anchor' fields are neither
+   examined nor set.  */
+
+/* Return, freeing storage we allocated.  */
+# ifdef WCHAR
+#  define FREE_STACK_RETURN(value)		\
+  return (free(pattern), free(mbs_offset), free(is_binary), free (compile_stack.stack), value)
+# else
+#  define FREE_STACK_RETURN(value)		\
+  return (free (compile_stack.stack), value)
+# endif /* WCHAR */
+
+static reg_errcode_t
+PREFIX(regex_compile) (ARG_PREFIX(pattern), ARG_PREFIX(size), syntax, bufp)
+     const char *ARG_PREFIX(pattern);
+     size_t ARG_PREFIX(size);
+     reg_syntax_t syntax;
+     struct re_pattern_buffer *bufp;
+{
+  /* We fetch characters from PATTERN here.  Even though PATTERN is
+     `char *' (i.e., signed), we declare these variables as unsigned, so
+     they can be reliably used as array indices.  */
+  register UCHAR_T c, c1;
+
+#ifdef WCHAR
+  /* A temporary space to keep wchar_t pattern and compiled pattern.  */
+  CHAR_T *pattern, *COMPILED_BUFFER_VAR;
+  size_t size;
+  /* offset buffer for optimization. See convert_mbs_to_wc.  */
+  int *mbs_offset = NULL;
+  /* It hold whether each wchar_t is binary data or not.  */
+  char *is_binary = NULL;
+  /* A flag whether exactn is handling binary data or not.  */
+  char is_exactn_bin = FALSE;
+#endif /* WCHAR */
+
+  /* A random temporary spot in PATTERN.  */
+  const CHAR_T *p1;
+
+  /* Points to the end of the buffer, where we should append.  */
+  register UCHAR_T *b;
+
+  /* Keeps track of unclosed groups.  */
+  compile_stack_type compile_stack;
+
+  /* Points to the current (ending) position in the pattern.  */
+#ifdef WCHAR
+  const CHAR_T *p;
+  const CHAR_T *pend;
+#else /* BYTE */
+  const CHAR_T *p = pattern;
+  const CHAR_T *pend = pattern + size;
+#endif /* WCHAR */
+
+  /* How to translate the characters in the pattern.  */
+  RE_TRANSLATE_TYPE translate = bufp->translate;
+
+  /* Address of the count-byte of the most recently inserted `exactn'
+     command.  This makes it possible to tell if a new exact-match
+     character can be added to that command or if the character requires
+     a new `exactn' command.  */
+  UCHAR_T *pending_exact = 0;
+
+  /* Address of start of the most recently finished expression.
+     This tells, e.g., postfix * where to find the start of its
+     operand.  Reset at the beginning of groups and alternatives.  */
+  UCHAR_T *laststart = 0;
+
+  /* Address of beginning of regexp, or inside of last group.  */
+  UCHAR_T *begalt;
+
+  /* Address of the place where a forward jump should go to the end of
+     the containing expression.  Each alternative of an `or' -- except the
+     last -- ends with a forward jump of this sort.  */
+  UCHAR_T *fixup_alt_jump = 0;
+
+  /* Counts open-groups as they are encountered.  Remembered for the
+     matching close-group on the compile stack, so the same register
+     number is put in the stop_memory as the start_memory.  */
+  regnum_t regnum = 0;
+
+#ifdef WCHAR
+  /* Initialize the wchar_t PATTERN and offset_buffer.  */
+  p = pend = pattern = TALLOC(csize + 1, CHAR_T);
+  mbs_offset = TALLOC(csize + 1, int);
+  is_binary = TALLOC(csize + 1, char);
+  if (pattern == NULL || mbs_offset == NULL || is_binary == NULL)
+    {
+      free(pattern);
+      free(mbs_offset);
+      free(is_binary);
+      return REG_ESPACE;
+    }
+  pattern[csize] = L'\0';	/* sentinel */
+  size = convert_mbs_to_wcs(pattern, cpattern, csize, mbs_offset, is_binary);
+  pend = p + size;
+  if (size < 0)
+    {
+      free(pattern);
+      free(mbs_offset);
+      free(is_binary);
+      return REG_BADPAT;
+    }
+#endif
+
+#ifdef DEBUG
+  DEBUG_PRINT1 ("\nCompiling pattern: ");
+  if (debug)
+    {
+      unsigned debug_count;
+
+      for (debug_count = 0; debug_count < size; debug_count++)
+        PUT_CHAR (pattern[debug_count]);
+      putchar ('\n');
+    }
+#endif /* DEBUG */
+
+  /* Initialize the compile stack.  */
+  compile_stack.stack = TALLOC (INIT_COMPILE_STACK_SIZE, compile_stack_elt_t);
+  if (compile_stack.stack == NULL)
+    {
+#ifdef WCHAR
+      free(pattern);
+      free(mbs_offset);
+      free(is_binary);
+#endif
+      return REG_ESPACE;
+    }
+
+  compile_stack.size = INIT_COMPILE_STACK_SIZE;
+  compile_stack.avail = 0;
+
+  /* Initialize the pattern buffer.  */
+  bufp->syntax = syntax;
+  bufp->fastmap_accurate = 0;
+  bufp->not_bol = bufp->not_eol = 0;
+
+  /* Set `used' to zero, so that if we return an error, the pattern
+     printer (for debugging) will think there's no pattern.  We reset it
+     at the end.  */
+  bufp->used = 0;
+
+  /* Always count groups, whether or not bufp->no_sub is set.  */
+  bufp->re_nsub = 0;
+
+#if !defined emacs && !defined SYNTAX_TABLE
+  /* Initialize the syntax table.  */
+   init_syntax_once ();
+#endif
+
+  if (bufp->allocated == 0)
+    {
+      if (bufp->buffer)
+	{ /* If zero allocated, but buffer is non-null, try to realloc
+             enough space.  This loses if buffer's address is bogus, but
+             that is the user's responsibility.  */
+#ifdef WCHAR
+	  /* Free bufp->buffer and allocate an array for wchar_t pattern
+	     buffer.  */
+          free(bufp->buffer);
+          COMPILED_BUFFER_VAR = TALLOC (INIT_BUF_SIZE/sizeof(UCHAR_T),
+					UCHAR_T);
+#else
+          RETALLOC (COMPILED_BUFFER_VAR, INIT_BUF_SIZE, UCHAR_T);
+#endif /* WCHAR */
+        }
+      else
+        { /* Caller did not allocate a buffer.  Do it for them.  */
+          COMPILED_BUFFER_VAR = TALLOC (INIT_BUF_SIZE / sizeof(UCHAR_T),
+					UCHAR_T);
+        }
+
+      if (!COMPILED_BUFFER_VAR) FREE_STACK_RETURN (REG_ESPACE);
+#ifdef WCHAR
+      bufp->buffer = (char*)COMPILED_BUFFER_VAR;
+#endif /* WCHAR */
+      bufp->allocated = INIT_BUF_SIZE;
+    }
+#ifdef WCHAR
+  else
+    COMPILED_BUFFER_VAR = (UCHAR_T*) bufp->buffer;
+#endif
+
+  begalt = b = COMPILED_BUFFER_VAR;
+
+  /* Loop through the uncompiled pattern until we're at the end.  */
+  while (p != pend)
+    {
+      PATFETCH (c);
+
+      switch (c)
+        {
+        case '^':
+          {
+            if (   /* If at start of pattern, it's an operator.  */
+                   p == pattern + 1
+                   /* If context independent, it's an operator.  */
+                || syntax & RE_CONTEXT_INDEP_ANCHORS
+                   /* Otherwise, depends on what's come before.  */
+                || PREFIX(at_begline_loc_p) (pattern, p, syntax))
+              BUF_PUSH (begline);
+            else
+              goto normal_char;
+          }
+          break;
+
+
+        case '$':
+          {
+            if (   /* If at end of pattern, it's an operator.  */
+                   p == pend
+                   /* If context independent, it's an operator.  */
+                || syntax & RE_CONTEXT_INDEP_ANCHORS
+                   /* Otherwise, depends on what's next.  */
+                || PREFIX(at_endline_loc_p) (p, pend, syntax))
+               BUF_PUSH (endline);
+             else
+               goto normal_char;
+           }
+           break;
+
+
+	case '+':
+        case '?':
+          if ((syntax & RE_BK_PLUS_QM)
+              || (syntax & RE_LIMITED_OPS))
+            goto normal_char;
+        handle_plus:
+        case '*':
+          /* If there is no previous pattern... */
+          if (!laststart)
+            {
+              if (syntax & RE_CONTEXT_INVALID_OPS)
+                FREE_STACK_RETURN (REG_BADRPT);
+              else if (!(syntax & RE_CONTEXT_INDEP_OPS))
+                goto normal_char;
+            }
+
+          {
+            /* Are we optimizing this jump?  */
+            boolean keep_string_p = false;
+
+            /* 1 means zero (many) matches is allowed.  */
+            char zero_times_ok = 0, many_times_ok = 0;
+
+            /* If there is a sequence of repetition chars, collapse it
+               down to just one (the right one).  We can't combine
+               interval operators with these because of, e.g., `a{2}*',
+               which should only match an even number of `a's.  */
+
+            for (;;)
+              {
+                zero_times_ok |= c != '+';
+                many_times_ok |= c != '?';
+
+                if (p == pend)
+                  break;
+
+                PATFETCH (c);
+
+                if (c == '*'
+                    || (!(syntax & RE_BK_PLUS_QM) && (c == '+' || c == '?')))
+                  ;
+
+                else if (syntax & RE_BK_PLUS_QM  &&  c == '\\')
+                  {
+                    if (p == pend) FREE_STACK_RETURN (REG_EESCAPE);
+
+                    PATFETCH (c1);
+                    if (!(c1 == '+' || c1 == '?'))
+                      {
+                        PATUNFETCH;
+                        PATUNFETCH;
+                        break;
+                      }
+
+                    c = c1;
+                  }
+                else
+                  {
+                    PATUNFETCH;
+                    break;
+                  }
+
+                /* If we get here, we found another repeat character.  */
+               }
+
+            /* Star, etc. applied to an empty pattern is equivalent
+               to an empty pattern.  */
+            if (!laststart)
+              break;
+
+            /* Now we know whether or not zero matches is allowed
+               and also whether or not two or more matches is allowed.  */
+            if (many_times_ok)
+              { /* More than one repetition is allowed, so put in at the
+                   end a backward relative jump from `b' to before the next
+                   jump we're going to put in below (which jumps from
+                   laststart to after this jump).
+
+                   But if we are at the `*' in the exact sequence `.*\n',
+                   insert an unconditional jump backwards to the .,
+                   instead of the beginning of the loop.  This way we only
+                   push a failure point once, instead of every time
+                   through the loop.  */
+                assert (p - 1 > pattern);
+
+                /* Allocate the space for the jump.  */
+                GET_BUFFER_SPACE (1 + OFFSET_ADDRESS_SIZE);
+
+                /* We know we are not at the first character of the pattern,
+                   because laststart was nonzero.  And we've already
+                   incremented `p', by the way, to be the character after
+                   the `*'.  Do we have to do something analogous here
+                   for null bytes, because of RE_DOT_NOT_NULL?  */
+                if (TRANSLATE (*(p - 2)) == TRANSLATE ('.')
+		    && zero_times_ok
+                    && p < pend && TRANSLATE (*p) == TRANSLATE ('\n')
+                    && !(syntax & RE_DOT_NEWLINE))
+                  { /* We have .*\n.  */
+                    STORE_JUMP (jump, b, laststart);
+                    keep_string_p = true;
+                  }
+                else
+                  /* Anything else.  */
+                  STORE_JUMP (maybe_pop_jump, b, laststart -
+			      (1 + OFFSET_ADDRESS_SIZE));
+
+                /* We've added more stuff to the buffer.  */
+                b += 1 + OFFSET_ADDRESS_SIZE;
+              }
+
+            /* On failure, jump from laststart to b + 3, which will be the
+               end of the buffer after this jump is inserted.  */
+	    /* ifdef WCHAR, 'b + 1 + OFFSET_ADDRESS_SIZE' instead of
+	       'b + 3'.  */
+            GET_BUFFER_SPACE (1 + OFFSET_ADDRESS_SIZE);
+            INSERT_JUMP (keep_string_p ? on_failure_keep_string_jump
+                                       : on_failure_jump,
+                         laststart, b + 1 + OFFSET_ADDRESS_SIZE);
+            pending_exact = 0;
+            b += 1 + OFFSET_ADDRESS_SIZE;
+
+            if (!zero_times_ok)
+              {
+                /* At least one repetition is required, so insert a
+                   `dummy_failure_jump' before the initial
+                   `on_failure_jump' instruction of the loop. This
+                   effects a skip over that instruction the first time
+                   we hit that loop.  */
+                GET_BUFFER_SPACE (1 + OFFSET_ADDRESS_SIZE);
+                INSERT_JUMP (dummy_failure_jump, laststart, laststart +
+			     2 + 2 * OFFSET_ADDRESS_SIZE);
+                b += 1 + OFFSET_ADDRESS_SIZE;
+              }
+            }
+	  break;
+
+
+	case '.':
+          laststart = b;
+          BUF_PUSH (anychar);
+          break;
+
+
+        case '[':
+          {
+            boolean had_char_class = false;
+#ifdef WCHAR
+	    CHAR_T range_start = 0xffffffff;
+#else
+	    unsigned int range_start = 0xffffffff;
+#endif
+            if (p == pend) FREE_STACK_RETURN (REG_EBRACK);
+
+#ifdef WCHAR
+	    /* We assume a charset(_not) structure as a wchar_t array.
+	       charset[0] = (re_opcode_t) charset(_not)
+               charset[1] = l (= length of char_classes)
+               charset[2] = m (= length of collating_symbols)
+               charset[3] = n (= length of equivalence_classes)
+	       charset[4] = o (= length of char_ranges)
+	       charset[5] = p (= length of chars)
+
+               charset[6] = char_class (wctype_t)
+               charset[6+CHAR_CLASS_SIZE] = char_class (wctype_t)
+                         ...
+               charset[l+5]  = char_class (wctype_t)
+
+               charset[l+6]  = collating_symbol (wchar_t)
+                            ...
+               charset[l+m+5]  = collating_symbol (wchar_t)
+					ifdef _LIBC we use the index if
+					_NL_COLLATE_SYMB_EXTRAMB instead of
+					wchar_t string.
+
+               charset[l+m+6]  = equivalence_classes (wchar_t)
+                              ...
+               charset[l+m+n+5]  = equivalence_classes (wchar_t)
+					ifdef _LIBC we use the index in
+					_NL_COLLATE_WEIGHT instead of
+					wchar_t string.
+
+	       charset[l+m+n+6] = range_start
+	       charset[l+m+n+7] = range_end
+	                       ...
+	       charset[l+m+n+2o+4] = range_start
+	       charset[l+m+n+2o+5] = range_end
+					ifdef _LIBC we use the value looked up
+					in _NL_COLLATE_COLLSEQ instead of
+					wchar_t character.
+
+	       charset[l+m+n+2o+6] = char
+	                          ...
+	       charset[l+m+n+2o+p+5] = char
+
+	     */
+
+	    /* We need at least 6 spaces: the opcode, the length of
+               char_classes, the length of collating_symbols, the length of
+               equivalence_classes, the length of char_ranges, the length of
+               chars.  */
+	    GET_BUFFER_SPACE (6);
+
+	    /* Save b as laststart. And We use laststart as the pointer
+	       to the first element of the charset here.
+	       In other words, laststart[i] indicates charset[i].  */
+            laststart = b;
+
+            /* We test `*p == '^' twice, instead of using an if
+               statement, so we only need one BUF_PUSH.  */
+            BUF_PUSH (*p == '^' ? charset_not : charset);
+            if (*p == '^')
+              p++;
+                /* See if we're at the beginning of a possible character
+                   class.  */
+                else if (syntax & RE_CHAR_CLASSES && c == '[' && *p == ':')
+                  { /* Leave room for the null.  */
+                    char str[CHAR_CLASS_MAX_LENGTH + 1];
+
+                    PATFETCH (c);
+                    c1 = 0;
+
+                    /* If pattern is `[[:'.  */
+                    if (p == pend) FREE_STACK_RETURN (REG_EBRACK);
+
+                    for (;;)
+                      {
+                        PATFETCH (c);
+                        if ((c == ':' && *p == ']') || p == pend)
+                          break;
+			if (c1 < CHAR_CLASS_MAX_LENGTH)
+			  str[c1++] = c;
+			else
+			  /* This is in any case an invalid class name.  */
+			  str[0] = '\0';
+                      }

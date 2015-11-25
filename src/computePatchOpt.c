@@ -24,10 +24,10 @@ char** originalBuffer;
 char** targetBuffer;
 int** path;
 
-/**
+/*!
  * price_line
  * \brief Function to return price/cost of a target-line
- * \param targetLineNumber  The number to access the line in our target-buffer.
+ * @param targetLineNumber  The number to access the line in our target-buffer.
  * \returns {price/cost of adding the target-line to the patch} 
  */
 unsigned int price_line(unsigned int targetLineNumber) {
@@ -115,12 +115,14 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     rewind(originalFile);
     rewind(targetFile);
     /* create arrays stocking the string (for comparison) of a line (for cost calculation, we get the length with strlen) */
-    originalBuffer = calloc(nbOriginalLines + 1, sizeof(*originalBuffer));
+    originalBuffer = malloc((nbOriginalLines + 1) * sizeof(*originalBuffer));
+    originalBuffer[0] = NULL;  // line 0 non-existant -> null-pointer
     counter = 1;
     while(fgets(buffer, STRING_MAX, originalFile) != NULL) {
             originalBuffer[counter++] = strdup(buffer);
     }
-    targetBuffer = calloc(nbTargetLines + 1, sizeof(*targetBuffer));
+    targetBuffer = malloc((nbTargetLines + 1) * sizeof(*targetBuffer));
+    targetBuffer[0] = NULL;  // line 0 non-existant -> null-pointer
     counter = 1;
     while(fgets(buffer, STRING_MAX, targetFile) != NULL) {
             targetBuffer[counter++] = strdup(buffer);

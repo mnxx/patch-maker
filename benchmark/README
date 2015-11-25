@@ -1,0 +1,25 @@
+This directory contains 6 subdirectories with names benchmark_xy, where x=0 and
+1<=y<=6. Each of these subdirectories contains a "source" file and a "target"
+file. The program computePatchOpt must take these files as input and generate a
+patch such that [applyPatch patch source] yields target.
+
+For reference, we provide below the number of lines in each of these files. 
+
+1000 benchmark_01/source
+1047 benchmark_01/target
+
+2047 benchmark_02/source
+2094 benchmark_02/target
+
+3000 benchmark_03/source
+3004 benchmark_03/target
+
+4000 benchmark_04/source
+4010 benchmark_04/target
+
+4999 benchmark_05/source
+4986 benchmark_05/target
+
+10000 benchmark_06/source
+10694 benchmark_06/target
+

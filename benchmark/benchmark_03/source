@@ -1,0 +1,3000 @@
+@misc{rfc1,
+  author="S. Crocker",
+  title="{Host Software}",
+  series="Request for Comments",
+  number="1",
+  howpublished="RFC 1",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc1.txt",
+}
+
+@misc{rfc2,
+  author="B. Duvall",
+  title="{Host software}",
+  series="Request for Comments",
+  number="2",
+  howpublished="RFC 2",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc2.txt",
+}
+
+@misc{rfc3,
+  author="S.D. Crocker",
+  title="{Documentation conventions}",
+  series="Request for Comments",
+  number="3",
+  howpublished="RFC 3",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=apr,
+    note="Obsoleted by RFC 10",
+  url="http://www.ietf.org/rfc/rfc3.txt",
+}
+
+@misc{rfc4,
+  author="E.B. Shapiro",
+  title="{Network timetable}",
+  series="Request for Comments",
+  number="4",
+  howpublished="RFC 4",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc4.txt",
+}
+
+%%%%%%% Insert Non-RFC content %%%%%%%%%%%%%%%%%%%
+
+@phdthesis
+{
+	ozkaya08,
+	author = {Gunes Ercal-Ozkaya},
+	title = {{Routing in Random Ad-Hoc Networkds: Provably Better than
+	Worst-case}},
+	year = {2008}
+}
+
+
+
+@misc{
+	google-issue,
+	howpublished = {Online},
+	title = {Chromium Bug},
+	note = {\url{https://code.google.com/p/chromium/issues/detail?id=103243}},
+}
+
+@misc{
+	mozilla-issue,
+	howpublished = {Online},
+	title = {Mozilla Bug},
+	note = {\url{https://bugzilla.mozilla.org/show_bug.cgi?id=368255}},
+}
+
+
+
+@misc{
+	bpjm,
+	howpublished = {Online},
+	title = {{BPJM Modul}},
+	note = {\url{http://bpjmleak.neocities.org/}},
+}
+
+
+
+@misc{
+	bigblacklist,
+	howpublished = {Online},
+	title = {{BigBlackList}},
+	note = {\url{http://urlblacklist.com/}},
+}
+
+
+
+@misc{
+	alexa-list,
+	howpublished = {Online},
+	title = {{Alexa 1M Global Sites}},
+	note = {\url{http://bit.ly/1yhXcgL}},
+	year = {2015}
+}
+
+@misc{
+	dns-13,
+	howpublished = {Online},
+	title = {{DNS Census 2013}},
+	note = {\url{https://dnscensus2013.neocities.org/}},
+	year = {2013}
+}
+
+
+
+@misc{
+	common-crawl,
+	howpublished = {Online},
+	title = {{Common Crawl}},
+	note = {\url{http://commoncrawl.org/}},
+	year = {2015}
+}
+
+
+@misc{
+	email,
+    author={Daniel Veditz},
+    howpublished={Personal Communication},
+    year={2015},
+}
+
+@misc{
+	huberman08,
+  	author = {Huberman, Bernardo A. and Adamic, Lada A.},
+  	title = {{Internet: Growth dynamics of the World-Wide Web}},
+  	year = {2008},
+  	INSTITUTION =   {Xerox Palo Alto Research Centen},
+ 	address={Palo Alto, California},
+    note = {\url{http://arxiv.org/pdf/cond-mat/9901071v2.pdf}}	
+}
+
+@article{
+	huberman99,
+ 	author = {Huberman, Bernardo A. and Adamic, Lada A.},
+	journal = {Nature},
+	number = 6749,
+  	pages = {131--131},
+  	title = {{Internet: Growth dynamics of the World-Wide Web}},
+  	volume = 401,
+  	year = 1999
+}
+
+
+
+@inproceedings{Jones07,
+  author    = {Rosie Jones and Ravi Kumar and Bo Pang and Andrew Tomkins},
+  title     = {"I know what you did last summer": query logs and user privacy},
+  booktitle = {{ACM} Conference on Information and Knowledge
+               Management, {CIKM} 2007, Lisbon, Portugal, November 6-10, 2007},
+  pages     = {909--914},
+  year      = {2007},
+    publisher = {{ACM}},
+
+}
+
+@inproceedings{Gervais2014,
+  author    = {Arthur Gervais and Reza Shokri and
+               Adish Singla and Srdjan Capkun and Vincent Lenders},
+  title     = {{Quantifying Web-Search Privacy}},
+  booktitle = {{ACM} {SIGSAC} Conference on Computer and Communications Security, Scottsdale, AZ, USA, November 3-7, 2014},
+  pages     = {966--977},
+  year      = {2014},
+  publisher = {{ACM}},
+
+}
+
+@article{Sweeney2002,
+  author    = {Latanya Sweeney},
+  title     = {{k-Anonymity: A Model for Protecting Privacy}},
+  journal   = {International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems},
+  volume    = {10},
+  number    = {5},
+  pages     = {557--570},
+  year      = {2002},
+}
+
+@inproceedings{
+    Alsaid02,
+    author    = {Adil Alsaid and
+               David Martin},
+    title     = {{Detecting Web Bugs with Bugnosis: Privacy Advocacy
+    through Education}},
+    booktitle = {Privacy Enhancing Technologies, Second International Workshop, {PET}
+               2002, San Francisco, CA, USA, April 14-15, 2002, Revised Papers},
+    pages     = {13--26},
+    year      = {2002},
+}
+
+@inproceedings{
+    Shankar2006,
+    author = {Shankar, Umesh and Karlof, Chris},
+    title = {{Doppelganger: Better Browser Privacy Without the Bother}},
+    booktitle = {Proceedings of the 13th ACM Conference on Computer and Communications Security},
+    series = {CCS '06},
+    year = {2006},
+    pages = {154--167},
+    publisher = {ACM},
+    address = {New York, NY, USA},
+}
+
+
+@article{
+    Syverson97,
+    author    = {Paul F. Syverson and
+               Michael G. Reed and
+               David M. Goldschlag},
+    title     = {{Private Web Browsing}},
+    journal   = {Journal of Computer Security},
+    volume    = {5},
+    number    = {3},
+    pages     = {237--248},
+    year      = {1997}
+}
+
+
+@inproceedings{
+    Eckersley2010,
+    author = {Eckersley, Peter},
+    title = {{How Unique is Your Web Browser?}},
+    booktitle = {Proceedings of the 10th International Conference on Privacy Enhancing Technologies},
+    series = {PETS'10},
+    year = {2010},
+    pages = {1--18},
+    publisher = {Springer-Verlag},
+    address = {Berlin, Heidelberg},
+}
+
+@inproceedings{
+    Lerner13,
+    author    = {Benjamin S. Lerner and
+               Liam Elberty and
+               Neal Poole and
+               Shriram Krishnamurthi},
+    title     = {{Verifying Web Browser Extensions' Compliance with Private-Browsing
+               Mode}},
+    booktitle = {Computer Security - {ESORICS} 2013 - 18th European Symposium on Research
+               in Computer Security, Egham, UK, September 9-13, 2013. Proceedings},
+    pages     = {57--74},
+    year      = {2013},
+}
+
+@inproceedings{
+    Aggarwal10,
+    author    = {Gaurav Aggarwal and
+               Elie Bursztein and
+               Collin Jackson and
+               Dan Boneh},
+    title     = {{An Analysis of Private Browsing Modes in Modern
+    Browsers}},
+    booktitle = {19th {USENIX} Security Symposium, Washington, DC, USA, August 11-13,
+               2010, Proceedings},
+    pages     = {79--94},
+    year      = {2010},
+}
+
+@misc{
+    googleindexing,
+    howpublished = {\url{http://googleblog.blogspot.fr/2008/07/we-knew-web-was-big.html}},
+    author =        {Google Inc.},
+}
+
+@misc{
+    link-shim,
+    author = {Facebook Inc.},
+    title = {{Link Shim}},
+    howpublished = {\url{http://on.fb.me/1he2yEB}}
+}
+
+
+
+@misc{
+    wot,
+    author = {WOT Services, Ltd},
+    title = {{Web of Trust}},
+    howpublished = {\url{https://www.mywot.com}}
+}
+
+@misc{
+    fakefactory,
+    author = {Daniele Faraglia}, 
+    title = {{Python Fake Factory}},
+    howpublished = {\url{https://pypi.python.org/pypi/fake-factory/0.2}}
+}
+
+@misc{
+    parallel-py,
+    title = {{Parallel Python}},
+    howpublished = {\url{http://www.parallelpython.com/}}
+}
+
+@misc{
+    verisign,
+    author = {Verisign Inc.},
+    howpublished = {\url{http://www.verisigninc.com/en_US/innovation/dnib/index.xhtml}}
+}
+
+@misc{
+    zeltser,
+    author = {Zeltser Security Corp},
+    howpublished = {\url{https://zeltser.com/malicious-ip-blocklists/}}
+}
+
+@misc{
+    topalexa,
+    author = {Alexa Internet Inc.},
+    howpublished = {\url{http://www.alexa.com/}}
+}
+
+
+@misc{
+    sbapi,
+    title = {{Safe Browsing API}},
+    howpublished = {\url{https://developers.google.com/safe-browsing/}},
+    author =        {Google Inc.},
+}
+
+
+
+@misc{
+    sbblog,
+    author = {Niels Provos},
+    title = {{Safe Browsing - Protecting Web Users for 5 Years and Counting}},
+    howpublished = {\url{http://googleonlinesecurity.blogspot.fr/2012/06/safe-browsing-protecting-web-users-for.html}}
+}
+
+
+
+@misc{
+    foxtor,
+    author = {Sasha Romanosky},
+    title = {{FoxTor: helping protect your identity while browsing online.}},
+    howpublished = {\url{cups.cs.cmu.edu/foxtor}}
+}
+
+@misc{
+    torbutton,
+    author = {Mike Perry},
+    title = {{Torbutton}},
+    howpublished = {\url{https://www.torproject.org/docs/torbutton/}}
+}
+
+
+@misc{
+    yandexapi,
+    author = {Yandex},
+    title = {{Yandex Safe Browsing}},
+    howpublished = {\url{http://api.yandex.com/safebrowsing/}}
+}
+
+@misc{
+    nortonsafeweb,
+    author = {Symantec},
+    title = {{Norton Safe Web}},
+    howpublished = {\url{https://safeweb.norton.com/}}
+}
+
+@misc{
+    nortonsafesearch,
+    author = {Symantec},
+    title = {{Norton Safe Search}},
+    howpublished = {\url{http://nortonsafe.search.ask.com/}}
+}
+
+@misc{
+    siteadvisor,
+    author = {McAfee},
+    title = {{McAfee Site Advisor}},
+    howpublished = {\url{http://www.siteadvisor.com/}}
+}
+
+
+@misc{
+    siteadvisor-live,
+    author = {McAfee},
+    title = {{McAfee Site Advisor Live}},
+    howpublished = {\url{http://home.mcafee.com/store/siteadvisor-live}}
+}
+
+@misc{
+    siteadvisor-faq,
+    author = {McAfee},
+    title = {{McAfee Site Advisor FAQ}},
+    howpublished = {\url{https://kc.mcafee.com/corporate/index?page=content\&id=KB73457}}
+}
+
+@misc{
+    app-reputation,
+    author = {Microsoft},
+    title = {{SmartScreen Application Reputation}},
+    howpublished = {\url{http://blogs.msdn.com/b/ie/archive/2011/05/17/smartscreen-174-application-reputation-in-ie9.aspx}}
+}
+
+@misc{
+    GCPN,
+    author={Google},
+    title = {{Google Chrome Privacy Notice}},
+    month = {November},
+    year  = {2014},
+    howpublished={\url{https://www.google.com/intl/en/chrome/browser/privacy/}},
+}
+
+@misc{
+    GSBSMF3,
+    author={Google},
+    title={{Google Safe Browsing Service in Mozilla Firefox Version 3}},
+    month = {April},
+    year  = {2012},
+    howpublished={\url{https://developers.google.com/safe-browsing/firefox3_privacy?csw=1}},
+}
+
+@misc{
+    authenticode,
+    author = {Microsoft},
+    title = {{SmartScreen: Authenticode Code Signing}},
+    howpublished = {\url{http://blogs.msdn.com/b/ieinternals/archive/2011/03/22/authenticode-code-signing-for-developers-for-file-downloads-building-smartscreen-application-reputation.aspx }}
+}
+
+
+@misc{
+    windowslogo_cert,
+    author = {Microsoft},
+    title = {{Windows Logo}},
+    howpublished = {\url{https://msdn.microsoft.com/en-us/windows/dd203105.aspx}}
+}
+
+@misc{
+    ev-cert,
+    author = {Microsoft},
+    title = {{Extended Validation}},
+    howpublished = {\url{http://blogs.msdn.com/b/ie/archive/2012/08/14/microsoft-smartscreen-amp-extended-validation-ev-code-signing-certificates.aspx}}
+}
+
+@inproceedings{
+    Raab1998,
+    author = {Raab, Martin and Steger, Angelika},
+    title = {{``Balls into Bins'' - A Simple and Tight Analysis}},
+    booktitle = {Proceedings of the Second International Workshop on Randomization and Approximation Techniques in Computer Science},
+    series = {RANDOM '98},
+    year = {1998},
+    pages = {159--170},
+    publisher = {Springer-Verlag},
+    address = {London,UK},
+}
+
+
+
+@article{
+    Agarwal13,
+    author    = {Anupama Aggarwal and
+               Ashwin Rajadesingan and
+               Ponnurangam Kumaraguru},
+    title     = {{PhishAri: Automatic Realtime Phishing Detection on
+    Twitter}},
+    journal   = {CoRR},
+    volume    = {abs/1301.6899},
+    year      = {2013},
+    url       = {http://arxiv.org/abs/1301.6899},
+}
+
+@inproceedings{
+    Chor1995,
+  	author    = {Benny Chor and Oded Goldreich and Eyal Kushilevitz and Madhu Sudan},
+  	title     = {{Private Information Retrieval}},
+    booktitle = {Annual Symposium on Foundations of Computer Science, FOCS 1995},
+    year      = {1995},
+
+}
+
+@inproceedings{Sion07,
+    author    = {Radu Sion and Bogdan Carbunar},
+    title     = {{On the Practicality of Private Information Retrieval}},
+    booktitle = {Proceedings of the Network and Distributed System Security Symposium -- {NDSS} 2007},
+    address = { San Diego, CA, USA},
+    month = {February},
+    year      = {2007},
+    publisher = {The Internet Society},
+
+}
+
+
+@INPROCEEDINGS{
+	Melchor08,
+	author={Melchor, C.A. and Gaborit, P.},
+	booktitle={Information Theory, 2008. ISIT 2008. IEEE International
+    Symposium on},
+	title={{A fast private information retrieval protocol}},
+	year={2008},
+}
+
+@inproceedings{
+	Kushilevitz97,
+ 	author = {Kushilevitz, E. and Ostrovsky, R.},
+	title = {{Replication is Not Needed: Single Database, Computationally-private
+Information Retrieval}},
+	booktitle = {Proceedings of the 38th Annual Symposium on Foundations of
+Computer Science},
+ 	year = {1997},
+}
+
+@INPROCEEDINGS{
+	Goldberg07,
+	author={Goldberg, I.},
+	booktitle={Security and Privacy, 2007. S\&P '07. IEEE Symposium on},
+	title={{Improving the Robustness of Private Information Retrieval}},
+	year={2007},
+}
+
+
+@MISC{
+	Chor1998,
+	author = {B. Chor and N. Gilboa and M. Naor},
+	title = {{Private information retrieval by keywords}},
+	institute = {Department of Computer Science, Technion},
+	number = {Technical Report TR CS0917},
+	year = {1998},
+}
+
+
+@INPROCEEDINGS{
+	Chor97,
+   	author = {Benny Chor and Niv Gilboa},
+  	title = {{Computationally Private Information Retrieval (Extended
+Abstract)}},
+   	booktitle = {Journal of the ACM},
+   	 year = {1997},
+}
+
+
+@incollection{
+	Olumofin12,
+	year={2012},
+	booktitle={Financial Cryptography and Data Security},
+	title={{Revisiting the Computational Practicality of Private
+    Information Retrieval}},
+	author={Olumofin, Femi and Goldberg, Ian},
+    publisher={Springer Berlin Heidelberg}
+}
+
+
+@inproceedings{
+    Felegyhazi10,
+    author              = {M\'{a}rk F\'{e}legyh\'{a}zi and
+                          Christian Kreibich and
+                          Vern Paxson},
+    title               = {{On the Potential of Proactive Domain
+    Blacklisting.}},
+    booktitle           = {LEET},
+    year                = {2010},
+}
+
+
+@inproceedings{
+	Antonakakis10,
+  	author    = {Manos Antonakakis and
+               Roberto Perdisci and
+               David Dagon and
+               Wenke Lee and
+               Nick Feamster},
+  	title     = {{Building a Dynamic Reputation System for DNS}},
+  	booktitle = {19th {USENIX} Security Symposium, Washington, DC, USA, August 11-13,
+               2010, Proceedings},
+  	year      = {2010},
+  	pages     = {273--290},
+}
+@inproceedings{
+	Nazario09,
+ 	author = {Nazario, Jose},
+ 	title = {{PhoneyC: A Virtual Client Honeypot}},
+ 	booktitle = {Proceedings of the 2Nd USENIX Conference on Large-scale Exploits and Emergent Threats: Botnets, Spyware, Worms, and More},
+ 	series = {LEET'09},
+ 	year = {2009},
+  	publisher = {USENIX Association},
+ 	address = {Berkeley, CA, USA},
+}
+
+@inproceedings{
+	Cova10,
+ 	author = {Cova, Marco and Kruegel, Christopher and Vigna, Giovanni},
+ 	title = {{Detection and Analysis of Drive-by-download Attacks and
+    Malicious JavaScript Code}},
+ 	booktitle = {Proceedings of the 19th International Conference on World Wide Web},
+ 	series = {WWW '10},
+ 	year = {2010},
+  	pages = {281--290},
+  	publisher = {ACM},
+ 	address = {New York, NY, USA},
+ }
+
+@inproceedings{
+	Wang06,
+   	author              = {Yi-Min Wang and
+                          Doug Beck and
+                          Xuxian Jiang and
+                          Roussi Roussev and
+                          Chad Verbowski and
+                          Shuo Chen and
+                          Samuel T. King},
+   	title               = {{Automated Web Patrol with Strider
+    HoneyMonkeys: Finding Web Sites That Exploit Browser
+    Vulnerabilities.}},
+   	booktitle           = {NDSS},
+   	year                = {2006},
+
+}
+
+
+@inproceedings{
+	Moshchuk06,
+  	author    = {Alexander Moshchuk and
+               		Tanya Bragin and
+               		Steven D. Gribble and
+               		Henry M. Levy},
+  	title     = {{A Crawler-based Study of Spyware in the Web}},
+  	booktitle = {Proceedings of the Network and Distributed System Security Symposium,
+               {NDSS} 2006, San Diego, California, {USA}},
+  	year      = {2006},
+}
+
+@inproceedings{
+	Moshchuk07,
+  	author    = {Alexander Moshchuk and
+               Tanya Bragin and
+               Damien Deville and
+               Steven D. Gribble and
+               Henry M. Levy},
+  	title     = {{SpyProxy: Execution-based Detection of Malicious Web
+    Content}},
+  	booktitle = {Proceedings of the 16th {USENIX} Security Symposium, Boston, MA, USA,
+               August 6-10, 2007},
+  	year      = {2007},
+}
+
+
+
+@techreport{
+	FIPS2014,
+    	author = {{National institute of standards and technology}},
+ 	title = {{SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions}},
+ 	number = {FIPS PUB 202},
+ 	year = {2014},
+ 	month = {may},
+ 	institution = {National Institute of Standards \& Technology},
+  	note = {draft},
+}
+@book{
+	Cormen2009,
+ 	author = {Cormen, Thomas H. and Leiserson, Charles E. and Rivest, Ronald L. and Stein, Clifford},
+ 	title = {{Introduction to Algorithms, Third Edition}},
+ 	year = {2009},
+  	edition = {3rd},
+ 	publisher = {The MIT Press},
+}
+
+@techreport{
+    rfc3229,
+    AUTHOR = "J. Mogul and B. Krishnamurthy and F. Douglis and A.
+            Feldmann and  Y. Goland
+            and A. van Hoff  and D. Hellerstein",
+    TITLE = {{Delta encoding in HTTP}},
+    HOWPUBLISHED = {Internet Requests for Comments},
+    TYPE="{RFC}",
+    NUMBER=3229,
+    PAGES = {1-48},
+    YEAR = {2002},
+    MONTH = {January},
+    PUBLISHER = "{RFC Editor}",
+    INSTITUTION = "{RFC Editor}",
+    note={\url{http://tools.ietf.org/html/rfc3229}}
+}
+
+@techreport{
+    rfc1738,
+    AUTHOR = "T. Berners-Lee and L. Masinter and M. McCahill",
+    TITLE = {{Uniform Resource Locators (URL)}},
+    HOWPUBLISHED = {Internet Requests for Comments},
+    TYPE="{RFC}",
+    NUMBER=1738,
+    PAGES = {1-24},
+    YEAR = {1994},
+    MONTH = {December},
+    PUBLISHER = "{RFC Editor}",
+    INSTITUTION = "{RFC Editor}",
+    note={\url{https://www.ietf.org/rfc/rfc1738.txt}}
+}
+
+
+
+@misc{
+    rfc3986,
+    author="T. Berners-Lee and R. Fielding and L. Masinter",
+    title={{Uniform Resource Identifier (URI): Generic Syntax}},
+    series="Request for Comments",
+    number="3986",
+    howpublished="RFC 3986 (INTERNET STANDARD)",
+    publisher="IETF",
+    organization="Internet Engineering Task Force",
+    year=2005,
+    month=jan,
+    note="Updated by RFCs 6874, 7320",
+    url="http://www.ietf.org/rfc/rfc3986.txt",
+}
+
+
+
+
+@techreport{
+    ocert2011,
+    author = {Alexander Klink and Julian W\"alde},
+ 	title = {{Multiple implementations denial-of-service via hash algorithm collision}},
+ 	number = {oCERT advisory 2011–003},
+ 	year = {2011},
+ 	month = {march},
+ 	institution = {Open Source Computer Security Incident Response Team},
+}
+
+@article{
+    Phrack1998,
+	author = {Alexander Peslyak},
+	title = {{Designing and Attacking Port Scan Detection Tools}},
+	journal = {Phrack Magazine},
+	volume = {8},
+	number = {453},
+	month = {july},
+	year = {1998},
+	pages = {13},
+	publisher = {Phrack},
+	note = {\url{http://phrack.org/issues/53/13.html#article}},
+ }
+
+
+@techreport{
+    FIPS2012,
+    author = {{National institute of standards and technology}},
+    title = {{Secure Hash Standard (SHS)}},
+    number = {FIPS PUB 180-4},
+    year = {2012},
+    month = {march},
+    institution = {National Institute of Standards \& Technology},
+}
+
+
+@techreport{
+    Dang2012,
+    author = {Quynh Dang},
+    title = {{Recommendation for Applications Using Approved Hash Algorithms}},
+    number = {SP 800-107 Revision 1},
+    year = {2012},
+    month = {august},
+    institution = {National Institute of Standards \& Technology},
+}
+
+
+@incollection{
+	Bar-Yosef2009,
+	year={2009},
+	booktitle={E-business and Telecommunications},
+	volume={23},
+	series={Communications in Computer and Information Science},
+	editor={Filipe, Joaquim and Obaidat, MohammadS.},
+	title={{Remote Algorithmic Complexity Attacks against Randomized Hash
+    Tables}},
+	publisher={Springer Berlin Heidelberg},
+	author={Bar-Yosef, Noa and Wool, Avishai},
+	pages={162-174},
+}
+@article{
+	McIlroy1999,
+	author = {McIlroy, M. D.},
+	title = {{A Killer Adversary for Quicksort}},
+	journal = {Softw. Pract. Exper.},
+	volume = {29},
+	number = {4},
+	month = apr,
+	year = {1999},
+	pages = {341--344},
+	publisher = {John Wiley \& Sons, Inc.},
+	address = {New York, NY, USA},
+ }
+
+@ONLINE{
+	smurf,
+	author = {{CERT CC}},
+	title = {{Smurf Attack}},
+	note = {\url{http://www.cert.org/advisories/CA-1998-01.html}}
+}
+
+
+@article{
+	Paxon01,
+ 	author = {Paxson, Vern},
+ 	title = {{An Analysis of Using Reflectors for Distributed Denial-of-service Attacks}},
+	journal = {SIGCOMM Comput. Commun. Rev.},
+	volume = {31},
+	number = {3},
+	month = jul,
+	year = {2001},
+	pages = {38--47},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+}
+
+
+@TECHREPORT{
+	google14,
+  	AUTHOR =        {Google Inc.},
+	INSTITUTION = {Google},
+	TITLE =         {{Google Transparency Report}},
+	NOTE =          {\url{https://bit.ly/1A72tdQ}},
+	MONTH =         {June},
+	YEAR  =         {2014},
+}
+
+@misc{
+	goh03,
+	author = {Eu-Jin Goh},
+	title = {{Secure Indexes}},
+	howpublished = {Cryptology ePrint Archive, Report 2003/216},
+	year = {2003},
+	note = {\url{http://eprint.iacr.org/2003/216/}}
+}
+
+@inproceedings{
+	Dong13,
+    author = {Dong, Changyu and Chen, Liqun and Wen, Zikai},
+    title = {{When Private Set Intersection Meets Big Data: An Efficient and
+  Scalable Protocol}},
+    booktitle = {Proceedings of the 2013 ACM SIGSAC conference on Computer
+   \& communications security},
+    series = {CCS '13},
+    year = {2013}
+}
+
+@TECHREPORT{
+	microsoft13,
+	AUTHOR =        {Microsoft Corporation},
+  	INSTITUTION = {Microsoft},
+  	TITLE =         {{Microsoft Security Intelligence Report}},
+  	NOTE =          {\url{https://bit.ly/1qAfTgt}},
+  	MONTH =         {December},
+  	YEAR  =         {2013},
+}
+
+@inproceedings{
+	Papadogiannakis2012,
+  	author    = {Antonis Papadogiannakis and Michalis Polychronakis and Evangelos P. Markatos},
+  	title     = {{Tolerating Overload Attacks Against Packet Capturing Systems}},
+  	booktitle = {USENIX Annual Technical Conference},
+  	year      = {2012},
+  	pages     = {197-202},
+  	month        = {June},
+  	publisher = {USENIX Association},
+  	address = {Boston, MA, USA}
+}
+
+
+@article{
+	Geva2014,
+  	author    = {Moti Geva and
+               Amir Herzberg and
+               Yehoshua Gev},
+  	title     = {{Bandwidth Distributed Denial of Service: Attacks and Defenses}},
+  	journal   = {IEEE Security {\&} Privacy},
+  	volume    = {12},
+  	number    = {1},
+  	year      = {2014},
+  	pages     = {54-61},
+}
+
+@article{
+  	Zargar2013,
+  	author    = {Saman Taghavi Zargar and James Joshi and David Tipper},
+  	title     = {{A Survey of Defense Mechanisms Against Distributed Denial
+               of Service (DDoS) Flooding Attacks}},
+  	journal   = {IEEE Communications Surveys and Tutorials},
+  	volume    = {15},
+  	number    = {4},
+  	year      = {2013},
+  	pages     = {2046-2069},
+}
+
+@inproceedings{
+	Cai2009,
+  	author    = {Xiang Cai and Yuwei Gui and Rob Johnson},
+  	title     = {{Exploiting Unix File-System Races via Algorithmic Complexity Attacks}},
+  	booktitle = {IEEE Symposium on Security and Privacy (S{\&}P 2009},
+  	year      = {2009},
+  	pages     = {27-41},
+  	publisher = {IEEE Computer Society},
+  	address = {Oakland, California, USA},
+}
+
+@inproceedings{
+	Sun2011,
+  	author    = {Xiaoshan Sun and Liang Cheng and Yang Zhang},
+  	title     = {{A Covert Timing Channel via Algorithmic Complexity Attacks:
+               Design and Analysis}},
+  	booktitle = {IEEE International Conference on Communications, ICC 2011},
+  	year      = {2011},
+  	pages     = {1-5},
+  	publisher = {IEEE},
+  	month  = {June},
+ }
+
+@article{
+	Mirkovic2004,
+  	author    = {Jelena Mirkovic and Peter L. Reiher},
+  	title     = {{A taxonomy of DDoS attack and DDoS defense mechanisms}},
+  	journal   = {Computer Communication Review},
+  	volume    = {34},
+  	number    = {2},
+  	year      = {2004},
+  	pages     = {39-53},
+}
+
+@inproceedings{
+	Specht2004,
+  	author    = {Stephen M. Specht and Ruby B. Lee},
+  	title     = {{Distributed Denial of Service: Taxonomies of Attacks, Tools, and Countermeasures}},
+  	booktitle = {International Conference on Parallel and Distributed Computing Systems - PDCS},
+  	year      = {2004},
+  	pages     = {543-550},
+  	publisher = {ISCA},
+   	month     = {September},
+}
+
+@inproceedings{
+	Rossow2014,
+  	author    = {Christian Rossow},
+  	title     = {{Amplification Hell: Revisiting Network Protocols for DDoS Abuse}},
+  	booktitle = {Annual Network and Distributed System Security Symposium - NDSS 2014},
+  	year      = {2014},
+  	address   = {San Diego, CA, USA},
+  	publisher = {The Internet Society},
+}
+
+
+@inproceedings{
+	Carter1977,
+  	author    = {Larry Carter and
+               Mark N. Wegman},
+  	title     = {{Universal Classes of Hash Functions (Extended Abstract)}},
+  	booktitle = {ACM Symposium on Theory of Computing - STOC},
+  	year      = {1977},
+  	pages     = {106-112},
+  	publisher = {ACM},
+  	address   = {Boulder, CO, USA},
+  	month     = {May}
+}
+
+
+@inproceedings{
+	Aumasson2012,
+  	author    = {Jean-Philippe Aumasson and Daniel J. Bernstein},
+  	title     = {{SipHash: A Fast Short-Input PRF}},
+  	booktitle = {Progress in Cryptology - INDOCRYPT 2012},
+  	year      = {2012},
+  	pages     = {489-508},
+    	publisher = {Springer},
+  	series    = {Lecture Notes in Computer Science 7668},
+  	address   = {Kolkata, India},
+  	month     = {December},
+}
+
+
+@inproceedings{
+	Crosby2003,
+  	author    = {Scott A. Crosby and Dan S. Wallach},
+  	title     = {{Denial of Service via Algorithmic Complexity Attacks}},
+  	booktitle = {USENIX Security Symposium},
+  	year      = {2003},
+  	pages     = {3-3},
+    	publisher = {USENIX Association},
+  	series    = {Lecture Notes in Computer Science 7668},
+  	address   = {Washington, USA},
+  	month     = {December},
+}
+
+@inproceedings{
+	BenPorat2012,
+  	author    = {Udi Ben-Porat and
+               Anat Bremler-Barr and
+               Hanoch Levy and
+               Bernhard Plattner},
+  	title     = {{On the Vulnerability of Hardware Hash Tables to Sophisticated Attacks}},
+  	booktitle = {Networking (1)},
+  	year      = {2012},
+  	pages     = {135-148},
+  	publisher = {Springer},
+  	series    = {Lecture Notes in Computer Science},
+  	volume    = {7289},
+}
+
+
+@inproceedings{
+	Bethea2009,
+  	author    = {Darrell Bethea and
+               Michael K. Reiter},
+  	title     = {{Data Structures with Unpredictable Timing}},
+ 	booktitle = {ESORICS},
+  	publisher = {Springer},
+  	series    = {Lecture Notes in Computer Science},
+  	volume    = {5789},
+  	year      = {2009},
+  	pages     = {456-471},
+}
+
+@article{
+	Bloom1970,
+  	author    = {Burton H. Bloom},
+  	title     = {{Space/Time Trade-offs in Hash Coding with Allowable Errors}},
+  	journal   = {Commun. ACM},
+  	volume    = {13},
+  	number    = {7},
+  	year      = {1970},
+  	pages     = {422-426}
+}
+
+@book{
+	Menezes1996,
+ 	author = {Menezes, Alfred J. and Vanstone, Scott A. and Oorschot, Paul C. Van},
+ 	title = {{Handbook of Applied Cryptography}},
+ 	year = {1996},
+  	edition = {1st},
+ 	publisher = {CRC Press, Inc.},
+}
+
+
+
+@article{
+	Broder2005,
+  	author = {Broder, Andrei and Mitzenmacher, Michael},
+  	journal = {Internet Mathematics},
+  	number = 4,
+  	title = {{Network Applications of Bloom Filters: A Survey}},
+  	volume = 1,
+  	year = 2005
+}
+
+@misc{
+	Fowler1991,
+  	title = {{The FNV Non-Cryptographic Hash Algorithm}},
+  	year = 1991,
+  	author = {Fowler, Glenn and Noll, Landon Curt and Vo, Kiem-Phong and Eastlake, Donald},
+  	publisher = {{IETF}},
+  	note = {\url{http://tools.ietf.org/html/draft-eastlake-fnv-07}}
+}
+
+@misc{
+	Appleby2010,
+  	title = {{smhasher - Test your hash functions.}},
+  	year = 2010,
+  	author = {Appleby, Austin},
+  	note = {\url{https://code.google.com/p/smhasher/}}
+}
+
+@misc{
+	Jenkins1996,
+  	title = {{A Hash Function for Hash Table Lookup}},
+  	year = 1996,
+  	author = {Jenkins, Robert},
+  	note = {\url{http://www.burtleburtle.net/bob/hash/doobs.html}}
+}
+
+@misc{rfc5,
+  author="J. Rulifson",
+  title="{Decode Encode Language (DEL)}",
+  series="Request for Comments",
+  number="5",
+  howpublished="RFC 5",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=jun,
+    url="http://www.ietf.org/rfc/rfc5.txt",
+}
+
+@misc{rfc6,
+  author="S.D. Crocker",
+  title="{Conversation with Bob Kahn}",
+  series="Request for Comments",
+  number="6",
+  howpublished="RFC 6",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc6.txt",
+}
+
+@misc{rfc7,
+  author="G. Deloche",
+  title="{Host-IMP interface}",
+  series="Request for Comments",
+  number="7",
+  howpublished="RFC 7",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc7.txt",
+}
+
+@misc{rfc8,
+  author="G. Deloche",
+  title="{ARPA Network Functional Specifications}",
+  series="Request for Comments",
+  number="8",
+  howpublished="RFC 8",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc8.txt",
+}
+
+@misc{rfc9,
+  author="G. Deloche",
+  title="{Host Software}",
+  series="Request for Comments",
+  number="9",
+  howpublished="RFC 9",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc9.txt",
+}
+
+@misc{rfc10,
+  author="S.D. Crocker",
+  title="{Documentation conventions}",
+  series="Request for Comments",
+  number="10",
+  howpublished="RFC 10",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=jul,
+    note="Obsoleted by RFC 16, updated by RFCs 24, 27, 30",
+  url="http://www.ietf.org/rfc/rfc10.txt",
+}
+
+@misc{rfc11,
+  author="G. Deloche",
+  title="{Implementation of the Host - Host Software Procedures in GORDO}",
+  series="Request for Comments",
+  number="11",
+  howpublished="RFC 11",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=aug,
+    note="Obsoleted by RFC 33",
+  url="http://www.ietf.org/rfc/rfc11.txt",
+}
+
+@misc{rfc12,
+  author="M. Wingfield",
+  title="{IMP-Host interface flow diagrams}",
+  series="Request for Comments",
+  number="12",
+  howpublished="RFC 12",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=aug,
+    url="http://www.ietf.org/rfc/rfc12.txt",
+}
+
+@misc{rfc13,
+  author="V. Cerf",
+  title="{Zero Text Length EOF Message}",
+  series="Request for Comments",
+  number="13",
+  howpublished="RFC 13",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=aug,
+    url="http://www.ietf.org/rfc/rfc13.txt",
+}
+
+@misc{rfc15,
+  author="C.S. Carr",
+  title="{Network subsystem for time sharing hosts}",
+  series="Request for Comments",
+  number="15",
+  howpublished="RFC 15",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=sep,
+    url="http://www.ietf.org/rfc/rfc15.txt",
+}
+
+@misc{rfc16,
+  author="S. Crocker",
+  title="{M.I.T}",
+  series="Request for Comments",
+  number="16",
+  howpublished="RFC 16",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=aug,
+    note="Obsoleted by RFC 24, updated by RFCs 24, 27, 30",
+  url="http://www.ietf.org/rfc/rfc16.txt",
+}
+
+@misc{rfc17,
+  author="J.E. Kreznar",
+  title="{Some questions re: Host-IMP Protocol}",
+  series="Request for Comments",
+  number="17",
+  howpublished="RFC 17",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=aug,
+    url="http://www.ietf.org/rfc/rfc17.txt",
+}
+
+@misc{rfc18,
+  author="V. Cerf",
+  title="{IMP-IMP and HOST-HOST Control Links}",
+  series="Request for Comments",
+  number="18",
+  howpublished="RFC 18",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=sep,
+    url="http://www.ietf.org/rfc/rfc18.txt",
+}
+
+@misc{rfc19,
+  author="J.E. Kreznar",
+  title="{Two protocol suggestions to reduce congestion at swap bound nodes}",
+  series="Request for Comments",
+  number="19",
+  howpublished="RFC 19",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc19.txt",
+}
+
+@misc{rfc20,
+  author="V.G. Cerf",
+  title="{ASCII format for network interchange}",
+  series="Request for Comments",
+  number="20",
+  howpublished="RFC 20 (INTERNET STANDARD)",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc20.txt",
+}
+
+@misc{rfc21,
+  author="V.G. Cerf",
+  title="{Network meeting}",
+  series="Request for Comments",
+  number="21",
+  howpublished="RFC 21",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc21.txt",
+}
+
+@misc{rfc22,
+  author="V.G. Cerf",
+  title="{Host-host control message formats}",
+  series="Request for Comments",
+  number="22",
+  howpublished="RFC 22",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc22.txt",
+}
+
+@misc{rfc23,
+  author="G. Gregg",
+  title="{Transmission of Multiple Control Messages}",
+  series="Request for Comments",
+  number="23",
+  howpublished="RFC 23",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc23.txt",
+}
+
+@misc{rfc24,
+  author="S.D. Crocker",
+  title="{Documentation Conventions}",
+  series="Request for Comments",
+  number="24",
+  howpublished="RFC 24",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=nov,
+    note="Updated by RFCs 27, 30",
+  url="http://www.ietf.org/rfc/rfc24.txt",
+}
+
+@misc{rfc25,
+  author="S.D. Crocker",
+  title="{No High Link Numbers}",
+  series="Request for Comments",
+  number="25",
+  howpublished="RFC 25",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc25.txt",
+}
+
+@misc{rfc27,
+  author="S.D. Crocker",
+  title="{Documentation Conventions}",
+  series="Request for Comments",
+  number="27",
+  howpublished="RFC 27",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1969,
+  month=dec,
+    note="Updated by RFC 30",
+  url="http://www.ietf.org/rfc/rfc27.txt",
+}
+
+@misc{rfc28,
+  author="W.K. English",
+  title="{Time Standards}",
+  series="Request for Comments",
+  number="28",
+  howpublished="RFC 28",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jan,
+    url="http://www.ietf.org/rfc/rfc28.txt",
+}
+
+@misc{rfc29,
+  author="R.E. Kahn",
+  title="{Response to RFC 28}",
+  series="Request for Comments",
+  number="29",
+  howpublished="RFC 29",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jan,
+    url="http://www.ietf.org/rfc/rfc29.txt",
+}
+
+@misc{rfc30,
+  author="S.D. Crocker",
+  title="{Documentation Conventions}",
+  series="Request for Comments",
+  number="30",
+  howpublished="RFC 30",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc30.txt",
+}
+
+@misc{rfc31,
+  author="D. Bobrow and W.R. Sutherland",
+  title="{Binary Message Forms in Computer}",
+  series="Request for Comments",
+  number="31",
+  howpublished="RFC 31",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1968,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc31.txt",
+}
+
+@misc{rfc32,
+  author="J. Cole",
+  title="{Some Thoughts on SRI's Proposed Real Time Clock}",
+  series="Request for Comments",
+  number="32",
+  howpublished="RFC 32",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc32.txt",
+}
+
+@misc{rfc33,
+  author="S.D. Crocker",
+  title="{New Host-Host Protocol}",
+  series="Request for Comments",
+  number="33",
+  howpublished="RFC 33",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=feb,
+    note="Updated by RFCs 36, 47",
+  url="http://www.ietf.org/rfc/rfc33.txt",
+}
+
+@misc{rfc34,
+  author="W.K. English",
+  title="{Some Brief Preliminary Notes on the Augmentation Research Center Clock}",
+  series="Request for Comments",
+  number="34",
+  howpublished="RFC 34",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc34.txt",
+}
+
+@misc{rfc35,
+  author="S.D. Crocker",
+  title="{Network Meeting}",
+  series="Request for Comments",
+  number="35",
+  howpublished="RFC 35 (Informational)",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc35.txt",
+}
+
+@misc{rfc36,
+  author="S.D. Crocker",
+  title="{Protocol Notes}",
+  series="Request for Comments",
+  number="36",
+  howpublished="RFC 36",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    note="Updated by RFCs 39, 44",
+  url="http://www.ietf.org/rfc/rfc36.txt",
+}
+
+@misc{rfc37,
+  author="S.D. Crocker",
+  title="{Network Meeting Epilogue, etc}",
+  series="Request for Comments",
+  number="37",
+  howpublished="RFC 37",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc37.txt",
+}
+
+@misc{rfc38,
+  author="S.M. Wolfe",
+  title="{Comments on Network Protocol from NWG/RFC \#36}",
+  series="Request for Comments",
+  number="38",
+  howpublished="RFC 38",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc38.txt",
+}
+
+@misc{rfc39,
+  author="E. Harslem and J.F. Heafner",
+  title="{Comments on Protocol Re: NWG/RFC \#36}",
+  series="Request for Comments",
+  number="39",
+  howpublished="RFC 39",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc39.txt",
+}
+
+@misc{rfc40,
+  author="E. Harslem and J.F. Heafner",
+  title="{More Comments on the Forthcoming Protocol}",
+  series="Request for Comments",
+  number="40",
+  howpublished="RFC 40",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc40.txt",
+}
+
+@misc{rfc41,
+  author="J.T. Melvin",
+  title="{IMP-IMP Teletype Communication}",
+  series="Request for Comments",
+  number="41",
+  howpublished="RFC 41",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc41.txt",
+}
+
+@misc{rfc42,
+  author="E. Ancona",
+  title="{Message Data Types}",
+  series="Request for Comments",
+  number="42",
+  howpublished="RFC 42",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc42.txt",
+}
+
+@misc{rfc43,
+  author="A.G. Nemeth",
+  title="{Proposed Meeting}",
+  series="Request for Comments",
+  number="43",
+  howpublished="RFC 43",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc43.txt",
+}
+
+@misc{rfc44,
+  author="A. Shoshani and R. Long and A. Landsberg",
+  title="{Comments on NWG/RFC 33 and 36}",
+  series="Request for Comments",
+  number="44",
+  howpublished="RFC 44",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc44.txt",
+}
+
+@misc{rfc45,
+  author="J. Postel and S.D. Crocker",
+  title="{New Protocol is Coming}",
+  series="Request for Comments",
+  number="45",
+  howpublished="RFC 45",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc45.txt",
+}
+
+@misc{rfc46,
+  author="E. Meyer",
+  title="{ARPA Network protocol notes}",
+  series="Request for Comments",
+  number="46",
+  howpublished="RFC 46",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc46.txt",
+}
+
+@misc{rfc47,
+  author="J. Postel and S. Crocker",
+  title="{BBN's Comments on NWG/RFC \#33}",
+  series="Request for Comments",
+  number="47",
+  howpublished="RFC 47",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc47.txt",
+}
+
+@misc{rfc48,
+  author="J. Postel and S.D. Crocker",
+  title="{Possible protocol plateau}",
+  series="Request for Comments",
+  number="48",
+  howpublished="RFC 48",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc48.txt",
+}
+
+@misc{rfc49,
+  author="E. Meyer",
+  title="{Conversations with S. Crocker (UCLA)}",
+  series="Request for Comments",
+  number="49",
+  howpublished="RFC 49",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc49.txt",
+}
+
+@misc{rfc50,
+  author="E. Harslen and J. Heafner",
+  title="{Comments on the Meyer Proposal}",
+  series="Request for Comments",
+  number="50",
+  howpublished="RFC 50",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc50.txt",
+}
+
+@misc{rfc51,
+  author="M. Elie",
+  title="{Proposal for a Network Interchange Language}",
+  series="Request for Comments",
+  number="51",
+  howpublished="RFC 51",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc51.txt",
+}
+
+@misc{rfc52,
+  author="J. Postel and S.D. Crocker",
+  title="{Updated distribution list}",
+  series="Request for Comments",
+  number="52",
+  howpublished="RFC 52",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jul,
+    note="Updated by RFC 69",
+  url="http://www.ietf.org/rfc/rfc52.txt",
+}
+
+@misc{rfc53,
+  author="S.D. Crocker",
+  title="{Official protocol mechanism}",
+  series="Request for Comments",
+  number="53",
+  howpublished="RFC 53",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jun,
+    url="http://www.ietf.org/rfc/rfc53.txt",
+}
+
+@misc{rfc54,
+  author="S.D. Crocker and J. Postel and J. Newkirk and M. Kraley",
+  title="{Official Protocol Proffering}",
+  series="Request for Comments",
+  number="54",
+  howpublished="RFC 54",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jun,
+    note="Updated by RFC 57",
+  url="http://www.ietf.org/rfc/rfc54.txt",
+}
+
+@misc{rfc55,
+  author="J. Newkirk and M. Kraley and J. Postel and S.D. Crocker",
+  title="{Prototypical implementation of the NCP}",
+  series="Request for Comments",
+  number="55",
+  howpublished="RFC 55",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jun,
+    url="http://www.ietf.org/rfc/rfc55.txt",
+}
+
+@misc{rfc56,
+  author="E. Belove and D. Black and R. Flegal and L.G. Farquar",
+  title="{Third Level Protocol: Logger Protocol}",
+  series="Request for Comments",
+  number="56",
+  howpublished="RFC 56",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jun,
+    url="http://www.ietf.org/rfc/rfc56.txt",
+}
+
+@misc{rfc57,
+  author="M. Kraley and J. Newkirk",
+  title="{Thoughts and Reflections on NWG/RFC 54}",
+  series="Request for Comments",
+  number="57",
+  howpublished="RFC 57",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jun,
+    url="http://www.ietf.org/rfc/rfc57.txt",
+}
+
+@misc{rfc58,
+  author="T.P. Skinner",
+  title="{Logical Message Synchronization}",
+  series="Request for Comments",
+  number="58",
+  howpublished="RFC 58",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jun,
+    url="http://www.ietf.org/rfc/rfc58.txt",
+}
+
+@misc{rfc59,
+  author="E. Meyer",
+  title="{Flow Control - Fixed Versus Demand Allocation}",
+  series="Request for Comments",
+  number="59",
+  howpublished="RFC 59",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jun,
+    url="http://www.ietf.org/rfc/rfc59.txt",
+}
+
+@misc{rfc60,
+  author="R. Kalin",
+  title="{A Simplified NCP Protocol}",
+  series="Request for Comments",
+  number="60",
+  howpublished="RFC 60",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jul,
+    url="http://www.ietf.org/rfc/rfc60.txt",
+}
+
+@misc{rfc61,
+  author="D.C. Walden",
+  title="{Note on Interprocess Communication in a Resource Sharing Computer Network}",
+  series="Request for Comments",
+  number="61",
+  howpublished="RFC 61",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jul,
+    note="Obsoleted by RFC 62",
+  url="http://www.ietf.org/rfc/rfc61.txt",
+}
+
+@misc{rfc62,
+  author="D.C. Walden",
+  title="{Systems for Interprocess Communication in a Resource Sharing Computer Network}",
+  series="Request for Comments",
+  number="62",
+  howpublished="RFC 62",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=aug,
+    url="http://www.ietf.org/rfc/rfc62.txt",
+}
+
+@misc{rfc63,
+  author="V.G. Cerf",
+  title="{Belated Network Meeting Report}",
+  series="Request for Comments",
+  number="63",
+  howpublished="RFC 63",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jul,
+    url="http://www.ietf.org/rfc/rfc63.txt",
+}
+
+@misc{rfc64,
+  author="M. Elie",
+  title="{Getting rid of marking}",
+  series="Request for Comments",
+  number="64",
+  howpublished="RFC 64",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jul,
+    url="http://www.ietf.org/rfc/rfc64.txt",
+}
+
+@misc{rfc65,
+  author="D.C. Walden",
+  title="{Comments on Host/Host Protocol document \#1}",
+  series="Request for Comments",
+  number="65",
+  howpublished="RFC 65",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=aug,
+    url="http://www.ietf.org/rfc/rfc65.txt",
+}
+
+@misc{rfc66,
+  author="S.D. Crocker",
+  title="{NIC - third level ideas and other noise}",
+  series="Request for Comments",
+  number="66",
+  howpublished="RFC 66",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=aug,
+    note="Obsoleted by RFC 123, updated by RFCs 80, 93",
+  url="http://www.ietf.org/rfc/rfc66.txt",
+}
+
+@misc{rfc67,
+  author="W.R. Crowther",
+  title="{Proposed Change to Host/IMP Spec to Eliminate Marking}",
+  series="Request for Comments",
+  number="67",
+  howpublished="RFC 67",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=jan,
+    url="http://www.ietf.org/rfc/rfc67.txt",
+}
+
+@misc{rfc68,
+  author="M. Elie",
+  title="{Comments on Memory Allocation Control Commands: CEASE, ALL, GVB, RET, and RFNM}",
+  series="Request for Comments",
+  number="68",
+  howpublished="RFC 68",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=aug,
+    url="http://www.ietf.org/rfc/rfc68.txt",
+}
+
+@misc{rfc69,
+  author="A.K. Bhushan",
+  title="{Distribution List Change for MIT}",
+  series="Request for Comments",
+  number="69",
+  howpublished="RFC 69",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=sep,
+    url="http://www.ietf.org/rfc/rfc69.txt",
+}
+
+@misc{rfc70,
+  author="S.D. Crocker",
+  title="{Note on Padding}",
+  series="Request for Comments",
+  number="70",
+  howpublished="RFC 70",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=oct,
+    note="Updated by RFC 228",
+  url="http://www.ietf.org/rfc/rfc70.txt",
+}
+
+@misc{rfc71,
+  author="T. Schipper",
+  title="{Reallocation in Case of Input Error}",
+  series="Request for Comments",
+  number="71",
+  howpublished="RFC 71",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=sep,
+    url="http://www.ietf.org/rfc/rfc71.txt",
+}
+
+@misc{rfc72,
+  author="R.D. Bressler",
+  title="{Proposed Moratorium on Changes to Network Protocol}",
+  series="Request for Comments",
+  number="72",
+  howpublished="RFC 72",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=sep,
+    url="http://www.ietf.org/rfc/rfc72.txt",
+}
+
+@misc{rfc73,
+  author="S.D. Crocker",
+  title="{Response to NWG/RFC 67}",
+  series="Request for Comments",
+  number="73",
+  howpublished="RFC 73",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=sep,
+    url="http://www.ietf.org/rfc/rfc73.txt",
+}
+
+@misc{rfc74,
+  author="J.E. White",
+  title="{Specifications for Network Use of the UCSB On-Line System}",
+  series="Request for Comments",
+  number="74",
+  howpublished="RFC 74",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=oct,
+    note="Updated by RFCs 217, 225",
+  url="http://www.ietf.org/rfc/rfc74.txt",
+}
+
+@misc{rfc75,
+  author="S.D. Crocker",
+  title="{Network Meeting}",
+  series="Request for Comments",
+  number="75",
+  howpublished="RFC 75",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc75.txt",
+}
+
+@misc{rfc76,
+  author="J. Bouknight and J. Madden and G.R. Grossman",
+  title="{Connection by name: User oriented protocol}",
+  series="Request for Comments",
+  number="76",
+  howpublished="RFC 76",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc76.txt",
+}
+
+@misc{rfc77,
+  author="J. Postel",
+  title="{Network meeting report}",
+  series="Request for Comments",
+  number="77",
+  howpublished="RFC 77",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=nov,
+    url="http://www.ietf.org/rfc/rfc77.txt",
+}
+
+@misc{rfc78,
+  author="E. Harslem and J.F. Heafner and J.E. White",
+  title="{NCP Status Report: UCSB/Rand}",
+  series="Request for Comments",
+  number="78",
+  howpublished="RFC 78",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=oct,
+    url="http://www.ietf.org/rfc/rfc78.txt",
+}
+
+@misc{rfc79,
+  author="E. Meyer",
+  title="{Logger Protocol error}",
+  series="Request for Comments",
+  number="79",
+  howpublished="RFC 79",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=nov,
+    url="http://www.ietf.org/rfc/rfc79.txt",
+}
+
+@misc{rfc80,
+  author="E. Harslem and J.F. Heafner",
+  title="{Protocols and Data Formats}",
+  series="Request for Comments",
+  number="80",
+  howpublished="RFC 80",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=dec,
+    note="Obsoleted by RFC 123, updated by RFC 93",
+  url="http://www.ietf.org/rfc/rfc80.txt",
+}
+
+@misc{rfc81,
+  author="J. Bouknight",
+  title="{Request for Reference Information}",
+  series="Request for Comments",
+  number="81",
+  howpublished="RFC 81",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=dec,
+    url="http://www.ietf.org/rfc/rfc81.txt",
+}
+
+@misc{rfc82,
+  author="E. Meyer",
+  title="{Network Meeting Notes}",
+  series="Request for Comments",
+  number="82",
+  howpublished="RFC 82",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=dec,
+    url="http://www.ietf.org/rfc/rfc82.txt",
+}
+
+@misc{rfc83,
+  author="R.H. Anderson and E. Harslem and J.F. Heafner",
+  title="{Language-machine for data reconfiguration}",
+  series="Request for Comments",
+  number="83",
+  howpublished="RFC 83",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=dec,
+    url="http://www.ietf.org/rfc/rfc83.txt",
+}
+
+@misc{rfc84,
+  author="J.B. North",
+  title="{List of NWG/RFC's 1-80}",
+  series="Request for Comments",
+  number="84",
+  howpublished="RFC 84",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=dec,
+    url="http://www.ietf.org/rfc/rfc84.txt",
+}
+
+@misc{rfc85,
+  author="S.D. Crocker",
+  title="{Network Working Group meeting}",
+  series="Request for Comments",
+  number="85",
+  howpublished="RFC 85",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=dec,
+    url="http://www.ietf.org/rfc/rfc85.txt",
+}
+
+@misc{rfc86,
+  author="S.D. Crocker",
+  title="{Proposal for a Network Standard Format for a Data Stream to Control Graphics Display}",
+  series="Request for Comments",
+  number="86",
+  howpublished="RFC 86",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=jan,
+    note="Updated by RFC 125",
+  url="http://www.ietf.org/rfc/rfc86.txt",
+}
+
+@misc{rfc87,
+  author="A. Vezza",
+  title="{Topic for Discussion at the Next Network Working Group Meeting}",
+  series="Request for Comments",
+  number="87",
+  howpublished="RFC 87",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=jan,
+    url="http://www.ietf.org/rfc/rfc87.txt",
+}
+
+@misc{rfc88,
+  author="R.T. Braden and S.M. Wolfe",
+  title="{NETRJS: A third level protocol for Remote Job Entry}",
+  series="Request for Comments",
+  number="88",
+  howpublished="RFC 88",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=jan,
+    note="Obsoleted by RFC 189",
+  url="http://www.ietf.org/rfc/rfc88.txt",
+}
+
+@misc{rfc89,
+  author="R.M. Metcalfe",
+  title="{Some historic moments in networking}",
+  series="Request for Comments",
+  number="89",
+  howpublished="RFC 89",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=jan,
+    url="http://www.ietf.org/rfc/rfc89.txt",
+}
+
+@misc{rfc90,
+  author="R.T. Braden",
+  title="{CCN as a Network Service Center}",
+  series="Request for Comments",
+  number="90",
+  howpublished="RFC 90",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=jan,
+    url="http://www.ietf.org/rfc/rfc90.txt",
+}
+
+@misc{rfc91,
+  author="G.H. Mealy",
+  title="{Proposed User-User Protocol}",
+  series="Request for Comments",
+  number="91",
+  howpublished="RFC 91",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1970,
+  month=dec,
+    url="http://www.ietf.org/rfc/rfc91.txt",
+}
+
+@misc{rfc93,
+  author="A.M. McKenzie",
+  title="{Initial Connection Protocol}",
+  series="Request for Comments",
+  number="93",
+  howpublished="RFC 93",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=jan,
+    url="http://www.ietf.org/rfc/rfc93.txt",
+}
+
+@misc{rfc94,
+  author="E. Harslem and J.F. Heafner",
+  title="{Some thoughts on Network Graphics}",
+  series="Request for Comments",
+  number="94",
+  howpublished="RFC 94",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc94.txt",
+}
+
+@misc{rfc95,
+  author="S. Crocker",
+  title="{Distribution of NWG/RFC's through the NIC}",
+  series="Request for Comments",
+  number="95",
+  howpublished="RFC 95",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    note="Obsoleted by RFC 155",
+  url="http://www.ietf.org/rfc/rfc95.txt",
+}
+
+@misc{rfc96,
+  author="R.W. Watson",
+  title="{An Interactive Network Experiment to Study Modes of Access the Network Information Center}",
+  series="Request for Comments",
+  number="96",
+  howpublished="RFC 96 (Informational)",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc96.txt",
+}
+
+@misc{rfc97,
+  author="J.T. Melvin and R.W. Watson",
+  title="{First Cut at a Proposed Telnet Protocol}",
+  series="Request for Comments",
+  number="97",
+  howpublished="RFC 97",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc97.txt",
+}
+
+@misc{rfc98,
+  author="E. Meyer and T. Skinner",
+  title="{Logger Protocol Proposal}",
+  series="Request for Comments",
+  number="98",
+  howpublished="RFC 98",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    note="Updated by RFC 123",
+  url="http://www.ietf.org/rfc/rfc98.txt",
+}
+
+@misc{rfc99,
+  author="P.M. Karp",
+  title="{Network Meeting}",
+  series="Request for Comments",
+  number="99",
+  howpublished="RFC 99",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    note="Updated by RFC 116",
+  url="http://www.ietf.org/rfc/rfc99.txt",
+}
+
+@misc{rfc100,
+  author="P.M. Karp",
+  title="{Categorization and guide to NWG/RFCs}",
+  series="Request for Comments",
+  number="100",
+  howpublished="RFC 100",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc100.txt",
+}
+
+@misc{rfc101,
+  author="R.W. Watson",
+  title="{Notes on the Network Working Group meeting, Urbana, Illinois, February 17, 1971}",
+  series="Request for Comments",
+  number="101",
+  howpublished="RFC 101",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    note="Updated by RFCs 108, 123",
+  url="http://www.ietf.org/rfc/rfc101.txt",
+}
+
+@misc{rfc102,
+  author="S.D. Crocker",
+  title="{Output of the Host-Host Protocol glitch cleaning committee}",
+  series="Request for Comments",
+  number="102",
+  howpublished="RFC 102",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    note="Updated by RFC 107",
+  url="http://www.ietf.org/rfc/rfc102.txt",
+}
+
+@misc{rfc103,
+  author="R.B. Kalin",
+  title="{Implementation of Interrupt Keys}",
+  series="Request for Comments",
+  number="103",
+  howpublished="RFC 103",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc103.txt",
+}
+
+@misc{rfc104,
+  author="J.B. Postel and S.D. Crocker",
+  title="{Link 191}",
+  series="Request for Comments",
+  number="104",
+  howpublished="RFC 104",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=feb,
+    url="http://www.ietf.org/rfc/rfc104.txt",
+}
+
+@misc{rfc105,
+  author="J.E. White",
+  title="{Network Specifications for Remote Job Entry and Remote Job Output Retrieval at UCSB}",
+  series="Request for Comments",
+  number="105",
+  howpublished="RFC 105",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=mar,
+    note="Updated by RFC 217",
+  url="http://www.ietf.org/rfc/rfc105.txt",
+}
+
+@misc{rfc106,
+  author="T.C. O'Sullivan",
+  title="{User/Server Site Protocol Network Host Questionnaire}",
+  series="Request for Comments",
+  number="106",
+  howpublished="RFC 106",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc106.txt",
+}
+
+@misc{rfc107,
+  author="R.D. Bressler and S.D. Crocker and W.R. Crowther and G.R. Grossman and R.S. Tomlinson and J.E. White",
+  title="{Output of the Host-Host Protocol Glitch Cleaning Committee}",
+  series="Request for Comments",
+  number="107",
+  howpublished="RFC 107",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=mar,
+    note="Updated by RFCs 111, 124, 132, 154, 179",
+  url="http://www.ietf.org/rfc/rfc107.txt",
+}
+
+@misc{rfc108,
+  author="R.W. Watson",
+  title="{Attendance list at the Urbana NWG meeting, February 17-19, 1971}",
+  series="Request for Comments",
+  number="108",
+  howpublished="RFC 108",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc108.txt",
+}
+
+@misc{rfc109,
+  author="J. Winett",
+  title="{Level III Server Protocol for the Lincoln Laboratory 360/67 Host}",
+  series="Request for Comments",
+  number="109",
+  howpublished="RFC 109",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=mar,
+    url="http://www.ietf.org/rfc/rfc109.txt",
+}
+
+@misc{rfc110,
+  author="J. Winett",
+  title="{Conventions for Using an IBM 2741 Terminal as a User Console for Access to Network Server Hosts}",
+  series="Request for Comments",
+  number="110",
+  howpublished="RFC 110",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=mar,
+    note="Updated by RFC 135",
+  url="http://www.ietf.org/rfc/rfc110.txt",
+}
+
+@misc{rfc111,
+  author="S.D. Crocker",
+  title="{Pressure from the Chairman}",
+  series="Request for Comments",
+  number="111",
+  howpublished="RFC 111",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=mar,
+    note="Updated by RFC 130",
+  url="http://www.ietf.org/rfc/rfc111.txt",
+}
+
+@misc{rfc112,
+  author="T.C. O'Sullivan",
+  title="{User/Server Site Protocol: Network Host Questionnaire}",
+  series="Request for Comments",
+  number="112",
+  howpublished="RFC 112",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc112.txt",
+}
+
+@misc{rfc113,
+  author="E. Harslem and J.F. Heafner and J.E. White",
+  title="{Network activity report: UCSB Rand}",
+  series="Request for Comments",
+  number="113",
+  howpublished="RFC 113",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Updated by RFC 227",
+  url="http://www.ietf.org/rfc/rfc113.txt",
+}
+
+@misc{rfc114,
+  author="A.K. Bhushan",
+  title="{File Transfer Protocol}",
+  series="Request for Comments",
+  number="114",
+  howpublished="RFC 114",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Updated by RFCs 133, 141, 171, 172",
+  url="http://www.ietf.org/rfc/rfc114.txt",
+}
+
+@misc{rfc115,
+  author="R.W. Watson and J.B. North",
+  title="{Some Network Information Center policies on handling documents}",
+  series="Request for Comments",
+  number="115",
+  howpublished="RFC 115",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc115.txt",
+}
+
+@misc{rfc116,
+  author="S.D. Crocker",
+  title="{Structure of the May NWG Meeting}",
+  series="Request for Comments",
+  number="116",
+  howpublished="RFC 116",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Updated by RFCs 131, 156",
+  url="http://www.ietf.org/rfc/rfc116.txt",
+}
+
+@misc{rfc117,
+  author="J. Wong",
+  title="{Some comments on the official protocol}",
+  series="Request for Comments",
+  number="117",
+  howpublished="RFC 117",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc117.txt",
+}
+
+@misc{rfc118,
+  author="R.W. Watson",
+  title="{Recommendations for facility documentation}",
+  series="Request for Comments",
+  number="118",
+  howpublished="RFC 118",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc118.txt",
+}
+
+@misc{rfc119,
+  author="M. Krilanovich",
+  title="{Network Fortran Subprograms}",
+  series="Request for Comments",
+  number="119",
+  howpublished="RFC 119",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc119.txt",
+}
+
+@misc{rfc120,
+  author="M. Krilanovich",
+  title="{Network PL1 subprograms}",
+  series="Request for Comments",
+  number="120",
+  howpublished="RFC 120",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc120.txt",
+}
+
+@misc{rfc121,
+  author="M. Krilanovich",
+  title="{Network on-line operators}",
+  series="Request for Comments",
+  number="121",
+  howpublished="RFC 121",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc121.txt",
+}
+
+@misc{rfc122,
+  author="J.E. White",
+  title="{Network specifications for UCSB's Simple-Minded File System}",
+  series="Request for Comments",
+  number="122",
+  howpublished="RFC 122",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Updated by RFCs 217, 269, 399, 431",
+  url="http://www.ietf.org/rfc/rfc122.txt",
+}
+
+@misc{rfc123,
+  author="S.D. Crocker",
+  title="{Proffered Official ICP}",
+  series="Request for Comments",
+  number="123",
+  howpublished="RFC 123",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Obsoleted by RFC 165, updated by RFCs 127, 143, 148",
+  url="http://www.ietf.org/rfc/rfc123.txt",
+}
+
+@misc{rfc124,
+  author="J.T. Melvin",
+  title="{Typographical error in RFC 107}",
+  series="Request for Comments",
+  number="124",
+  howpublished="RFC 124",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc124.txt",
+}
+
+@misc{rfc125,
+  author="J. McConnell",
+  title="{Response to RFC 86: Proposal for Network Standard Format for a Graphics Data Stream}",
+  series="Request for Comments",
+  number="125",
+  howpublished="RFC 125",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Updated by RFC 177",
+  url="http://www.ietf.org/rfc/rfc125.txt",
+}
+
+@misc{rfc126,
+  author="J. McConnell",
+  title="{Graphics Facilities at Ames Research Center}",
+  series="Request for Comments",
+  number="126",
+  howpublished="RFC 126",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc126.txt",
+}
+
+@misc{rfc127,
+  author="J. Postel",
+  title="{Comments on RFC 123}",
+  series="Request for Comments",
+  number="127",
+  howpublished="RFC 127",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Obsoleted by RFC 145, updated by RFC 151",
+  url="http://www.ietf.org/rfc/rfc127.txt",
+}
+
+@misc{rfc128,
+  author="J. Postel",
+  title="{Bytes}",
+  series="Request for Comments",
+  number="128",
+  howpublished="RFC 128",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc128.txt",
+}
+
+@misc{rfc129,
+  author="E. Harslem and J. Heafner and E. Meyer",
+  title="{Request for comments on socket name structure}",
+  series="Request for Comments",
+  number="129",
+  howpublished="RFC 129",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Updated by RFC 147",
+  url="http://www.ietf.org/rfc/rfc129.txt",
+}
+
+@misc{rfc130,
+  author="J.F. Heafner",
+  title="{Response to RFC 111: Pressure from the chairman}",
+  series="Request for Comments",
+  number="130",
+  howpublished="RFC 130",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc130.txt",
+}
+
+@misc{rfc131,
+  author="E. Harslem and J.F. Heafner",
+  title="{Response to RFC 116: May NWG meeting}",
+  series="Request for Comments",
+  number="131",
+  howpublished="RFC 131",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc131.txt",
+}
+
+@misc{rfc132,
+  author="J.E. White",
+  title="{Typographical Error in RFC 107}",
+  series="Request for Comments",
+  number="132",
+  howpublished="RFC 132",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Obsoleted by RFC 154",
+  url="http://www.ietf.org/rfc/rfc132.txt",
+}
+
+@misc{rfc133,
+  author="R.L. Sunberg",
+  title="{File Transfer and Error Recovery}",
+  series="Request for Comments",
+  number="133",
+  howpublished="RFC 133",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc133.txt",
+}
+
+@misc{rfc134,
+  author="A. Vezza",
+  title="{Network Graphics meeting}",
+  series="Request for Comments",
+  number="134",
+  howpublished="RFC 134",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc134.txt",
+}
+
+@misc{rfc135,
+  author="W. Hathaway",
+  title="{Response to NWG/RFC 110}",
+  series="Request for Comments",
+  number="135",
+  howpublished="RFC 135",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc135.txt",
+}
+
+@misc{rfc136,
+  author="R.E. Kahn",
+  title="{Host accounting and administrative procedures}",
+  series="Request for Comments",
+  number="136",
+  howpublished="RFC 136",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc136.txt",
+}
+
+@misc{rfc137,
+  author="T.C. O'Sullivan",
+  title="{Telnet Protocol - a proposed document}",
+  series="Request for Comments",
+  number="137",
+  howpublished="RFC 137",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    note="Updated by RFC 139",
+  url="http://www.ietf.org/rfc/rfc137.txt",
+}
+
+@misc{rfc138,
+  author="R.H. Anderson and V.G. Cerf and E. Harslem and J.F. Heafner and J. Madden and R.M. Metcalfe and A. Shoshani and J.E. White and D.C.M. Wood",
+  title="{Status report on proposed Data Reconfiguration Service}",
+  series="Request for Comments",
+  number="138",
+  howpublished="RFC 138",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc138.txt",
+}
+
+@misc{rfc139,
+  author="T.C. O'Sullivan",
+  title="{Discussion of Telnet Protocol}",
+  series="Request for Comments",
+  number="139",
+  howpublished="RFC 139",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    note="Updated by RFC 158",
+  url="http://www.ietf.org/rfc/rfc139.txt",
+}
+
+@misc{rfc140,
+  author="S.D. Crocker",
+  title="{Agenda for the May NWG meeting}",
+  series="Request for Comments",
+  number="140",
+  howpublished="RFC 140",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    note="Updated by RFC 149",
+  url="http://www.ietf.org/rfc/rfc140.txt",
+}
+
+@misc{rfc141,
+  author="E. Harslem and J.F. Heafner",
+  title="{Comments on RFC 114: A File Transfer Protocol}",
+  series="Request for Comments",
+  number="141",
+  howpublished="RFC 141",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc141.txt",
+}
+
+@misc{rfc142,
+  author="C. Kline and J. Wong",
+  title="{Time-Out Mechanism in the Host-Host Protocol}",
+  series="Request for Comments",
+  number="142",
+  howpublished="RFC 142",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc142.txt",
+}
+
+@misc{rfc143,
+  author="W. Naylor and J. Wong and C. Kline and J. Postel",
+  title="{Regarding proffered official ICP}",
+  series="Request for Comments",
+  number="143",
+  howpublished="RFC 143",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    note="Obsoleted by RFC 165",
+  url="http://www.ietf.org/rfc/rfc143.txt",
+}
+
+@misc{rfc144,
+  author="A. Shoshani",
+  title="{Data sharing on computer networks}",
+  series="Request for Comments",
+  number="144",
+  howpublished="RFC 144",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=apr,
+    url="http://www.ietf.org/rfc/rfc144.txt",
+}
+
+@misc{rfc145,
+  author="J. Postel",
+  title="{Initial Connection Protocol Control Commands}",
+  series="Request for Comments",
+  number="145",
+  howpublished="RFC 145",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    note="Obsoleted by RFC 165, updated by RFC 143",
+  url="http://www.ietf.org/rfc/rfc145.txt",
+}
+
+@misc{rfc146,
+  author="P.M. Karp and D.B. McKay and D.C.M. Wood",
+  title="{Views on issues relevant to data sharing on computer networks}",
+  series="Request for Comments",
+  number="146",
+  howpublished="RFC 146",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc146.txt",
+}
+
+@misc{rfc147,
+  author="J.M. Winett",
+  title="{Definition of a socket}",
+  series="Request for Comments",
+  number="147",
+  howpublished="RFC 147",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc147.txt",
+}
+
+@misc{rfc148,
+  author="A.K. Bhushan",
+  title="{Comments on RFC 123}",
+  series="Request for Comments",
+  number="148",
+  howpublished="RFC 148",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc148.txt",
+}
+
+@misc{rfc149,
+  author="S.D. Crocker",
+  title="{Best Laid Plans}",
+  series="Request for Comments",
+  number="149",
+  howpublished="RFC 149",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc149.txt",
+}
+
+@misc{rfc150,
+  author="R.B. Kalin",
+  title="{Use of IPC Facilities: A Working Paper}",
+  series="Request for Comments",
+  number="150",
+  howpublished="RFC 150",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc150.txt",
+}
+
+@misc{rfc151,
+  author="A. Shoshani",
+  title="{Comments on a proffered official ICP: RFCs 123, 127}",
+  series="Request for Comments",
+  number="151",
+  howpublished="RFC 151",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc151.txt",
+}
+
+@misc{rfc152,
+  author="M. Wilber",
+  title="{SRI Artificial Intelligence status report}",
+  series="Request for Comments",
+  number="152",
+  howpublished="RFC 152",
+  publisher="IETF",
+  organization="Internet Engineering Task Force",
+  year=1971,
+  month=may,
+    url="http://www.ietf.org/rfc/rfc152.txt",
+}
+
