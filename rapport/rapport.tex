@@ -43,12 +43,17 @@ qui nous permet de rapidement trouver la sous-solution optimale. L'affichage des
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analyse du coût théorique (3 points)}
-{\em Donner ici l'analyse du coût théorique de votre programme en fonction des nombres $n_1$ et $n_2$ de lignes 
-et $c_1$ et $c_2$ de caractères des deux fichiers en entrée.
- Pour chaque coût, donner la formule qui le caractérise (en justifiant brièvement pourquoi cette formule correspond à votre programme), 
- puis l'ordre du coût en fonction de $n_1, n_2, c_1, c_2$ en notation $\Theta$ de préférence, sinon $O$.}
+%{\em Donner ici l'analyse du coût théorique de votre programme en fonction des nombres $n_1$ et $n_2$ de lignes 
+%et $c_1$ et $c_2$ de caractères des deux fichiers en entrée.
+% Pour chaque coût, donner la formule qui le caractérise (en justifiant brièvement pourquoi cette formule correspond à votre programme), 
+% puis l'ordre du coût en fonction de $n_1, n_2, c_1, c_2$ en notation $\Theta$ de préférence, sinon $O$.}
+L'enregistrement des .. est effectué par un tableau bidimensionnel. Ce tableau est initialisé par une bouce for
 
-  \subsection{Nombre  d'opérations en pire cas\,: }
+\subsection{Nombre  d'opérations en pire cas\,: }
+Avec notre implémentation, on a un coût de:\\
+\[
+\Theta(n_1,n_2,c_1,c_2) = n_1 \cdot n_2 + n_1 + n_2 
+\]
     \paragraph{Justification\,: }
     {\em La justification peut être par exemple de la forme: \\ 
        "Le programme itératif contient les boucles $k_1=...$, $k_2= ...$ etc correspondant à la somme 
@@ -119,9 +124,15 @@ et $c_1$ et $c_2$ de caractères des deux fichiers en entrée.
     \end{figure}
 
 \subsection{Analyse des résultats expérimentaux}
-{\em Donner  une réponse justifiée  à la question\,: 
-              les  temps mesurés correspondent ils  à votre analyse théorique (nombre d’opérations et défauts de cache) ?
-}
+%{\em Donner  une réponse justifiée  à la question\,: 
+%              les  temps mesurés correspondent ils  à votre analyse théorique (nombre d’opérations et défauts de cache) ?
+%}
+En générale, les résultats correspondent à nos calculs théorétiques. Si on compare le nombre de lignes des fichiers avec le temps de calcul,
+on voit bien qu'il s'agit d'une correspondance linéaire. Par exemple, pour le benchmark\_06 qui a environ 5 fois plus de lignes que le benchmark\_02, on a
+$n_{06}*m_{06} = 25 * n_{02}*m_{02}$. Les temps de calcul valent respectivement: ...
+\\
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Question\,: et  si le coût d'un patch était sa taille en octets ? (1 point)}
