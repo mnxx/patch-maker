@@ -128,15 +128,15 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
     
     /* path matrix to find out where we are coming from */
     path = malloc(((nbTargetLines + 1) * sizeof(*path)));
-    for(counter = 0; counter < nbTargetLines + 1; counter++) {
-            path[counter] = malloc(((nbOriginalLines + 1) * sizeof(**path)));
+    path[0] = malloc(((nbTargetLines + 1) * (nbOriginalLines + 1) * sizeof(**path)));
+    for(counter = 1; counter < nbTargetLines + 1; counter++) {
+        path[counter] = path[counter - 1] + nbOriginalLines + 1;
     }
 
     /* cost(nbOriginalLines, 2) to calculate cost */
-    unsigned int **cost = malloc((2  * sizeof(*cost)));
-    for(counter = 0; counter < 2; counter++) {
-            cost[counter] = malloc(((nbOriginalLines + 1) * sizeof(**cost)));
-    }
+    unsigned int **cost = malloc((2 * sizeof(*cost)));
+    cost[0] = malloc((2 * (nbOriginalLines + 1) * sizeof(**cost)));
+    cost[1] = cost[0] + nbOriginalLines + 1;
 
     /* initialize the first column of our cost matrix */
     /* modify accordingly if not taking multiple destructions into account */
@@ -226,15 +226,13 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
             free(targetBuffer[counter]);
     }
     free(targetBuffer);
-    // cost buffer
-    for(counter = 0; counter < 2; counter++) {
-            free(cost[counter]);
-    }
-    free(cost);
     // path buffer
-    for(counter = 0; counter < nbTargetLines + 1; counter++) {
-            free(path[counter]);
-    }
+    free(path[0]);
+    free(path);
+    // cost buffer
+    free(cost[0]);
+    free(cost);
+
     return 0;
 }
 
