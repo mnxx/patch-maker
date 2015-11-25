@@ -217,12 +217,12 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
 
     /* free all the reserved memory */
     // originalBuffer
-    for(counter = 0; counter < nbOriginalLines; counter++) {
+    for(counter = 1; counter <= nbOriginalLines; counter++) {
             free(originalBuffer[counter]);
     }
     free(originalBuffer);
     // targetBuffer
-    for(counter = 0; counter < nbTargetLines; counter++) {
+    for(counter = 1; counter <= nbTargetLines; counter++) {
             free(targetBuffer[counter]);
     }
     free(targetBuffer);
