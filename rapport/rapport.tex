@@ -1,4 +1,4 @@
-\documentclass[a4paper, 10pt, english]{article}
+\documentclass[a4paper, 10pt, french]{article}
 % Préambule; packages qui peuvent être utiles
    \RequirePackage[T1]{fontenc}        % Ce package pourrit les pdf...
    \RequirePackage{babel,indentfirst}  % Pour les césures correctes,
@@ -74,26 +74,35 @@ Avec notre implémentation, on a un coût de:\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compte rendu d'expérimentation (2 points)}
   \subsection{Conditions expérimentaless}
-     {\em Décrire les conditions permettant la reproductibilité des mesures: on demande la description
-      de la machine et la méthode utilisée pour mesurer le temps.
-     }
+     %{\em Décrire les conditions permettant la reproductibilité des mesures: on demande la description
+     % de la machine et la méthode utilisée pour mesurer le temps.
+     %}
 
     \subsubsection{Description synthétique de la machine\,:} 
-      {\em indiquer ici le  processeur et sa fréquence, la mémoire, le système d'exploitation. 
-       Préciser aussi si la machine était monopolisée pour un test, ou notamment si 
-       d'autres processus ou utilisateurs étaient en cours d'exécution. 
-      } 
+      %{\em indiquer ici le  processeur et sa fréquence, la mémoire, le système d'exploitation. 
+       %Préciser aussi si la machine était monopolisée pour un test, ou notamment si 
+       %d'autres processus ou utilisateurs étaient en cours d'exécution. 
+      %} 
+Le processeur utilisé est un Intel Core i5-4690 CPU @ 3,9 GHz.\\
+Ce processeur a une fréquence de base de 3,5 GHz et un Smart Cache de 6 MB.\\
+L'ordinateur a une mémoire RAM de 15992 MiB, une mémoire SSD de 250 GiB et une mémoire HDD de 1 TiB.\\
+Le système d'exploitation est Linux Mint 17.2 Rafaela.\\
+On n'avait pas d'autres processus en exécution.
 
     \subsubsection{Méthode utilisée pour les mesures de temps\,: } 
-      {\em préciser ici  comment les mesures de temps ont été effectuées (fonction appelée) et l'unité de temps; en particulier, 
-       préciser comment les 5 exécutions pour chaque test ont été faites (par exemple si le même test est fait 5 fois de suite, ou si les tests sont alternés entre
-       les mesures, ou exécutés en concurrence etc). 
-      }
+      %{\em préciser ici  comment les mesures de temps ont été effectuées (fonction appelée) et l'unité de temps; en particulier, 
+      % préciser comment les 5 exécutions pour chaque test ont été faites (par exemple si le même test est fait 5 fois de suite, ou si les tests sont alternés entre
+      % les mesures, ou exécutés en concurrence etc). 
+      %}
+    Les tests ont été effectuées avec la fontion :
+\\
+\$ time bin/computePatchOpt benchmark/benchmark\_0X/source benchmark/benchmark\_0X/target 
+\\
+Ce commande nous a retourné le temps d'exécution en secondes avec une précision d'une milliseconde.\\
+Pour chacun des benchmarks, on a effectué une série de cinq tests. Pour une meilleure visibilité, les valeurs dans le tableau suivant sont en millisecondes.
 
   \subsection{Mesures expérimentales}
-    {\em Compléter le tableau suivant par les temps d'exécution mesurés pour chacun des 6 benchmarks imposés
-              (temps minimum, maximum et moyen sur 5 exécutions)
-    }
+    Le tableau pour les temps d'exécution mesurés pour chacun des 6 benchmarks imposés (temps minimum, maximum et moyen sur 5 exécutions) :
 
     \begin{figure}[h]
       \begin{center}
@@ -104,21 +113,21 @@ Avec notre implémentation, on a un coût de:\\
             & du patch     & min       & max     & moyen \\
           \hline
           \hline
-            benchmark1 &      &     &     &     \\
+            benchmark1 & $1000\cdot1047 \approx 10^6$     & 31ms    & 86ms    & 56ms    \\
           \hline
-            benchmark2 &      &     &     &     \\
+            benchmark2 & $2047\cdot2094 \approx 4\cdot10^6$    & 107ms    & 238ms    & 165ms    \\
           \hline
-            benchmark3 &      &     &     &     \\
+            benchmark3 & $3000\cdot3004 \approx 9\cdot10^6$    & 281ms    & 363ms    & 324ms    \\
           \hline
-            benchmark4 &      &     &     &     \\
+            benchmark4 & $4000\cdot4010 \approx 1.6\cdot10^7$    & 368ms    & 492ms    & 410ms    \\
           \hline
-            benchmark5 &      &     &     &     \\
+            benchmark5 & $4999\cdot4986 \approx 2.5\cdot10^7$    & 623ms    & 715ms    & 658ms     \\
           \hline
-            benchmark6 &      &     &     &     \\
+            benchmark6 & $10000\cdot10694 \approx 10^8$     & 2646ms    & 2746ms    & 2683ms    \\
           \hline
           \hline
         \end{tabular}
-        \caption{Mesures des temps minimum, maximum et moyen de 5 exécutions pour les 6 benchmarks.}
+        \caption{ Mesures des temps minimum, maximum et moyen de 5 exécutions pour les 6 benchmarks.}
         \label{table-temps}
       \end{center}
     \end{figure}
@@ -127,17 +136,47 @@ Avec notre implémentation, on a un coût de:\\
 %{\em Donner  une réponse justifiée  à la question\,: 
 %              les  temps mesurés correspondent ils  à votre analyse théorique (nombre d’opérations et défauts de cache) ?
 %}
-En générale, les résultats correspondent à nos calculs théorétiques. Si on compare le nombre de lignes des fichiers avec le temps de calcul,
-on voit bien qu'il s'agit d'une correspondance linéaire. Par exemple, pour le benchmark\_06 qui a environ 5 fois plus de lignes que le benchmark\_02, on a
-$n_{06}*m_{06} = 25 * n_{02}*m_{02}$. Les temps de calcul valent respectivement: ...
+En général, nos résultats correspondent à nos calculs théoriques. Si on compare le nombre de lignes des fichiers avec le temps de calcul,
+on voit bien qu'il s'agit d'une correspondance linéaire.
 \\
-
-
+\\
+Par exemple, pour le benchmark\_06 qui a environ 2 fois plus de lignes par fichier que le benchmark\_05 :\\ 
+$n_{06} \cdot m_{06} = 2 \cdot n_{05} \cdot 2 \cdot m_{05} = 4 \cdot n_{05} \cdot m_{05}$.\\
+Les temps de calcul valent respectivement :\\ 
+$t_{06} = 2683 ms \quad$ est très proche de $\quad 2632 ms = 4 \cdot t_{05}$.\\
+\\
+Bien sûr, les résultats ne sont pas toutes si exactes, à cause des variations des tests et le fait, qu'on a pris la moyenne de que cinq tests.
+Néanmoins, nous pensons que nos résultats confirment bien nos calculs théoriques.
+\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Question\,: et  si le coût d'un patch était sa taille en octets ? (1 point)}
-{\em Préciser le principe de la résolution choisie (parmi celles vues en cours); donner  les modifications à apporter (soit à vos  équations, soit à votre programme, au choix) 
-pour s'adapter à cette nouvelle fonction de coût. 
+%{\em Préciser le principe de la résolution choisie (parmi celles vues en cours); donner  les modifications à apporter (soit à vos  équations, soit à votre programme, au choix) 
+%pour s'adapter à cette nouvelle fonction de coût. 
+On utilise exactement la même méthode que précédemment en changeant les formules de coût.\\
+\\
+Ce qui joue maintenant un rôle est le nombre de caractères pour chaque ligne du patch :\\
+\indent - Seul le coût d'une copie reste inchangé.\\
+\indent - La formule pour le coût de l'addition de la ligne j après la ligne i est :\\
+\indent  $3 + (log_{10}(i) + 1) + strlen(targetLine[j]);$\\
+\indent - La formule pour le coût de la substitution de la ligne i par la ligne j est de même :\\
+\indent  $3 + (log_{10}(i) + 1) + strlen(targetLine[j]);$\\
+\indent - La coût de la destruction de la ligne i devient :\\
+\indent  $3 + (log(i) + 1);$\\
+\indent - La d'une destruction multiple de k ligne(s) à partir de la ligne i devient :\\
+\indent  $4 + (log(i) + 1) + (log(k) + 1);$\\
+\\
+Avec :\\
+  - $3$ correspond à la taille d'un $'+'$, $'='$ ou $'d'$, d'un espace $'\;'$ et d'un $'\textbackslash n'$ en fin de ligne.\\
+  - $4$ correspond à la taille d'un $'D'$,de deux espaces $'\quad'$ et d'un $'\textbackslash n'$ en fin de ligne.\\
+  - $(log_{10}(i) + 1)$ correspond au nombre de caractères nécessaires pour représenter le nombre i.\\
+\\
+La majorité de ces formules peuvent remplacés celles déjà en place dans notre code, à l'exception
+des destructions multiples. En effet le fonctionnement actuel de notre code ne considère que le
+plus petit coût parmis les i-2 cases précédentes lors du calcul pour une case (j, i) donnée, en 
+supposant que le coût à ajouter est 15, donc le même pour tous, ce qui ne serait plus le cas car 
+le coût pour passer de la case (j, k) à la case (j, i) devient fonction de k et (i-k).
+\\
 }
 
 \end{document}
