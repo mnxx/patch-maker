@@ -216,7 +216,6 @@ int computePatchOpt(FILE *originalFile, FILE *targetFile) {
 
     /* print patch file in standard output */
     print_patch(nbOriginalLines, nbTargetLines);
-    printf("\nCost of the patch: %d\n",cost[(lineNumber % 2)][nbOriginalLines]);
     /* free all the reserved memory */
     // originalBuffer
     for(counter = 1; counter <= nbOriginalLines; counter++) {
