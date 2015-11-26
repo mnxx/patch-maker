@@ -47,29 +47,53 @@ qui nous permet de rapidement trouver la sous-solution optimale. L'affichage des
 %et $c_1$ et $c_2$ de caractères des deux fichiers en entrée.
 % Pour chaque coût, donner la formule qui le caractérise (en justifiant brièvement pourquoi cette formule correspond à votre programme), 
 % puis l'ordre du coût en fonction de $n_1, n_2, c_1, c_2$ en notation $\Theta$ de préférence, sinon $O$.}
-L'enregistrement des .. est effectué par un tableau bidimensionnel. Ce tableau est initialisé par une bouce for
 
 \subsection{Nombre  d'opérations en pire cas\,: }
-Avec notre implémentation, on a un coût de:\\
+Avec notre implémentation, on a toujours un coût de :\\
 \[
-\Theta(n_1,n_2,c_1,c_2) = n_1 \cdot n_2 + n_1 + n_2 
+O(n_1,n_2) = n_1 \cdot n_2
 \]
     \paragraph{Justification\,: }
-    {\em La justification peut être par exemple de la forme: \\ 
-       "Le programme itératif contient les boucles $k_1=...$, $k_2= ...$ etc correspondant à la somme 
-      $$T(n_1, n_2, c_1, c_2) = \sum_{k_1=...}^{...} ... \sum ... + \sum_{i=...}^{...} ...$$ 
-      somme que nous avons calculée (ou majorée) par la technique de  ... " \\
-      ou  encore\,:  \\
-      "les appels récursifs du programme permettent de modéliser son coût par le système d'équations aux récurrences 
-      $$T(k_1, k_2) = ...  \mbox{~avec~les~conditions~initiales~....~} $$
-      Le coût indiqué est obtenu en résolvant ce système par la méthode de  .... "
-    } 
+    %{\em La justification peut être par exemple de la forme: \\ 
+    %   "Le programme itératif contient les boucles $k_1=...$, $k_2= ...$ etc correspondant à la somme 
+    %  $$T(n_1, n_2, c_1, c_2) = \sum_{k_1=...}^{...} ... \sum ... + \sum_{i=...}^{...} ...$$ 
+    %  somme que nous avons calculée (ou majorée) par la technique de  ... " \\
+    %  ou  encore\,:  \\
+    %  "les appels récursifs du programme permettent de modéliser son coût par le système d'équations aux récurrences 
+    %  $$T(k_1, k_2) = ...  \mbox{~avec~les~conditions~initiales~....~} $$
+    %  Le coût indiqué est obtenu en résolvant ce système par la méthode de  .... "
+    %}
+    Les opérations effectuées dans le programme sont les suivantes :\\
+    \indent - Calcul du nombre de ligne pour chaque fichier (deux boucles while) : $O(n_1) + O(n_2)$\\
+    \indent - Allocation dynamique des buffers : non-déterministe\\
+    \indent - Allocation dynamique de la matrice 'path' : non-déterministe\\
+    \indent - Allocation dynamique de la matrice 'cout' : non-déterministe\\
+    \indent - pour calculer le patch optimal on a une boucle for dans une boucle for : $O(n_1\cdot n_2\cdot1)$\\
+    Donc, on a toujours la même complexité temporelle de :
+\[
+\Theta(n_1,n_2) = n_1 \cdot n_2 + n_1 + n_2
+\]
+
   \subsection{Place mémoire requise\,: }
-    \paragraph{Justification\,: }
+Avec notre implémentation, on a un coût de :\\
+\[
+O(n_1,n_2,c_1,c_2) = n_1 \cdot n_2 + c_1 + c_2 + n_1
+\]  
+  \paragraph{Justification\,: }
+    Pour ces opérations effectuées dans le programme, on a :\\
+    \indent - Allocation des buffers : $O(c_1) + O(c_2)$\\
+    \indent - Allocation de la matrice 'path' : $O(n_1 \cdot n_2)$\\
+    \indent - Allocation de la matrice 'cout' : $O(n_1)$\\
+    Donc, on a la complexité spatiale ci-dessus.
 
   \subsection{Nombre de défauts de cache sur le modèle CO\,: }
+Avec notre implémentation, on a dans le cache :\\
+\[
+Q(n_1, n_2, L) = \sum^{n_1}_i\frac{i \cdot n_2}{L} = \frac{n_1 \cdot n_2}{L}
+\]
     \paragraph{Justification\,: }
-
+    Car $i \cdot j \ll Z = 6 MB$ on ne doit pas écraser les premiers path[i-1][j] pour stocker les données.
+     Il nous faut justement transférer une seule fois $\frac{n_2}{L}$ blocs.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compte rendu d'expérimentation (2 points)}
@@ -94,12 +118,12 @@ On n'avait pas d'autres processus en exécution.
       % préciser comment les 5 exécutions pour chaque test ont été faites (par exemple si le même test est fait 5 fois de suite, ou si les tests sont alternés entre
       % les mesures, ou exécutés en concurrence etc). 
       %}
-    Les tests ont été effectuées avec la fontion :
+    Les tests ont été effectuées avec la fonction :
 \\
 \$ time bin/computePatchOpt benchmark/benchmark\_0X/source benchmark/benchmark\_0X/target 
 \\
 Ce commande nous a retourné le temps d'exécution en secondes avec une précision d'une milliseconde.\\
-Pour chacun des benchmarks, on a effectué une série de cinq tests. Pour une meilleure visibilité, les valeurs dans le tableau suivant sont en millisecondes.
+Pour chacun des benchmarks, on a effectué une série de cinq tests d'affilés. Pour une meilleure visibilité, les valeurs dans le tableau suivant sont en millisecondes.
 
   \subsection{Mesures expérimentales}
     Le tableau pour les temps d'exécution mesurés pour chacun des 6 benchmarks imposés (temps minimum, maximum et moyen sur 5 exécutions) :
@@ -113,17 +137,17 @@ Pour chacun des benchmarks, on a effectué une série de cinq tests. Pour une me
             & du patch     & min       & max     & moyen \\
           \hline
           \hline
-            benchmark1 & $1000\cdot1047 \approx 10^6$     & 31ms    & 86ms    & 56ms    \\
+            benchmark1 & 2545     & 31ms    & 86ms    & 56ms    \\
           \hline
-            benchmark2 & $2047\cdot2094 \approx 4\cdot10^6$    & 107ms    & 238ms    & 165ms    \\
+            benchmark2 & 3130    & 107ms    & 238ms    & 165ms    \\
           \hline
-            benchmark3 & $3000\cdot3004 \approx 9\cdot10^6$    & 281ms    & 363ms    & 324ms    \\
+            benchmark3 & 814    & 281ms    & 363ms    & 324ms    \\
           \hline
-            benchmark4 & $4000\cdot4010 \approx 1.6\cdot10^7$    & 368ms    & 492ms    & 410ms    \\
+            benchmark4 & 1708    & 368ms    & 492ms    & 410ms    \\
           \hline
-            benchmark5 & $4999\cdot4986 \approx 2.5\cdot10^7$    & 623ms    & 715ms    & 658ms     \\
+            benchmark5 & 7553    & 623ms    & 715ms    & 658ms     \\
           \hline
-            benchmark6 & $10000\cdot10694 \approx 10^8$     & 2646ms    & 2746ms    & 2683ms    \\
+            benchmark6 & 37032     & 2646ms    & 2746ms    & 2683ms    \\
           \hline
           \hline
         \end{tabular}
@@ -145,10 +169,9 @@ $n_{06} \cdot m_{06} = 2 \cdot n_{05} \cdot 2 \cdot m_{05} = 4 \cdot n_{05} \cdo
 Les temps de calcul valent respectivement :\\ 
 $t_{06} = 2683 ms \quad$ est très proche de $\quad 2632 ms = 4 \cdot t_{05}$.\\
 \\
-Bien sûr, les résultats ne sont pas toutes si exactes, à cause des variations des tests et le fait, qu'on a pris la moyenne de que cinq tests.
-Néanmoins, nous pensons que nos résultats confirment bien nos calculs théoriques.
+Bien sûr,  ceci ne s'applique pas à tout nos résultats en raison des variations observés lors des tests (en particulier le premier) et le fait qu’on ait pris une moyenne sur cinq tests. Néanmoins, nous pensons que nos résultats confirment bien nos calculs théoriques.
 \\
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Question\,: et  si le coût d'un patch était sa taille en octets ? (1 point)}
 %{\em Préciser le principe de la résolution choisie (parmi celles vues en cours); donner  les modifications à apporter (soit à vos  équations, soit à votre programme, au choix) 
@@ -177,8 +200,6 @@ plus petit coût parmis les i-2 cases précédentes lors du calcul pour une case
 supposant que le coût à ajouter est 15, donc le même pour tous, ce qui ne serait plus le cas car 
 le coût pour passer de la case (j, k) à la case (j, i) devient fonction de k et (i-k).
 \\
-}
-
 \end{document}
 %% Fin mise au format
 
